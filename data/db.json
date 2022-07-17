@@ -12894,7 +12894,319 @@
     }
   ],
   "STG_PARTY_RATING_DETAILS_HASHMAP": {
-    "undefined": {
+    "61002571": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "61002571",
+      "V_RATING_CODE": "BBB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "61002571"
+    },
+    "61076005": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "61076005",
+      "V_RATING_CODE": "B",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "61076005"
+    },
+    "61076022": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "61076022",
+      "V_RATING_CODE": "Unrated",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "61076022"
+    },
+    "61076041": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "61076041",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "61076041"
+    },
+    "61076260": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "61076260",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "61076260"
+    },
+    "LOCSOV111": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV111",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV111"
+    },
+    "CORPSCV112": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV112",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV112"
+    },
+    "CORPSCV113": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV113",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV113"
+    },
+    "LOCSOV114": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV114",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV114"
+    },
+    "CORPSCV115": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV115",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV115"
+    },
+    "GOVOTH116": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "GOVOTH116",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "GOVOTH116"
+    },
+    "LOCSOV117": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV117",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV117"
+    },
+    "CORPSCV118": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV118",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV118"
+    },
+    "CORPSCV119": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV119",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV119"
+    },
+    "CORPSCV120": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV120",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV120"
+    },
+    "LOCSOV121": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV121",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV121"
+    },
+    "LOCSOV122": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV122",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV122"
+    },
+    "LOCSOV123": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV123",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV123"
+    },
+    "CORPSCV124": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV124",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV124"
+    },
+    "CORPSCV125": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV125",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV125"
+    },
+    "CORPSCV126": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV126",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV126"
+    },
+    "CORPSCV127": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV127",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV127"
+    },
+    "LOCSOV128": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "LOCSOV128",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "LOCSOV128"
+    },
+    "CORPSCV129": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV129",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV129"
+    },
+    "CORPSCV130": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV130",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV130"
+    },
+    "CORPSCV131": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV131",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV131"
+    },
+    "CORPSCV132": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV132",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV132"
+    },
+    "CORPSCV133": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV133",
+      "V_RATING_CODE": "AA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV133"
+    },
+    "CORPSCV134": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV134",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV134"
+    },
+    "CORPSCV135": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV135",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV135"
+    },
+    "CORPSCV136": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV136",
+      "V_RATING_CODE": "AAA",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV136"
+    },
+    "CORPSCV137": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV137",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV137"
+    },
+    "CORPSCV138": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "CORPSCV138",
+      "V_RATING_CODE": "BB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "CORPSCV138"
+    },
+    "00061076022": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "00061076022",
+      "V_RATING_CODE": "CCC",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "00061076022"
+    },
+    "00061076029": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "00061076029",
+      "V_RATING_CODE": "A",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "00061076029"
+    },
+    "00061076005": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "00061076005",
+      "V_RATING_CODE": "BBB",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "00061076005"
+    },
+    "00061076030": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "00061076030",
+      "V_RATING_CODE": "Unrated",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "00061076030"
+    },
+    "00072070008": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "00072070008",
+      "V_RATING_CODE": "CCC",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "00072070008"
+    },
+    "00072002581": {
+      "FIC_MIS_DATE": "12/31/2021",
+      "V_RATING_SRC_CODE": "",
+      "V_PARTY_NAME": "00072002581",
+      "V_RATING_CODE": "CC",
+      "F_RATING_ELIGIBILITY": "1",
+      "V_CUST_REF_CODE": "00072002581"
+    },
+    "00072076029": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_RATING_SRC_CODE": "",
       "V_PARTY_NAME": "00072076029",

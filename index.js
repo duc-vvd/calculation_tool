@@ -1,11 +1,12 @@
-import db from "./helper/db.js";
-import { readAllFile } from "./file-handler/index.js";
-import { calRRAO } from "./calculate/index.js";
+import db from './helper/db.js';
+import { readAllFile } from './file-handler/index.js';
+import { calRRAO, calDRC } from './calculate/index.js';
 
 try {
-  await readAllFile();
-  const RRAO = calRRAO();
-  console.log("============= DONE =============");
+    await readAllFile();
+    const RRAO = calRRAO();
+    const DRC = calDRC();
+    console.log('============= DONE =============');
 } catch (error) {
-  console.error(`main - catch error: ${error.message}`);
+    console.error(`main - catch error: ${error.message}`);
 }
