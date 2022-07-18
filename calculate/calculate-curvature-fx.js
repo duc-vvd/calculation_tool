@@ -18,13 +18,6 @@ export default function calCurvatureFx() {
             const stgCurvaturesShockHashmapElement = STG_CURVATURES_SHOCK_HASHMAP[V_PAIR_CCY] || {};
 
             if (stgSensitivitiesFxHashmapElement.N_CURVATURE_FX) {
-                if (V_PAIR_CCY === 'EUR/USD') {
-                    console.log(
-                        `=== ${formatStringNumber(stgSensitivitiesFxHashmapElement.N_CURVATURE_FX)} - ${
-                            element.V_INSTRUMENT_CODE
-                        }`,
-                    );
-                }
                 if (sumSensitivityHashmap[V_PAIR_CCY]) {
                     sumSensitivityHashmap[V_PAIR_CCY] = calculate(
                         formatStringNumber(stgSensitivitiesFxHashmapElement.N_CURVATURE_FX),
