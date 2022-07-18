@@ -4772,7 +4772,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(269.255,98)"
+      "N_PNL": "-269255,98475582"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4832,7 +4832,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(27.042,34)"
+      "N_PNL": "-27042,3363580417"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4844,7 +4844,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(280.766,11)"
+      "N_PNL": "-280766,11168617"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4868,7 +4868,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(215.129,38)"
+      "N_PNL": "-215129,376158089"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4880,7 +4880,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(398.862,53)"
+      "N_PNL": "-398862,529333575"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4904,7 +4904,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(508.558,28)"
+      "N_PNL": "-508558,275837258"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4916,7 +4916,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(559.747,57)"
+      "N_PNL": "-559747,567395329"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4928,7 +4928,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(73.422,33)"
+      "N_PNL": "-73422,3263257975"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4940,7 +4940,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(17.746,46)"
+      "N_PNL": "-17746,4556095062"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4952,7 +4952,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(47.748,98)"
+      "N_PNL": "-47748,975771082"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -4964,7 +4964,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(544.881,28)"
+      "N_PNL": "-544881,278204429"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5506,7 +5506,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(269.255,98)"
+      "N_PNL": "-269255,98475582"
     },
     "000400-836": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5566,7 +5566,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(27.042,34)"
+      "N_PNL": "-27042,3363580417"
     },
     "000400-841": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5578,7 +5578,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(280.766,11)"
+      "N_PNL": "-280766,11168617"
     },
     "000400-842": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5602,7 +5602,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(215.129,38)"
+      "N_PNL": "-215129,376158089"
     },
     "000400-844": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5614,7 +5614,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(398.862,53)"
+      "N_PNL": "-398862,529333575"
     },
     "000400-845": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5638,7 +5638,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(508.558,28)"
+      "N_PNL": "-508558,275837258"
     },
     "000400-847": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5650,7 +5650,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(559.747,57)"
+      "N_PNL": "-559747,567395329"
     },
     "000400-848": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5662,7 +5662,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(73.422,33)"
+      "N_PNL": "-73422,3263257975"
     },
     "000400-849": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5674,7 +5674,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(17.746,46)"
+      "N_PNL": "-17746,4556095062"
     },
     "000400-850": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5686,7 +5686,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(47.748,98)"
+      "N_PNL": "-47748,975771082"
     },
     "000400-851": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -5698,7 +5698,7 @@
       "N_NOTIONAL_AMT_RCV": "",
       "N_NOTIONAL_AMT_PAY_LCY": "",
       "N_NOTIONAL_AMT_RCV_LCY": "",
-      "N_PNL": "(544.881,28)"
+      "N_PNL": "-544881,278204429"
     },
     "000400-852": {
       "FIC_MIS_DATE": "12/31/2021",
@@ -6618,7 +6618,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS190841856",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "-",
+      "N_DELTA_FX": "0",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6630,7 +6630,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS399330126",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "180.142,69",
+      "N_DELTA_FX": "180142,6909",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6642,7 +6642,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS233250637",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "139.432,16",
+      "N_DELTA_FX": "139432,1567",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6654,7 +6654,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS768096133",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "15.401,23",
+      "N_DELTA_FX": "15401,22912",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6666,7 +6666,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS561670611",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "16.366,78",
+      "N_DELTA_FX": "16366,78116",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6678,7 +6678,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS931854092",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(9.975,42)",
+      "N_DELTA_FX": "-9975,417889",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6690,7 +6690,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS307262619",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(280.766,11)",
+      "N_DELTA_FX": "-280766,1117",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6702,7 +6702,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS686490893",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "-",
+      "N_DELTA_FX": "0",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6714,7 +6714,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS682313805",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "-",
+      "N_DELTA_FX": "0",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6726,7 +6726,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS545554400",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(398.862,53)",
+      "N_DELTA_FX": "-398862,5293",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6738,7 +6738,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS821810096",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "17.161,76",
+      "N_DELTA_FX": "17161,75763",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6750,7 +6750,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF690057364",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(32.569.288,61)",
+      "N_DELTA_FX": "-32569288,61",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6762,7 +6762,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF276314354",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "48.833.085,95",
+      "N_DELTA_FX": "48833085,95",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6774,7 +6774,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF811380623",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(45.655.131,89)",
+      "N_DELTA_FX": "-45655131,89",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6786,7 +6786,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF313102980",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(3.305.390,54)",
+      "N_DELTA_FX": "-3305390,543",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6798,7 +6798,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF168255439",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(6.497.289,90)",
+      "N_DELTA_FX": "-6497289,895",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6810,7 +6810,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF177155290",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(40.463.510,22)",
+      "N_DELTA_FX": "-40463510,22",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6822,7 +6822,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF598460264",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "47.341.952,30",
+      "N_DELTA_FX": "47341952,3",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -6870,97 +6870,97 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO271821100",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "355.886,35",
-      "N_VEGA_FX_0.5YEAR": "(58.155,00)",
-      "N_VEGA_FX_1YEAR": "-",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(224.182,30)"
+      "N_DELTA_FX": "355886,3478",
+      "N_VEGA_FX_0.5YEAR": "-58155,00021",
+      "N_VEGA_FX_1YEAR": "0",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-224182,3017"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO136170122",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(420.665,94)",
-      "N_VEGA_FX_0.5YEAR": "165.236,54",
-      "N_VEGA_FX_1YEAR": "176.993,07",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "221.121,55"
+      "N_DELTA_FX": "-420665,9437",
+      "N_VEGA_FX_0.5YEAR": "165236,5409",
+      "N_VEGA_FX_1YEAR": "176993,0652",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "221121,5549"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO623149061",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(336.828,09)",
-      "N_VEGA_FX_0.5YEAR": "-",
-      "N_VEGA_FX_1YEAR": "342.784,03",
-      "N_VEGA_FX_3YEAR": "115.779,44",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "200.560,99"
+      "N_DELTA_FX": "-336828,0948",
+      "N_VEGA_FX_0.5YEAR": "0",
+      "N_VEGA_FX_1YEAR": "342784,0317",
+      "N_VEGA_FX_3YEAR": "115779,441",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "200560,99"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO676548755",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(622.785,61)",
-      "N_VEGA_FX_0.5YEAR": "(22.844,12)",
-      "N_VEGA_FX_1YEAR": "-",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(302.344,74)"
+      "N_DELTA_FX": "-622785,6141",
+      "N_VEGA_FX_0.5YEAR": "-22844,12329",
+      "N_VEGA_FX_1YEAR": "0",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-302344,7378"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO403688438",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(608.115,39)",
-      "N_VEGA_FX_0.5YEAR": "(47.946,18)",
-      "N_VEGA_FX_1YEAR": "(331.019,21)",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(312.962,94)"
+      "N_DELTA_FX": "-608115,3858",
+      "N_VEGA_FX_0.5YEAR": "-47946,17889",
+      "N_VEGA_FX_1YEAR": "-331019,2097",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-312962,9373"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO302436425",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(612.521,23)",
-      "N_VEGA_FX_0.5YEAR": "-",
-      "N_VEGA_FX_1YEAR": "-",
-      "N_VEGA_FX_3YEAR": "(666.120,96)",
-      "N_VEGA_FX_5YEAR": "(2.511,48)",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(325.495,22)"
+      "N_DELTA_FX": "-612521,2266",
+      "N_VEGA_FX_0.5YEAR": "0",
+      "N_VEGA_FX_1YEAR": "0",
+      "N_VEGA_FX_3YEAR": "-666120,9567",
+      "N_VEGA_FX_5YEAR": "-2511,475526",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-325495,2158"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO920656386",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(571.556,80)",
-      "N_VEGA_FX_0.5YEAR": "(277.093,03)",
-      "N_VEGA_FX_1YEAR": "(4.729,38)",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(302.682,42)"
+      "N_DELTA_FX": "-571556,7974",
+      "N_VEGA_FX_0.5YEAR": "-277093,0339",
+      "N_VEGA_FX_1YEAR": "-4729,383083",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-302682,4187"
     },
     {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO931276392",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(489.840,31)",
-      "N_VEGA_FX_0.5YEAR": "-",
-      "N_VEGA_FX_1YEAR": "(390.391,80)",
-      "N_VEGA_FX_3YEAR": "(1.625,27)",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(286.241,30)"
+      "N_DELTA_FX": "-489840,3081",
+      "N_VEGA_FX_0.5YEAR": "0",
+      "N_VEGA_FX_1YEAR": "-390391,7993",
+      "N_VEGA_FX_3YEAR": "-1625,268361",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-286241,2981"
     }
   ],
   "STG_SENSITIVITIES_FX_HASHMAP": {
@@ -7352,7 +7352,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS190841856",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "-",
+      "N_DELTA_FX": "0",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7364,7 +7364,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS399330126",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "180.142,69",
+      "N_DELTA_FX": "180142,6909",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7376,7 +7376,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS233250637",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "139.432,16",
+      "N_DELTA_FX": "139432,1567",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7388,7 +7388,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS768096133",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "15.401,23",
+      "N_DELTA_FX": "15401,22912",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7400,7 +7400,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS561670611",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "16.366,78",
+      "N_DELTA_FX": "16366,78116",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7412,7 +7412,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS931854092",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(9.975,42)",
+      "N_DELTA_FX": "-9975,417889",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7424,7 +7424,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS307262619",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(280.766,11)",
+      "N_DELTA_FX": "-280766,1117",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7436,7 +7436,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS686490893",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "-",
+      "N_DELTA_FX": "0",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7448,7 +7448,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS682313805",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "-",
+      "N_DELTA_FX": "0",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7460,7 +7460,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "IRS545554400",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(398.862,53)",
+      "N_DELTA_FX": "-398862,5293",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7472,7 +7472,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "CCS821810096",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "17.161,76",
+      "N_DELTA_FX": "17161,75763",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7484,7 +7484,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF690057364",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(32.569.288,61)",
+      "N_DELTA_FX": "-32569288,61",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7496,7 +7496,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF276314354",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "48.833.085,95",
+      "N_DELTA_FX": "48833085,95",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7508,7 +7508,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF811380623",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(45.655.131,89)",
+      "N_DELTA_FX": "-45655131,89",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7520,7 +7520,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF313102980",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(3.305.390,54)",
+      "N_DELTA_FX": "-3305390,543",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7532,7 +7532,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF168255439",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(6.497.289,90)",
+      "N_DELTA_FX": "-6497289,895",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7544,7 +7544,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF177155290",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(40.463.510,22)",
+      "N_DELTA_FX": "-40463510,22",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7556,7 +7556,7 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXF598460264",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "47.341.952,30",
+      "N_DELTA_FX": "47341952,3",
       "N_VEGA_FX_0.5YEAR": "",
       "N_VEGA_FX_1YEAR": "",
       "N_VEGA_FX_3YEAR": "",
@@ -7604,97 +7604,97 @@
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO271821100",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "355.886,35",
-      "N_VEGA_FX_0.5YEAR": "(58.155,00)",
-      "N_VEGA_FX_1YEAR": "-",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(224.182,30)"
+      "N_DELTA_FX": "355886,3478",
+      "N_VEGA_FX_0.5YEAR": "-58155,00021",
+      "N_VEGA_FX_1YEAR": "0",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-224182,3017"
     },
     "FXO136170122": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO136170122",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(420.665,94)",
-      "N_VEGA_FX_0.5YEAR": "165.236,54",
-      "N_VEGA_FX_1YEAR": "176.993,07",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "221.121,55"
+      "N_DELTA_FX": "-420665,9437",
+      "N_VEGA_FX_0.5YEAR": "165236,5409",
+      "N_VEGA_FX_1YEAR": "176993,0652",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "221121,5549"
     },
     "FXO623149061": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO623149061",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(336.828,09)",
-      "N_VEGA_FX_0.5YEAR": "-",
-      "N_VEGA_FX_1YEAR": "342.784,03",
-      "N_VEGA_FX_3YEAR": "115.779,44",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "200.560,99"
+      "N_DELTA_FX": "-336828,0948",
+      "N_VEGA_FX_0.5YEAR": "0",
+      "N_VEGA_FX_1YEAR": "342784,0317",
+      "N_VEGA_FX_3YEAR": "115779,441",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "200560,99"
     },
     "FXO676548755": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO676548755",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(622.785,61)",
-      "N_VEGA_FX_0.5YEAR": "(22.844,12)",
-      "N_VEGA_FX_1YEAR": "-",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(302.344,74)"
+      "N_DELTA_FX": "-622785,6141",
+      "N_VEGA_FX_0.5YEAR": "-22844,12329",
+      "N_VEGA_FX_1YEAR": "0",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-302344,7378"
     },
     "FXO403688438": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO403688438",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(608.115,39)",
-      "N_VEGA_FX_0.5YEAR": "(47.946,18)",
-      "N_VEGA_FX_1YEAR": "(331.019,21)",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(312.962,94)"
+      "N_DELTA_FX": "-608115,3858",
+      "N_VEGA_FX_0.5YEAR": "-47946,17889",
+      "N_VEGA_FX_1YEAR": "-331019,2097",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-312962,9373"
     },
     "FXO302436425": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO302436425",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(612.521,23)",
-      "N_VEGA_FX_0.5YEAR": "-",
-      "N_VEGA_FX_1YEAR": "-",
-      "N_VEGA_FX_3YEAR": "(666.120,96)",
-      "N_VEGA_FX_5YEAR": "(2.511,48)",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(325.495,22)"
+      "N_DELTA_FX": "-612521,2266",
+      "N_VEGA_FX_0.5YEAR": "0",
+      "N_VEGA_FX_1YEAR": "0",
+      "N_VEGA_FX_3YEAR": "-666120,9567",
+      "N_VEGA_FX_5YEAR": "-2511,475526",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-325495,2158"
     },
     "FXO920656386": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO920656386",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(571.556,80)",
-      "N_VEGA_FX_0.5YEAR": "(277.093,03)",
-      "N_VEGA_FX_1YEAR": "(4.729,38)",
-      "N_VEGA_FX_3YEAR": "-",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(302.682,42)"
+      "N_DELTA_FX": "-571556,7974",
+      "N_VEGA_FX_0.5YEAR": "-277093,0339",
+      "N_VEGA_FX_1YEAR": "-4729,383083",
+      "N_VEGA_FX_3YEAR": "0",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-302682,4187"
     },
     "FXO931276392": {
       "FIC_MIS_DATE": "12/31/2021",
       "V_INSTRUMENT_CODE": "FXO931276392",
       "V_INSTRUMENT_POSITION": "",
-      "N_DELTA_FX": "(489.840,31)",
-      "N_VEGA_FX_0.5YEAR": "-",
-      "N_VEGA_FX_1YEAR": "(390.391,80)",
-      "N_VEGA_FX_3YEAR": "(1.625,27)",
-      "N_VEGA_FX_5YEAR": "-",
-      "N_VEGA_FX_10YEAR": "-",
-      "N_CURVATURE_FX": "(286.241,30)"
+      "N_DELTA_FX": "-489840,3081",
+      "N_VEGA_FX_0.5YEAR": "0",
+      "N_VEGA_FX_1YEAR": "-390391,7993",
+      "N_VEGA_FX_3YEAR": "-1625,268361",
+      "N_VEGA_FX_5YEAR": "0",
+      "N_VEGA_FX_10YEAR": "0",
+      "N_CURVATURE_FX": "-286241,2981"
     }
   },
   "STG_SENSITIVITIES_GIRR": [

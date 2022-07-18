@@ -8,11 +8,12 @@ export default function calDeltaFx() {
         const sumSensitivityHashmap = {};
         const crossbucketCorrelation = 0.6;
         const riskWeight = 0.3;
-        let DELTA_FX = 0;
+        let total = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
             if (element.V_CCY2_CODE?.length < 3) return;
             const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.V_INSTRUMENT_CODE] || {};
+            if (!stgSensitivitiesFxHashmapElement.N_DELTA_FX?.length) return;
             const V_PAIR_CCY = `${element.V_CCY_CODE}/${element.V_CCY2_CODE}`;
             if (sumSensitivityHashmap[V_PAIR_CCY]) {
                 sumSensitivityHashmap[V_PAIR_CCY] = calculate(
@@ -40,7 +41,7 @@ export default function calDeltaFx() {
                 if (key === key2) {
                     crossbucketCorrelationTmp = 1;
                 }
-                DELTA_FX += calculate(
+                total += calculate(
                     calculate(weightedSensitivityHashmap[key], weightedSensitivityHashmap[key2], '*'),
                     crossbucketCorrelationTmp,
                     '*',
@@ -48,6 +49,7 @@ export default function calDeltaFx() {
             }
         }
 
+        const DELTA_FX = Math.sqrt(total);
         return DELTA_FX;
     } catch (error) {
         console.error(`calculate - calDeltaFx - catch error: ${error.message}`);
