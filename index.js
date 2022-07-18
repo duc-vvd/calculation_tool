@@ -8,6 +8,7 @@ import {
     calDeltaGirr,
     calVegaGirr,
     calCurvatureFx,
+    calCurvatureGirr,
 } from './calculate/index.js';
 
 try {
@@ -18,7 +19,8 @@ try {
     // const vegaFx = calVegaFx();
     // const deltaGirr = calDeltaGirr();
     // const vegaGirr = calVegaGirr();
-    const curvatureFx = calCurvatureFx();
+    // const curvatureFx = calCurvatureFx();
+    const curvatureGirr = calCurvatureGirr();
     console.log('============= DONE =============');
 } catch (error) {
     console.error(`main - catch error: ${error.message}`);
