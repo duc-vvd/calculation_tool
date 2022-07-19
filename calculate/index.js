@@ -6,5 +6,6 @@ import calDeltaGirr from './calculate-delta-girr.js';
 import calVegaGirr from './calculate-vega-girr.js';
 import calCurvatureFx from './calculate-curvature-fx.js';
 import calCurvatureGirr from './calculate-curvature-girr.js';
+import calSaMr from './calculate-sa-mr.js';
 
-export { calRRAO, calDRC, calDeltaFx, calVegaFx, calDeltaGirr, calVegaGirr, calCurvatureFx, calCurvatureGirr };
+export { calRRAO, calDRC, calDeltaFx, calVegaFx, calDeltaGirr, calVegaGirr, calCurvatureFx, calCurvatureGirr, calSaMr };
