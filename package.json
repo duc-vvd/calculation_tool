@@ -12,7 +12,9 @@
   "dependencies": {
     "big.js": "^6.2.1",
     "fast-csv": "^4.3.6",
-    "lowdb": "^3.0.0"
+    "lodash": "^4.17.21",
+    "lowdb": "^3.0.0",
+    "moment": "^2.29.4"
   },
   "type": "module"
 }
