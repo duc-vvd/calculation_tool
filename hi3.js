@@ -1,45 +1,65 @@
-import moment from 'moment';
+// import moment from 'moment';
+// import pkg from 'normal-distribution';
+// const { NormalDistribution } = pkg;
+// import { createRequire } from 'module';
+// const require = createRequire(import.meta.url);
 
-// console.log(moment('11/14/2032', 'MMDDYYYY').diff(moment('11/15/2021', 'MMDDYYYY'), 'days', true));
+// sibling-module.js is a CommonJS module.
+// const siblingModule = require('./sibling-module');
 
-const result = [
-    'Aaa',
-    'Aa1',
-    'Aa2',
-    'Aa3',
-    'A1',
-    'A2',
-    'A3',
-    'Baa1',
-    'Baa2',
-    'Baa3',
-    'AAA',
-    'AA+',
-    'AA',
-    'AA-',
-    'A+',
-    'A',
-    'A-',
-    'BBB+',
-    'BBB',
-    'BBB-',
-    'AAA',
-    'AA+',
-    'AA',
-    'AA-',
-    'A+',
-    'A',
-    'A-',
-    'BBB+',
-    'BBB',
-    'BBB-',
-].reduce((obj, cur) => {
-    if (obj[cur]) {
-        obj[cur]++;
-    } else {
-        obj[cur] = 1;
-    }
-    return obj;
-}, {});
+// const NormalDistribution = require('normal-distribution');
 
-console.log(JSON.stringify(result));
+// const normDist = new NormalDistribution(0, 1);
+
+// console.log(normDist.pdf(-0, 4106953163));
+
+import distributions from 'distributions';
+
+var normal = distributions.Normal(0, 1);
+
+console.log(normal.pdf(-0.4106953163));
+console.log(normal.cdf(-0.4106953163));
+
+// console.log(moment('11/15/2031', 'MMDDYYYY').diff(moment('11/15/2021', 'MMDDYYYY'), 'days', true));
+
+// const result = [
+//     'Aaa',
+//     'Aa1',
+//     'Aa2',
+//     'Aa3',
+//     'A1',
+//     'A2',
+//     'A3',
+//     'Baa1',
+//     'Baa2',
+//     'Baa3',
+//     'AAA',
+//     'AA+',
+//     'AA',
+//     'AA-',
+//     'A+',
+//     'A',
+//     'A-',
+//     'BBB+',
+//     'BBB',
+//     'BBB-',
+//     'AAA',
+//     'AA+',
+//     'AA',
+//     'AA-',
+//     'A+',
+//     'A',
+//     'A-',
+//     'BBB+',
+//     'BBB',
+//     'BBB-',
+// ].reduce((obj, cur) => {
+//     if (obj[cur]) {
+//         obj[cur]++;
+//     } else {
+//         obj[cur] = 1;
+//     }
+//     return obj;
+// }, {});
+
+// console.log(JSON.stringify(result));

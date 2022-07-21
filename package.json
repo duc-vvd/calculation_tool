@@ -1,20 +1,21 @@
 {
-  "name": "calculation_tool",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "big.js": "^6.2.1",
-    "fast-csv": "^4.3.6",
-    "lodash": "^4.17.21",
-    "lowdb": "^3.0.0",
-    "moment": "^2.29.4"
-  },
-  "type": "module"
+    "name": "calculation_tool",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "big.js": "^6.2.1",
+        "distributions": "^2.1.0",
+        "fast-csv": "^4.3.6",
+        "lodash": "^4.17.21",
+        "lowdb": "^3.0.0",
+        "moment": "^2.29.4"
+    },
+    "type": "module"
 }

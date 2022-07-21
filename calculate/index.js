@@ -7,5 +7,17 @@ import calVegaGirr from './calculate-vega-girr.js';
 import calCurvatureFx from './calculate-curvature-fx.js';
 import calCurvatureGirr from './calculate-curvature-girr.js';
 import calSaMr from './calculate-sa-mr.js';
+import calAddOnUnmargined1111FX from './cal-addon-unmargined-1111-fx.js';
 
-export { calRRAO, calDRC, calDeltaFx, calVegaFx, calDeltaGirr, calVegaGirr, calCurvatureFx, calCurvatureGirr, calSaMr };
+export {
+    calRRAO,
+    calDRC,
+    calDeltaFx,
+    calVegaFx,
+    calDeltaGirr,
+    calVegaGirr,
+    calCurvatureFx,
+    calCurvatureGirr,
+    calSaMr,
+    calAddOnUnmargined1111FX,
+};
