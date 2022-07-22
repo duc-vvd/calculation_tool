@@ -12,6 +12,7 @@ import calAddOnUnmargined1111IRD from './cal-addon-unmargined-1111-ird.js';
 import calEADUnmargined1111 from './cal-ead-unmargined-1111.js';
 import calEADUnmargined1113 from './cal-ead-unmargined-1113.js';
 import calEADUnmargined1114 from './cal-ead-unmargined-1114.js';
+import calEADUnmargined1115 from './cal-ead-unmargined-1115.js';
 
 export {
     calRRAO,
@@ -27,5 +28,6 @@ export {
     calAddOnUnmargined1111IRD,
     calEADUnmargined1111,
     calEADUnmargined1113,
-    calEADUnmargined1114
+    calEADUnmargined1114,
+    calEADUnmargined1115
 };
