@@ -1,6 +1,6 @@
 import db from '../helper/db.js';
 import { calculate } from '../helper/operator.js';
-import { getRemainingMaturity } from '../helper/utils.js';
+import { yearfrac3 } from '../helper/utils.js';
 
 export default function mappingDataDeal() {
     try {
@@ -39,7 +39,7 @@ export default function mappingDataDeal() {
                 element.pair_ccy = `${element.V_CCY_CODE}/${element.V_CTR_CCY_CODE}`;
             }
 
-            element.remaining_maturity = getRemainingMaturity(element.D_MATURITY_DATE, element.FIC_MIS_DATE);
+            element.remaining_maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
 
             // if (element.CREDIT_RATING_OF_COUNTERPARTY && element.CREDIT_RATING_OF_COUNTERPARTY !== 'N/A') {
             if (creditRatingHashmap[element.CREDIT_RATING_OF_COUNTERPARTY] === 1) {

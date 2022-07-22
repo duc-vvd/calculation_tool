@@ -2,7 +2,7 @@ import distributions from 'distributions';
 
 import db from '../helper/db.js';
 import { calculate } from '../helper/operator.js';
-import { formatStringNumber, getRemainingMaturity } from '../helper/utils.js';
+import { formatStringNumber, yearfrac3 } from '../helper/utils.js';
 
 export default function calAddOnUnmargined1111FX() {
     try {
@@ -42,7 +42,7 @@ export default function calAddOnUnmargined1111FX() {
         dataDeal.forEach((element) => {
             if (element.V_ASSET_CLASS !== 'Foreign exchange') return;
 
-            const maturity = getRemainingMaturity(element.D_MATURITY_DATE, element.FIC_MIS_DATE);
+            const maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
             const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.V_UNDERLYING_TYPE_CODE];
 
             // supervisoryDelta
