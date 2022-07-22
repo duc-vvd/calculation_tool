@@ -13,6 +13,7 @@ import calEADUnmargined1111 from './cal-ead-unmargined-1111.js';
 import calEADUnmargined1113 from './cal-ead-unmargined-1113.js';
 import calEADUnmargined1114 from './cal-ead-unmargined-1114.js';
 import calEADUnmargined1115 from './cal-ead-unmargined-1115.js';
+import calEAD from './cal-ead.js';
 
 export {
     calRRAO,
@@ -29,5 +30,6 @@ export {
     calEADUnmargined1111,
     calEADUnmargined1113,
     calEADUnmargined1114,
-    calEADUnmargined1115
+    calEADUnmargined1115,
+    calEAD
 };

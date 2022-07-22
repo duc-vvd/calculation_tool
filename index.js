@@ -1,6 +1,6 @@
 import db from './helper/db.js';
 import { readAllFile } from './file-handler/index.js';
-import { calSaMr, calAddOnUnmargined1111FX, calAddOnUnmargined1111IRD, calEADUnmargined1111, calEADUnmargined1113, calEADUnmargined1114, calEADUnmargined1115 } from './calculate/index.js';
+import { calSaMr, calAddOnUnmargined1111FX, calAddOnUnmargined1111IRD, calEADUnmargined1111, calEADUnmargined1113, calEADUnmargined1114, calEADUnmargined1115, calEAD } from './calculate/index.js';
 
 try {
     await readAllFile();
@@ -12,6 +12,7 @@ try {
     const EADUnmargined1113 = calEADUnmargined1113();
     const EADUnmargined1114 = calEADUnmargined1114();
     const EADUnmargined1115 = calEADUnmargined1115();
+    const EAD = calEAD();
     console.timeEnd('calc');
     console.log('============= DONE =============');
 } catch (error) {
