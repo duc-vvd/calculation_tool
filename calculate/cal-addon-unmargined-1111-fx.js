@@ -42,6 +42,17 @@ export default function calAddOnUnmargined1111FX() {
         dataDeal.forEach((element) => {
             if (element.V_ASSET_CLASS !== 'Foreign exchange') return;
 
+            // bat dau - can phai xoa
+            if (!["FXOP_1",
+                "FXOP_2",
+                "FXOP_3",
+                "FXFWD_1",
+                "FXFWD_2",
+                "FXFWD_3",
+                "FXFWD_4",
+                "FXFWD_5"].includes(element.V_INSTRUMENT_CODE)) return;
+            // ket thuc - can phai xoa
+
             const maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
             const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.V_UNDERLYING_TYPE_CODE];
 

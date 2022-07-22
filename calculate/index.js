@@ -9,6 +9,7 @@ import calCurvatureGirr from './calculate-curvature-girr.js';
 import calSaMr from './calculate-sa-mr.js';
 import calAddOnUnmargined1111FX from './cal-addon-unmargined-1111-fx.js';
 import calAddOnUnmargined1111IRD from './cal-addon-unmargined-1111-ird.js';
+import calEADUnmargined1111 from './cal-ead-unmargined-1111.js';
 
 export {
     calRRAO,
@@ -21,5 +22,6 @@ export {
     calCurvatureGirr,
     calSaMr,
     calAddOnUnmargined1111FX,
-    calAddOnUnmargined1111IRD
+    calAddOnUnmargined1111IRD,
+    calEADUnmargined1111
 };
