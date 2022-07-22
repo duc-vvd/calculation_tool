@@ -10,6 +10,7 @@ import calSaMr from './calculate-sa-mr.js';
 import calAddOnUnmargined1111FX from './cal-addon-unmargined-1111-fx.js';
 import calAddOnUnmargined1111IRD from './cal-addon-unmargined-1111-ird.js';
 import calEADUnmargined1111 from './cal-ead-unmargined-1111.js';
+import calEADUnmargined1113 from './cal-ead-unmargined-1113.js';
 
 export {
     calRRAO,
@@ -23,5 +24,6 @@ export {
     calSaMr,
     calAddOnUnmargined1111FX,
     calAddOnUnmargined1111IRD,
-    calEADUnmargined1111
+    calEADUnmargined1111,
+    calEADUnmargined1113
 };
