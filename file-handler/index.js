@@ -47,6 +47,11 @@ function readStgInstrumentContractMaster2File() {
     return fileHandler.readFile();
 }
 
+function readStgNettingFile() {
+    const fileHandler = new FileHandler(FILE.STG_NETTING);
+    return fileHandler.readFile();
+}
+
 async function readAllFile() {
     try {
         await Promise.all([
@@ -59,6 +64,7 @@ async function readAllFile() {
             readStgCurvaturesShockFile(),
             readStgPartyFinancialsFile(),
             readStgInstrumentContractMaster2File(),
+            readStgNettingFile(),
         ]);
 
         mappingDataDeal();

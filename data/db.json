@@ -16187,6 +16187,74 @@
       "INTEREST_RATE": "8"
     }
   },
+  "STG_NETTING": [
+    {
+      "V_NETTING_CODE": "1111",
+      "N_THRESHOLD": "N/A",
+      "N_MTA": "N/A",
+      "N_NICA": "N/A",
+      "N_NET": "N/A",
+      "N_EFFECTIVEMATURITY": "4,3"
+    },
+    {
+      "V_NETTING_CODE": "1112",
+      "N_THRESHOLD": "0",
+      "N_MTA": "15384615,38",
+      "N_NICA": "46153846,15",
+      "N_NET": "61538461,54",
+      "N_EFFECTIVEMATURITY": "4,5"
+    },
+    {
+      "V_NETTING_CODE": "1113",
+      "N_THRESHOLD": "N/A",
+      "N_MTA": "N/A",
+      "N_NICA": "N/A",
+      "N_NET": "N/A",
+      "N_EFFECTIVEMATURITY": "3,8"
+    },
+    {
+      "V_NETTING_CODE": "1114",
+      "N_THRESHOLD": "N/A",
+      "N_MTA": "N/A",
+      "N_NICA": "N/A",
+      "N_NET": "N/A",
+      "N_EFFECTIVEMATURITY": "2,1"
+    }
+  ],
+  "STG_NETTING_HASHMAP": {
+    "1111": {
+      "V_NETTING_CODE": "1111",
+      "N_THRESHOLD": "N/A",
+      "N_MTA": "N/A",
+      "N_NICA": "N/A",
+      "N_NET": "N/A",
+      "N_EFFECTIVEMATURITY": "4,3"
+    },
+    "1112": {
+      "V_NETTING_CODE": "1112",
+      "N_THRESHOLD": "0",
+      "N_MTA": "15384615,38",
+      "N_NICA": "46153846,15",
+      "N_NET": "61538461,54",
+      "N_EFFECTIVEMATURITY": "4,5"
+    },
+    "1113": {
+      "V_NETTING_CODE": "1113",
+      "N_THRESHOLD": "N/A",
+      "N_MTA": "N/A",
+      "N_NICA": "N/A",
+      "N_NET": "N/A",
+      "N_EFFECTIVEMATURITY": "3,8"
+    },
+    "1114": {
+      "V_NETTING_CODE": "1114",
+      "N_THRESHOLD": "N/A",
+      "N_MTA": "N/A",
+      "N_NICA": "N/A",
+      "N_NET": "N/A",
+      "N_EFFECTIVEMATURITY": "2,1"
+    }
+  },
   "dataDeal": [
     {
       "FIC_MIS_DATE": "11/15/2021",
