@@ -10,6 +10,7 @@ import {
     calEADUnmargined1115,
     calEAD,
     calCVA,
+    calSMAOR
 } from './calculate/index.js';
 
 try {
@@ -24,6 +25,7 @@ try {
     const EADUnmargined1115 = calEADUnmargined1115();
     const EAD = calEAD();
     const CVA = calCVA();
+    const SMAOR = calSMAOR();
     console.timeEnd('calc');
     console.log('============= DONE =============');
 } catch (error) {

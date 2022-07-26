@@ -15,6 +15,7 @@ import calEADUnmargined1114 from './cal-ead-unmargined-1114.js';
 import calEADUnmargined1115 from './cal-ead-unmargined-1115.js';
 import calEAD from './cal-ead.js';
 import calCVA from './cal-cva.js';
+import calSMAOR from './cal-sma-or.js';
 
 export {
     calRRAO,
@@ -34,4 +35,5 @@ export {
     calEADUnmargined1115,
     calEAD,
     calCVA,
+    calSMAOR
 };

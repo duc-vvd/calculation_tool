@@ -9,6 +9,8 @@ export const FILE = {
     STG_PARTY_FINANCIALS: 'STG_PARTY_FINANCIALS',
     STG_INSTRUMENT_CONTRACT_MASTER_2: 'STG_INSTRUMENT_CONTRACT_MASTER_2',
     STG_NETTING: 'STG_NETTING',
+    FINANCIAL_DATA_GL_ACTUAL_BALANCE: 'FINANCIAL_DATA_GL_ACTUAL_BALANCE',
+    OPERATIONAL_RISK_LOSS_DATA: 'OPERATIONAL_RISK_LOSS_DATA',
 };
 
 export const FILE_HASHMAP = {
@@ -22,6 +24,8 @@ export const FILE_HASHMAP = {
     STG_PARTY_FINANCIALS: 'STG_PARTY_FINANCIALS_HASHMAP',
     STG_INSTRUMENT_CONTRACT_MASTER_2: 'STG_INSTRUMENT_CONTRACT_MASTER_2_HASHMAP',
     STG_NETTING: 'STG_NETTING_HASHMAP',
+    FINANCIAL_DATA_GL_ACTUAL_BALANCE: 'FINANCIAL_DATA_GL_ACTUAL_BALANCE_HASHMAP',
+    OPERATIONAL_RISK_LOSS_DATA: 'OPERATIONAL_RISK_LOSS_DATA_HASHMAP',
 };
 
 export const FILE_NAME = {
@@ -35,6 +39,8 @@ export const FILE_NAME = {
     STG_PARTY_FINANCIALS: 'STG_PARTY_FINANCIALS.csv',
     STG_INSTRUMENT_CONTRACT_MASTER_2: 'STG_INSTRUMENT_CONTRACT_MASTER_2.csv',
     STG_NETTING: 'STG_NETTING.csv',
+    FINANCIAL_DATA_GL_ACTUAL_BALANCE: 'FINANCIAL_DATA_GL_ACTUAL_BALANCE.csv',
+    OPERATIONAL_RISK_LOSS_DATA: 'OPERATIONAL_RISK_LOSS_DATA.csv',
 };
 
 export const HASHMAP_KEY = {
@@ -48,6 +54,8 @@ export const HASHMAP_KEY = {
     STG_PARTY_FINANCIALS: 'V_CUST_REF_CODE',
     STG_INSTRUMENT_CONTRACT_MASTER_2: 'V_INSTRUMENT_CODE',
     STG_NETTING: 'V_NETTING_CODE',
+    FINANCIAL_DATA_GL_ACTUAL_BALANCE: 'Item',
+    OPERATIONAL_RISK_LOSS_DATA: 'Item',
 };
 
 export const MAPPING_CSV = {
@@ -251,5 +259,43 @@ export const MAPPING_CSV = {
         N_NICA: 3,
         N_NET: 4,
         N_EFFECTIVEMATURITY: 5,
+    },
+    FINANCIAL_DATA_GL_ACTUAL_BALANCE: {
+        Item: 0,
+        'Actual balance in quarter n-11': 1,
+        'Actual balance in quarter n-10': 2,
+        'Actual balance in quarter n-9': 3,
+        'Actual balance in quarter n-8': 4,
+        'Actual balance in quarter n-7': 5,
+        'Actual balance in quarter n-6': 6,
+        'Actual balance in quarter n-5': 7,
+        'Actual balance in quarter n-4': 8,
+        'Actual balance in quarter n-3': 9,
+        'Actual balance in quarter n-2': 10,
+        'Actual balance in quarter n-1': 11,
+        'Actual balance in quarter n': 12,
+    },
+    OPERATIONAL_RISK_LOSS_DATA: {
+        Item: 0,
+        'Quarter n-19': 1,
+        'Quarter n-18': 2,
+        'Quarter n-17': 3,
+        'Quarter n-16': 4,
+        'Quarter n-15': 5,
+        'Quarter n-14': 6,
+        'Quarter n-13': 7,
+        'Quarter n-12': 8,
+        'Quarter n-11': 9,
+        'Quarter n-10': 10,
+        'Quarter n-9': 11,
+        'Quarter n-8': 12,
+        'Quarter n-7': 13,
+        'Quarter n-6': 14,
+        'Quarter n-5': 15,
+        'Quarter n-4': 16,
+        'Quarter n-3': 17,
+        'Quarter n-2': 18,
+        'Quarter n-1': 19,
+        'Quarter n': 20,
     },
 };

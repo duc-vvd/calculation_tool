@@ -52,6 +52,16 @@ function readStgNettingFile() {
     return fileHandler.readFile();
 }
 
+function readFinancialDataGlActualBalance() {
+    const fileHandler = new FileHandler(FILE.FINANCIAL_DATA_GL_ACTUAL_BALANCE);
+    return fileHandler.readFile();
+}
+
+function readOperationalRiskLossDataFile() {
+    const fileHandler = new FileHandler(FILE.OPERATIONAL_RISK_LOSS_DATA);
+    return fileHandler.readFile();
+}
+
 async function readAllFile() {
     try {
         await Promise.all([
@@ -65,6 +75,8 @@ async function readAllFile() {
             readStgPartyFinancialsFile(),
             readStgInstrumentContractMaster2File(),
             readStgNettingFile(),
+            readFinancialDataGlActualBalance(),
+            readOperationalRiskLossDataFile(),
         ]);
 
         mappingDataDeal();

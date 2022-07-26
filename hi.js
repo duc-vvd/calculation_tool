@@ -1,8 +1,30 @@
-const arr = ["FIC_MIS_DATE", "V_INSTRUMENT_CODE", "V_ASSET_CLASS", "V_SUB_CLASS", "V_ISSUER_CODE", "V_ISSUER_TYPE", "V_CCY_CODE", "V_CTR_CCY_CODE", "F_OTC_IND", "D_EFFECTIVE_DATE", "D_MATURITY_DATE", "V_PRODUCT_CODE", "V_INT_TYPE_PAY", "N_INT_RATE_PAY", "D_REPRICING_DATE_PAY", "V_INT_TYPE_REC", "N_INT_RATE_REC", "D_REPRICING_DATE_REC", "F_APP_GUAR_CENTRAL_GOVT", "V_ISIN_ID", "V_PARTY_ID", "XX_V_SRC_INSTRUMENT_CODE", "V_INSTRUMENT_DESC", "V_OPTION_TYPE", "V_HEDGED_UNDERLYING_ASSET", "V_UNDERLYING_CD", "V_UNDERLYING_TYPE_CODE", "N_UNDERLYING_PRICE", "N_STRIKE_PRICE", "V_PRODUCT_TYPE", "V_PAIR_CCY", "V_INSTRUMENT_POSITION", "N_NOTIONAL_AMT", "N_MARKET_VALUE", "D_MATURITY_DATE_UNDERLYING", "V_COLLATERAL_ID", "N_COLLATERAL_CCP_AMT", "N_COLLATERAL_BANK_AMT", "F_MARGIN", "F_CENTRALLY_CLEARED", "N_MARGIN_FREQUENCY", "V_NETTING_CODE", "SECTOR_OF_COUNTERPARTY", "CREDIT_RATING_OF_COUNTERPARTY", "INTEREST_RATE"];
+const arr = [
+    'Item',
+    'Quarter n-19',
+    'Quarter n-18',
+    'Quarter n-17',
+    'Quarter n-16',
+    'Quarter n-15',
+    'Quarter n-14',
+    'Quarter n-13',
+    'Quarter n-12',
+    'Quarter n-11',
+    'Quarter n-10',
+    'Quarter n-9',
+    'Quarter n-8',
+    'Quarter n-7',
+    'Quarter n-6',
+    'Quarter n-5',
+    'Quarter n-4',
+    'Quarter n-3',
+    'Quarter n-2',
+    'Quarter n-1',
+    'Quarter n',
+];
 
 const obj = arr.reduce((prev, cur, i) => {
-  prev[cur] = i;
-  return prev;
+    prev[cur] = i;
+    return prev;
 }, {});
 
 console.log(JSON.stringify(obj));
