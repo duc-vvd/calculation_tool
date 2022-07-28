@@ -40,32 +40,37 @@ export default function calAddOnUnmargined1111IRD() {
         const effectiveNotionalForEachBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.V_ASSET_CLASS !== 'Interest rate') return;
-            if (!element.V_CCY_CODE) return;
+            if (element.v_asset_class !== 'Interest rate') return;
+            if (!element.v_ccy_code) return;
 
             // bat dau - can phai xoa
-            if (!["IRS_10001",
-                "IRS_10002",
-                "CCS_1.2",
-                "CCS_2.2",
-                "FXSWP_1.2",
-                "FXSWP_2.2",
-                "CCS_1.1",
-                "CCS_2.1",
-                "FXSWP_1.1",
-                "FXSWP_2.1"].includes(element.V_INSTRUMENT_CODE)) return;
+            if (
+                ![
+                    'IRS_10001',
+                    'IRS_10002',
+                    'CCS_1.2',
+                    'CCS_2.2',
+                    'FXSWP_1.2',
+                    'FXSWP_2.2',
+                    'CCS_1.1',
+                    'CCS_2.1',
+                    'FXSWP_1.1',
+                    'FXSWP_2.1',
+                ].includes(element.v_instrument_code)
+            )
+                return;
             // ket thuc - can phai xoa
 
             // Maturity
-            let maturity = yearfrac(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
+            let maturity = yearfrac(element.fic_mis_date, element.d_maturity_date);
             // Start date
-            const startDate = getStartDate(element.D_EFFECTIVE_DATE, element.D_MATURITY_DATE);
+            const startDate = getStartDate(element.d_effective_date, element.d_maturity_date);
             // End date
-            let endDate = yearfrac(element.FIC_MIS_DATE, element.D_MATURITY_DATE_UNDERLYING);
+            let endDate = yearfrac(element.fic_mis_date, element.d_maturity_date_underlying);
 
-            if (element.V_CCY_CODE === 'USD') {
-                maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
-                endDate = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE_UNDERLYING);
+            if (element.v_ccy_code === 'USD') {
+                maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
+                endDate = yearfrac3(element.fic_mis_date, element.d_maturity_date_underlying);
             }
             // Supervisory Duration
             const supervisoryDuration = calculate(
@@ -74,18 +79,18 @@ export default function calAddOnUnmargined1111IRD() {
                 '/',
             );
             // Adjusted notional
-            const adjustedNotional = calculate(formatStringNumber(element.N_NOTIONAL_AMT), supervisoryDuration, '*');
-            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.V_UNDERLYING_TYPE_CODE];
+            const adjustedNotional = calculate(formatStringNumber(element.n_notional_amt), supervisoryDuration, '*');
+            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.v_underlying_type_code];
 
             // Supervisory delta
             let supervisoryDelta;
-            if (element.V_OPTION_TYPE === 'Long Put') {
+            if (element.v_option_type === 'Long Put') {
                 const x = -calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -97,13 +102,13 @@ export default function calAddOnUnmargined1111IRD() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = -normal.cdf(x);
-            } else if (element.V_OPTION_TYPE === 'Long Call') {
+            } else if (element.v_option_type === 'Long Call') {
                 const x = calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -115,13 +120,13 @@ export default function calAddOnUnmargined1111IRD() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = normal.cdf(x);
-            } else if (element.V_OPTION_TYPE === 'Short Call') {
+            } else if (element.v_option_type === 'Short Call') {
                 const x = calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -133,13 +138,13 @@ export default function calAddOnUnmargined1111IRD() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = -normal.cdf(x);
-            } else if (element.V_OPTION_TYPE === 'Short Put') {
+            } else if (element.v_option_type === 'Short Put') {
                 const x = -calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -153,9 +158,9 @@ export default function calAddOnUnmargined1111IRD() {
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = normal.cdf(x);
             } else {
-                if (element.V_INSTRUMENT_POSITION === 'Long') {
+                if (element.v_instrument_position === 'Long') {
                     supervisoryDelta = 1;
-                } else if (element.V_INSTRUMENT_POSITION === 'Short') {
+                } else if (element.v_instrument_position === 'Short') {
                     supervisoryDelta = -1;
                 }
             }
@@ -179,21 +184,21 @@ export default function calAddOnUnmargined1111IRD() {
             );
 
             // Effective notional for each bucket
-            if (!effectiveNotionalForEachBucket[element.V_CCY_CODE]) {
-                effectiveNotionalForEachBucket[element.V_CCY_CODE] = {
+            if (!effectiveNotionalForEachBucket[element.v_ccy_code]) {
+                effectiveNotionalForEachBucket[element.v_ccy_code] = {
                     '1-5 years': 0,
                     'Less than 1 year': 0,
                     'More than 5 years': 0,
-                }
+                };
             }
-            effectiveNotionalForEachBucket[element.V_CCY_CODE][timeBucket] = calculate(
+            effectiveNotionalForEachBucket[element.v_ccy_code][timeBucket] = calculate(
                 effectiveNotional,
-                effectiveNotionalForEachBucket[element.V_CCY_CODE][timeBucket],
+                effectiveNotionalForEachBucket[element.v_ccy_code][timeBucket],
                 '+',
             );
         });
 
-        let total = 0
+        let total = 0;
         for (const key in effectiveNotionalForEachBucket) {
             // Effective notional for each hedging set
             const effectiveNotionalForUSDHedgingSet = Math.sqrt(
@@ -248,7 +253,7 @@ export default function calAddOnUnmargined1111IRD() {
 
             // AddOn
             const result = calculate(effectiveNotionalForUSDHedgingSet, supervisoryFactor, '*');
-            total += result
+            total += result;
         }
 
         return total;

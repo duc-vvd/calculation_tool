@@ -1,0 +1,10 @@
+export default {
+    SUCCESS: 200,
+    PERMISSION_DENIED: 403,
+    UNKNOWN_ERROR: 800,
+    EXIST: 701,
+    NOT_EXIST: 702,
+    TOO_MUCH: 703,
+    EMPTY: 704,
+    DATA_INVALID: 705,
+};

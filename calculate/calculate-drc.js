@@ -25,24 +25,27 @@ export default function calDRC() {
         let sumWeightedJTDshortAbs = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
-            const stgBankPositionsHashmapElement = STG_BANK_POSITIONS_HASHMAP[element.V_INSTRUMENT_CODE] || {};
+            const stgBankPositionsHashmapElement = STG_BANK_POSITIONS_HASHMAP[element.v_instrument_code] || {};
 
-            const N_NOTIONAL_AMT_RCV_LCY = formatStringNumber(stgBankPositionsHashmapElement.N_NOTIONAL_AMT_RCV_LCY);
-            const N_PNL = formatStringNumber(stgBankPositionsHashmapElement.N_PNL);
-            let V_COUNTERPARTY = element.V_CUST_REF_CODE;
+            const N_NOTIONAL_AMT_RCV_LCY = formatStringNumber(stgBankPositionsHashmapElement.n_notional_amt_rcv_lcy);
+            const N_PNL = formatStringNumber(stgBankPositionsHashmapElement.n_pnl);
+            let V_COUNTERPARTY = element.v_cust_ref_code;
 
-            if (element.V_PRODUCT_CODE === 'GOVBOND' || element.V_PRODUCT_CODE === 'CORPBOND') {
-                V_COUNTERPARTY = element.V_ISSUER_CODE;
+            if (element.v_product_code === 'GOVBOND' || element.v_product_code === 'CORPBOND') {
+                V_COUNTERPARTY = element.v_issuer_code;
             }
-            const V_COUNTERPARTY_RATING = STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY].V_RATING_CODE;
+            if (!STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY]) {
+                console.log(1);
+            }
+            const V_COUNTERPARTY_RATING = STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY].v_rating_code;
 
             const JTD = calculate(
                 calculate(
-                    formatStringNumber(element.N_LGD),
-                    formatStringNumber(stgBankPositionsHashmapElement.N_NOTIONAL_AMT_RCV_LCY),
+                    formatStringNumber(element.n_lgd),
+                    formatStringNumber(stgBankPositionsHashmapElement.n_notional_amt_rcv_lcy),
                     '*',
                 ),
-                formatStringNumber(stgBankPositionsHashmapElement.N_PNL),
+                formatStringNumber(stgBankPositionsHashmapElement.n_pnl),
                 '+',
             );
             const JTDlong = Math.max(JTD, 0);
@@ -52,12 +55,14 @@ export default function calDRC() {
             const weightedJTDLong = calculate(JTDlong, riskWeight, '*');
             const weightedJTDshortAbs = calculate(JTDshortAbs, riskWeight, '*');
 
+            console.log(
+                `=== ${element.v_instrument_code} - ${JTDlong} - ${JTDshort} - ${JTDshortAbs} - ${riskWeight} - ${weightedJTDLong} - ${weightedJTDshortAbs}`,
+            );
             sumJTDlong += JTDlong;
             sumJTDshortAbs += JTDshortAbs;
             sumWeightedJTDLong += weightedJTDLong;
             sumWeightedJTDshortAbs += weightedJTDshortAbs;
         });
-
         const DRC = calculate(
             sumWeightedJTDLong,
             calculate(

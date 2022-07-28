@@ -1,6 +1,6 @@
 import * as csv from 'fast-csv';
 import db from '../helper/db.js';
-import { FILE_HASHMAP, FILE_NAME, HASHMAP_KEY, MAPPING_CSV } from '../common/enum.js';
+import { FILE_HASHMAP, FILE_NAME, HASHMAP_KEY, MAPPING_CSV, MAPPING_FIELD_NAMES } from '../common/enum.js';
 
 export default class FileHandler {
     constructor(file) {
@@ -8,6 +8,7 @@ export default class FileHandler {
         this.fileHashmap = FILE_HASHMAP[file];
         this.hashmapKey = HASHMAP_KEY[file];
         this.csvHeader = Object.keys(MAPPING_CSV[file]);
+        this.fieldNames = MAPPING_FIELD_NAMES[file];
     }
 
     checkHeaderFormat(row) {
@@ -40,10 +41,17 @@ export default class FileHandler {
                                 }
                                 return;
                             }
-                            const obj = row.reduce((prev, cur, i) => {
+                            const obj = {};
+                            const objTmp = row.reduce((prev, cur, i) => {
                                 prev[this.csvHeader[i].trim()] = cur.trim();
                                 return prev;
                             }, {});
+
+                            for (const key in objTmp) {
+                                const fieldName = this.fieldNames[key];
+                                obj[fieldName] = objTmp[key];
+                            }
+
                             if (!db.data[this.fileHashmap][obj[this.hashmapKey]]) {
                                 db.data[this.fileHashmap][obj[this.hashmapKey]] = obj;
                             } else {

@@ -43,23 +43,23 @@ export default function calAddOnMargined1112IRD() {
         const effectiveNotionalForEachBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.V_ASSET_CLASS !== assetClass || element.V_NETTING_CODE != nettingCode) return;
-            if (!element.V_CCY_CODE) return;
+            if (element.v_asset_class !== assetClass || element.v_netting_code != nettingCode) return;
+            if (!element.v_ccy_code) return;
 
             // bat dau - can phai xoa
-            if (!['IRS_10003', 'IRS_10004'].includes(element.V_INSTRUMENT_CODE)) return;
+            if (!['IRS_10003', 'IRS_10004'].includes(element.v_instrument_code)) return;
             // ket thuc - can phai xoa
 
             // Maturity
-            let maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
+            let maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
             // Start date
-            let startDate = yearfrac(element.D_MATURITY_DATE, element.D_EFFECTIVE_DATE);
-            if (moment(element.D_EFFECTIVE_DATE, 'MMDDYYYY').isBefore(moment(element.D_MATURITY_DATE, 'MMDDYYYY'))) {
+            let startDate = yearfrac(element.d_maturity_date, element.d_effective_date);
+            if (moment(element.d_effective_date, 'MMDDYYYY').isBefore(moment(element.d_maturity_date, 'MMDDYYYY'))) {
                 startDate = 0;
             }
 
             // End date
-            let endDate = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE_UNDERLYING);
+            let endDate = yearfrac3(element.fic_mis_date, element.d_maturity_date_underlying);
 
             // Supervisory Duration
             const supervisoryDuration = calculate(
@@ -68,18 +68,18 @@ export default function calAddOnMargined1112IRD() {
                 '/',
             );
             // Adjusted notional
-            const adjustedNotional = calculate(formatStringNumber(element.N_NOTIONAL_AMT), supervisoryDuration, '*');
-            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.V_UNDERLYING_TYPE_CODE];
+            const adjustedNotional = calculate(formatStringNumber(element.n_notional_amt), supervisoryDuration, '*');
+            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.v_underlying_type_code];
 
             // Supervisory delta
             let supervisoryDelta;
-            if (element.V_PRODUCT_TYPE === 'Non-Linear') {
+            if (element.v_product_type === 'Non-Linear') {
                 const x = -calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -91,7 +91,7 @@ export default function calAddOnMargined1112IRD() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = -normal.cdf(x);
-            } else if (element.V_INSTRUMENT_POSITION === 'Long') {
+            } else if (element.v_instrument_position === 'Long') {
                 supervisoryDelta = 1;
             } else {
                 supervisoryDelta = -1;
@@ -107,8 +107,8 @@ export default function calAddOnMargined1112IRD() {
 
             // Margin period of risk (MPOR)
             let mpor = 10 + 10 - 1;
-            if (element.F_CENTRALLY_CLEARED === 'Y') {
-                mpor = calculate(calculate(10, formatStringNumber(element.N_MARGIN_FREQUENCY), '+'), 1, '-');
+            if (element.f_centrally_cleared === 'Y') {
+                mpor = calculate(calculate(10, formatStringNumber(element.n_margin_frequency), '+'), 1, '-');
             }
 
             // Maturity factor
@@ -122,16 +122,16 @@ export default function calAddOnMargined1112IRD() {
             );
 
             // Effective notional for each bucket
-            if (!effectiveNotionalForEachBucket[element.V_CCY_CODE]) {
-                effectiveNotionalForEachBucket[element.V_CCY_CODE] = {
+            if (!effectiveNotionalForEachBucket[element.v_ccy_code]) {
+                effectiveNotionalForEachBucket[element.v_ccy_code] = {
                     '1-5 years': 0,
                     'Less than 1 year': 0,
                     'More than 5 years': 0,
                 };
             }
-            effectiveNotionalForEachBucket[element.V_CCY_CODE][timeBucket] = calculate(
+            effectiveNotionalForEachBucket[element.v_ccy_code][timeBucket] = calculate(
                 effectiveNotional,
-                effectiveNotionalForEachBucket[element.V_CCY_CODE][timeBucket],
+                effectiveNotionalForEachBucket[element.v_ccy_code][timeBucket],
                 '+',
             );
         });

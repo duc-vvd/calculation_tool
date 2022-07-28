@@ -15,14 +15,12 @@ export default function calVegaFx() {
             threeYear: 3,
             fiveYear: 5,
             tenYear: 10,
-        }
+        };
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
-            if (element.V_CCY2_CODE?.length < 3) return;
-            const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.V_INSTRUMENT_CODE] || {};
-            if (!stgSensitivitiesFxHashmapElement.N_DELTA_FX?.length) return;
-            const V_PAIR_CCY = `${element.V_CCY_CODE}/${element.V_CCY2_CODE}`;
-
+            if (element.v_ccy2_code?.length < 3) return;
+            const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.v_instrument_code] || {};
+            const V_PAIR_CCY = `${element.v_ccy_code}/${element.v_ccy2_code}`;
 
             if (!sumSensitivityHashmap[V_PAIR_CCY]) {
                 sumSensitivityHashmap[V_PAIR_CCY] = {
@@ -31,51 +29,54 @@ export default function calVegaFx() {
                     threeYear: 0,
                     fiveYear: 0,
                     tenYear: 0,
-                }
+                };
             }
-            if (stgSensitivitiesFxHashmapElement['N_VEGA_FX_0.5YEAR']) {
+            if (stgSensitivitiesFxHashmapElement.n_vega_fx_half_a_year) {
                 sumSensitivityHashmap[V_PAIR_CCY].halfAYear = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement['N_VEGA_FX_0.5YEAR']),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_vega_fx_half_a_year),
                     sumSensitivityHashmap[V_PAIR_CCY].halfAYear,
                     '+',
                 );
             }
-            if (stgSensitivitiesFxHashmapElement.N_VEGA_FX_1YEAR) {
+            if (stgSensitivitiesFxHashmapElement.n_vega_fx_1year) {
                 sumSensitivityHashmap[V_PAIR_CCY].aYear = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.N_VEGA_FX_1YEAR),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_vega_fx_1year),
                     sumSensitivityHashmap[V_PAIR_CCY].aYear,
                     '+',
                 );
             }
-            if (stgSensitivitiesFxHashmapElement.N_VEGA_FX_3YEAR) {
+            if (stgSensitivitiesFxHashmapElement.n_vega_fx_3year) {
                 sumSensitivityHashmap[V_PAIR_CCY].threeYear = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.N_VEGA_FX_3YEAR),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_vega_fx_3year),
                     sumSensitivityHashmap[V_PAIR_CCY].threeYear,
                     '+',
                 );
             }
-            if (stgSensitivitiesFxHashmapElement.N_VEGA_FX_5YEAR) {
+            if (stgSensitivitiesFxHashmapElement.n_vega_fx_5year) {
                 sumSensitivityHashmap[V_PAIR_CCY].fiveYear = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.N_VEGA_FX_5YEAR),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_vega_fx_5year),
                     sumSensitivityHashmap[V_PAIR_CCY].fiveYear,
                     '+',
                 );
             }
-            if (stgSensitivitiesFxHashmapElement.N_VEGA_FX_10YEAR) {
+            if (stgSensitivitiesFxHashmapElement.n_vega_fx_10year) {
                 sumSensitivityHashmap[V_PAIR_CCY].tenYear = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.N_VEGA_FX_10YEAR),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_vega_fx_10year),
                     sumSensitivityHashmap[V_PAIR_CCY].tenYear,
                     '+',
                 );
             }
-
         });
 
         const weightedSensitivityHashmap = {};
         for (const key in sumSensitivityHashmap) {
             weightedSensitivityHashmap[key] = {};
             for (const numberOfYear in sumSensitivityHashmap[key]) {
-                weightedSensitivityHashmap[key][numberOfYear] = calculate(sumSensitivityHashmap[key][numberOfYear], riskWeight, '*');
+                weightedSensitivityHashmap[key][numberOfYear] = calculate(
+                    sumSensitivityHashmap[key][numberOfYear],
+                    riskWeight,
+                    '*',
+                );
             }
         }
 
@@ -84,20 +85,41 @@ export default function calVegaFx() {
             for (const numberOfYear in weightedSensitivityHashmap[key]) {
                 for (const numberOfYear2 in weightedSensitivityHashmap[key]) {
                     if (!sumPairCurrencyAndRiskFactorHashmap[key]) {
-                        sumPairCurrencyAndRiskFactorHashmap[key] = 0
+                        sumPairCurrencyAndRiskFactorHashmap[key] = 0;
                     }
-                    let timeBucketCorrelation = 1
+                    let timeBucketCorrelation = 1;
                     if (numberOfYear !== numberOfYear2) {
-                        timeBucketCorrelation = Math.min(Math.exp(calculate(calculate(-0.01, Math.abs(calculate(time[numberOfYear2], time[numberOfYear], '-')), '*'), Math.min(time[numberOfYear2], time[numberOfYear]), '/')), 1);
+                        timeBucketCorrelation = Math.min(
+                            Math.exp(
+                                calculate(
+                                    calculate(
+                                        -0.01,
+                                        Math.abs(calculate(time[numberOfYear2], time[numberOfYear], '-')),
+                                        '*',
+                                    ),
+                                    Math.min(time[numberOfYear2], time[numberOfYear]),
+                                    '/',
+                                ),
+                            ),
+                            1,
+                        );
                     }
-
 
                     sumPairCurrencyAndRiskFactorHashmap[key] = calculate(
-                        calculate(calculate(weightedSensitivityHashmap[key][numberOfYear], weightedSensitivityHashmap[key][numberOfYear2], '*'), timeBucketCorrelation, '*')
-                        , sumPairCurrencyAndRiskFactorHashmap[key], '+')
+                        calculate(
+                            calculate(
+                                weightedSensitivityHashmap[key][numberOfYear],
+                                weightedSensitivityHashmap[key][numberOfYear2],
+                                '*',
+                            ),
+                            timeBucketCorrelation,
+                            '*',
+                        ),
+                        sumPairCurrencyAndRiskFactorHashmap[key],
+                        '+',
+                    );
                 }
             }
-
         }
 
         const sqrtPairCurrencyAndRiskFactorHashmap = {};
@@ -112,7 +134,11 @@ export default function calVegaFx() {
                     crossbucketCorrelationTmp = 1;
                 }
                 total += calculate(
-                    calculate(sqrtPairCurrencyAndRiskFactorHashmap[key], sqrtPairCurrencyAndRiskFactorHashmap[key2], '*'),
+                    calculate(
+                        sqrtPairCurrencyAndRiskFactorHashmap[key],
+                        sqrtPairCurrencyAndRiskFactorHashmap[key2],
+                        '*',
+                    ),
                     crossbucketCorrelationTmp,
                     '*',
                 );

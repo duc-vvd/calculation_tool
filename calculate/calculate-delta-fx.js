@@ -11,19 +11,19 @@ export default function calDeltaFx() {
         let total = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
-            if (element.V_CCY2_CODE?.length < 3) return;
-            const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.V_INSTRUMENT_CODE] || {};
-            if (!stgSensitivitiesFxHashmapElement.N_DELTA_FX?.length) return;
-            const V_PAIR_CCY = `${element.V_CCY_CODE}/${element.V_CCY2_CODE}`;
+            if (!element.v_ccy2_code) return;
+            const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.v_instrument_code] || {};
+            if (!stgSensitivitiesFxHashmapElement.n_delta_fx) return;
+            const V_PAIR_CCY = `${element.v_ccy_code}/${element.v_ccy2_code}`;
             if (sumSensitivityHashmap[V_PAIR_CCY]) {
                 sumSensitivityHashmap[V_PAIR_CCY] = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.N_DELTA_FX),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_delta_fx),
                     sumSensitivityHashmap[V_PAIR_CCY],
                     '+',
                 );
             } else {
                 sumSensitivityHashmap[V_PAIR_CCY] = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.N_DELTA_FX),
+                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_delta_fx),
                     0,
                     '+',
                 );

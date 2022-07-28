@@ -17,6 +17,12 @@ export default function calSaMr() {
         const vegaGirr = calVegaGirr();
         const curvatureFx = calCurvatureFx();
         const curvatureGirr = calCurvatureGirr();
+        console.log({
+            DRC,
+            delta: deltaFx + deltaGirr,
+            vega: vegaFx + vegaGirr,
+            curvature: curvatureFx + curvatureGirr,
+        });
         const total = DRC + RRAO + (deltaFx + deltaGirr) + (vegaFx + vegaGirr) + (curvatureFx + curvatureGirr);
         return total;
     } catch (error) {

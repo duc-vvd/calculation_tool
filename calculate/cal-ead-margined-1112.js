@@ -20,12 +20,12 @@ export default function calEADMargined1112() {
         let nCollateralCcpAmtTotal = 0;
         let nCollateralBankAmtTotal = 0;
         dataDeal.forEach((element) => {
-            if (element.F_MARGIN === 'Y') {
-                nCollateralCcpAmtTotal = calculate(element.N_COLLATERAL_CCP_AMT, nCollateralCcpAmtTotal, '+');
-                if (element.V_NETTING_CODE == nettingCode) {
-                    v = calculate(formatStringNumber(element.N_MARKET_VALUE), v, '+');
+            if (element.f_margin === 'Y') {
+                nCollateralCcpAmtTotal = calculate(element.n_collateral_ccp_amt, nCollateralCcpAmtTotal, '+');
+                if (element.v_netting_code == nettingCode) {
+                    v = calculate(formatStringNumber(element.n_market_value), v, '+');
                     nCollateralBankAmtTotal = calculate(
-                        formatStringNumber(element.N_COLLATERAL_BANK_AMT),
+                        formatStringNumber(element.n_collateral_bank_amt),
                         nCollateralBankAmtTotal,
                         '+',
                     );
@@ -34,16 +34,16 @@ export default function calEADMargined1112() {
         });
 
         // C
-        const c = stgNetting.N_NET ? formatStringNumber(stgNetting.N_NET) : stgNetting.N_NET;
+        const c = stgNetting.n_net ? formatStringNumber(stgNetting.n_net) : stgNetting.n_net;
 
         // TH
-        const th = stgNetting.N_THRESHOLD ? formatStringNumber(stgNetting.N_THRESHOLD) : stgNetting.N_THRESHOLD;
+        const th = stgNetting.n_threshold ? formatStringNumber(stgNetting.n_threshold) : stgNetting.n_threshold;
 
         // MTA
-        const mta = stgNetting.N_MTA ? formatStringNumber(stgNetting.N_MTA) : stgNetting.N_MTA;
+        const mta = stgNetting.n_mta ? formatStringNumber(stgNetting.n_mta) : stgNetting.n_mta;
 
         // NICA
-        const nica = stgNetting.N_NICA ? formatStringNumber(stgNetting.N_NICA) : stgNetting.N_NICA;
+        const nica = stgNetting.n_nica ? formatStringNumber(stgNetting.n_nica) : stgNetting.n_nica;
 
         // RC
         const rc = Math.max(calculate(v, c, '-'), calculate(calculate(th, mta, '+'), nica, '-'), 0);

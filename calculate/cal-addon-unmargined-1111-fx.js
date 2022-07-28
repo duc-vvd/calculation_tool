@@ -40,31 +40,29 @@ export default function calAddOnUnmargined1111FX() {
         const effectiveNotionalBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.V_ASSET_CLASS !== 'Foreign exchange') return;
+            if (element.v_asset_class !== 'Foreign exchange') return;
 
             // bat dau - can phai xoa
-            if (!["FXOP_1",
-                "FXOP_2",
-                "FXOP_3",
-                "FXFWD_1",
-                "FXFWD_2",
-                "FXFWD_3",
-                "FXFWD_4",
-                "FXFWD_5"].includes(element.V_INSTRUMENT_CODE)) return;
+            if (
+                !['FXOP_1', 'FXOP_2', 'FXOP_3', 'FXFWD_1', 'FXFWD_2', 'FXFWD_3', 'FXFWD_4', 'FXFWD_5'].includes(
+                    element.v_instrument_code,
+                )
+            )
+                return;
             // ket thuc - can phai xoa
 
-            const maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
-            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.V_UNDERLYING_TYPE_CODE];
+            const maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
+            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.v_underlying_type_code];
 
             // supervisoryDelta
             let supervisoryDelta;
-            if (element.V_OPTION_TYPE === 'Long Put') {
+            if (element.v_option_type === 'Long Put') {
                 const x = -calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -76,13 +74,13 @@ export default function calAddOnUnmargined1111FX() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = -normal.cdf(x);
-            } else if (element.V_OPTION_TYPE === 'Long Call') {
+            } else if (element.v_option_type === 'Long Call') {
                 const x = calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -94,13 +92,13 @@ export default function calAddOnUnmargined1111FX() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = normal.cdf(x);
-            } else if (element.V_OPTION_TYPE === 'Short Call') {
+            } else if (element.v_option_type === 'Short Call') {
                 const x = calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -112,13 +110,13 @@ export default function calAddOnUnmargined1111FX() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = -normal.cdf(x);
-            } else if (element.V_OPTION_TYPE === 'Short Put') {
+            } else if (element.v_option_type === 'Short Put') {
                 const x = -calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -132,9 +130,9 @@ export default function calAddOnUnmargined1111FX() {
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = normal.cdf(x);
             } else {
-                if (element.V_INSTRUMENT_POSITION === 'Long') {
+                if (element.v_instrument_position === 'Long') {
                     supervisoryDelta = 1;
-                } else if (element.V_INSTRUMENT_POSITION === 'Short') {
+                } else if (element.v_instrument_position === 'Short') {
                     supervisoryDelta = -1;
                 }
             }
@@ -144,7 +142,7 @@ export default function calAddOnUnmargined1111FX() {
 
             // Effective notional
             const effectiveNotional = calculate(
-                calculate(supervisoryDelta, formatStringNumber(element.N_NOTIONAL_AMT), '*'),
+                calculate(supervisoryDelta, formatStringNumber(element.n_notional_amt), '*'),
                 maturityFactor,
                 '*',
             );
@@ -167,6 +165,7 @@ export default function calAddOnUnmargined1111FX() {
             total = calculate(total, addOnOfEachHedgingSet, '+');
         }
 
+        console.log(1);
         return total;
     } catch (error) {
         console.error(`calculate - calAddOnUnmargined1111FX - catch error: ${error.message}`);

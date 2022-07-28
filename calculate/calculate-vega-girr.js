@@ -18,11 +18,11 @@ export default function calVegaGirr() {
         };
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
-            const stgSensitivitiesGirrHashmapElement = STG_SENSITIVITIES_GIRR_HASHMAP[element.V_INSTRUMENT_CODE] || {};
+            const stgSensitivitiesGirrHashmapElement = STG_SENSITIVITIES_GIRR_HASHMAP[element.v_instrument_code] || {};
 
-            if (element.V_CCY_CODE) {
-                if (!sumSensitivityHashmap[element.V_CCY_CODE]) {
-                    sumSensitivityHashmap[element.V_CCY_CODE] = {
+            if (element.v_ccy_code) {
+                if (!sumSensitivityHashmap[element.v_ccy_code]) {
+                    sumSensitivityHashmap[element.v_ccy_code] = {
                         halfAYear: 0,
                         aYear: 0,
                         threeYear: 0,
@@ -31,50 +31,50 @@ export default function calVegaGirr() {
                     };
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_0.5YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY_CODE].halfAYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_0.5YEAR']),
-                        sumSensitivityHashmap[element.V_CCY_CODE].halfAYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_half_a_year) {
+                    sumSensitivityHashmap[element.v_ccy_code].halfAYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_half_a_year),
+                        sumSensitivityHashmap[element.v_ccy_code].halfAYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_1YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY_CODE].aYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_1YEAR']),
-                        sumSensitivityHashmap[element.V_CCY_CODE].aYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_1year) {
+                    sumSensitivityHashmap[element.v_ccy_code].aYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_1year),
+                        sumSensitivityHashmap[element.v_ccy_code].aYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_3YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY_CODE].threeYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_3YEAR']),
-                        sumSensitivityHashmap[element.V_CCY_CODE].threeYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_3year) {
+                    sumSensitivityHashmap[element.v_ccy_code].threeYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_3year),
+                        sumSensitivityHashmap[element.v_ccy_code].threeYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_5YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY_CODE].fiveYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_5YEAR']),
-                        sumSensitivityHashmap[element.V_CCY_CODE].fiveYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_5year) {
+                    sumSensitivityHashmap[element.v_ccy_code].fiveYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_5year),
+                        sumSensitivityHashmap[element.v_ccy_code].fiveYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_10YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY_CODE].tenYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_1ST_CCY_10YEAR']),
-                        sumSensitivityHashmap[element.V_CCY_CODE].tenYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_10year) {
+                    sumSensitivityHashmap[element.v_ccy_code].tenYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_1st_ccy_10year),
+                        sumSensitivityHashmap[element.v_ccy_code].tenYear,
                         '+',
                     );
                 }
             }
 
-            if (element.V_CCY2_CODE) {
-                if (!sumSensitivityHashmap[element.V_CCY2_CODE]) {
-                    sumSensitivityHashmap[element.V_CCY2_CODE] = {
+            if (element.v_ccy2_code) {
+                if (!sumSensitivityHashmap[element.v_ccy2_code]) {
+                    sumSensitivityHashmap[element.v_ccy2_code] = {
                         aQuarterOfYear: 0,
                         halfAYear: 0,
                         aYear: 0,
@@ -88,42 +88,42 @@ export default function calVegaGirr() {
                     };
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_0.5YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY2_CODE].halfAYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_0.5YEAR']),
-                        sumSensitivityHashmap[element.V_CCY2_CODE].halfAYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_half_a_year) {
+                    sumSensitivityHashmap[element.v_ccy2_code].halfAYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_half_a_year),
+                        sumSensitivityHashmap[element.v_ccy2_code].halfAYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_1YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY2_CODE].aYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_1YEAR']),
-                        sumSensitivityHashmap[element.V_CCY2_CODE].aYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_1year) {
+                    sumSensitivityHashmap[element.v_ccy2_code].aYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_1year),
+                        sumSensitivityHashmap[element.v_ccy2_code].aYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_3YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY2_CODE].threeYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_3YEAR']),
-                        sumSensitivityHashmap[element.V_CCY2_CODE].threeYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_3year) {
+                    sumSensitivityHashmap[element.v_ccy2_code].threeYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_3year),
+                        sumSensitivityHashmap[element.v_ccy2_code].threeYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_5YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY2_CODE].fiveYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_5YEAR']),
-                        sumSensitivityHashmap[element.V_CCY2_CODE].fiveYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_5year) {
+                    sumSensitivityHashmap[element.v_ccy2_code].fiveYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_5year),
+                        sumSensitivityHashmap[element.v_ccy2_code].fiveYear,
                         '+',
                     );
                 }
 
-                if (stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_10YEAR']) {
-                    sumSensitivityHashmap[element.V_CCY2_CODE].tenYear = calculate(
-                        formatStringNumber(stgSensitivitiesGirrHashmapElement['N_VEGA_GIRR_2ND_CCY_10YEAR']),
-                        sumSensitivityHashmap[element.V_CCY2_CODE].tenYear,
+                if (stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_10year) {
+                    sumSensitivityHashmap[element.v_ccy2_code].tenYear = calculate(
+                        formatStringNumber(stgSensitivitiesGirrHashmapElement.n_vega_girr_2nd_ccy_10year),
+                        sumSensitivityHashmap[element.v_ccy2_code].tenYear,
                         '+',
                     );
                 }

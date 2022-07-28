@@ -3,7 +3,7 @@ import { calculate } from './operator.js';
 
 // 71.403,09 => 71403.09
 function formatStringNumber(strNum) {
-    if (!strNum) return strNum;
+    if (!strNum || typeof strNum === 'number') return strNum;
     // neu co ky tu () thi la so am, vi du: (71.403,09) => -71403,09
     if (strNum.match(/[()]/g)) {
         return `-${strNum.toString().replace(/[.()]/g, '').replace(/[,]/g, '.')}`;

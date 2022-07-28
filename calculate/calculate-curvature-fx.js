@@ -11,22 +11,22 @@ export default function calCurvatureFx() {
         let total = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
-            if (!element.V_CCY2_CODE) return;
+            if (!element.v_ccy2_code) return;
 
-            const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.V_INSTRUMENT_CODE] || {};
-            const V_PAIR_CCY = `${element.V_CCY_CODE}/${element.V_CCY2_CODE}`;
+            const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.v_instrument_code] || {};
+            const V_PAIR_CCY = `${element.v_ccy_code}/${element.v_ccy2_code}`;
             const stgCurvaturesShockHashmapElement = STG_CURVATURES_SHOCK_HASHMAP[V_PAIR_CCY] || {};
 
-            if (stgSensitivitiesFxHashmapElement.N_CURVATURE_FX) {
+            if (stgSensitivitiesFxHashmapElement.n_curvature_fx) {
                 if (sumSensitivityHashmap[V_PAIR_CCY]) {
                     sumSensitivityHashmap[V_PAIR_CCY] = calculate(
-                        formatStringNumber(stgSensitivitiesFxHashmapElement.N_CURVATURE_FX),
+                        formatStringNumber(stgSensitivitiesFxHashmapElement.n_curvature_fx),
                         sumSensitivityHashmap[V_PAIR_CCY],
                         '+',
                     );
                 } else {
                     sumSensitivityHashmap[V_PAIR_CCY] = calculate(
-                        formatStringNumber(stgSensitivitiesFxHashmapElement.N_CURVATURE_FX),
+                        formatStringNumber(stgSensitivitiesFxHashmapElement.n_curvature_fx),
                         0,
                         '+',
                     );
@@ -42,16 +42,16 @@ export default function calCurvatureFx() {
         const crvHashmap = {};
         const kbHashmap = {};
         for (const key in weightedSensitivityHashmap) {
-            const { V_CURVATURE_FX_PNL, V_CURVATURE_FX_UP, V_CURVATURE_FX_DOWN } = STG_CURVATURES_SHOCK_HASHMAP[key];
+            const { v_curvature_fx_pnl, v_curvature_fx_up, v_curvature_fx_down } = STG_CURVATURES_SHOCK_HASHMAP[key];
 
             const crv = -Math.min(
                 calculate(
-                    calculate(formatStringNumber(V_CURVATURE_FX_UP), formatStringNumber(V_CURVATURE_FX_PNL), '-'),
+                    calculate(formatStringNumber(v_curvature_fx_up), formatStringNumber(v_curvature_fx_pnl), '-'),
                     weightedSensitivityHashmap[key],
                     '-',
                 ),
                 calculate(
-                    calculate(formatStringNumber(V_CURVATURE_FX_DOWN), formatStringNumber(V_CURVATURE_FX_PNL), '-'),
+                    calculate(formatStringNumber(v_curvature_fx_down), formatStringNumber(v_curvature_fx_pnl), '-'),
                     weightedSensitivityHashmap[key],
                     '+',
                 ),

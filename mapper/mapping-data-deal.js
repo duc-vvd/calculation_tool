@@ -31,25 +31,25 @@ export default function mappingDataDeal() {
         const dataDealHashmap = {};
         dataDeal.forEach((element) => {
             if (
-                element.V_CTR_CCY_CODE &&
-                element.V_CTR_CCY_CODE !== 'N/A' &&
-                element.V_CCY_CODE &&
-                element.V_CCY_CODE !== 'N/A'
+                element.v_ctr_ccy_code &&
+                element.v_ctr_ccy_code !== 'N/A' &&
+                element.v_ccy_code &&
+                element.v_ccy_code !== 'N/A'
             ) {
-                element.pair_ccy = `${element.V_CCY_CODE}/${element.V_CTR_CCY_CODE}`;
+                element.pair_ccy = `${element.v_ccy_code}/${element.v_ctr_ccy_code}`;
             }
 
-            element.remaining_maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
+            element.remaining_maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
 
-            // if (element.CREDIT_RATING_OF_COUNTERPARTY && element.CREDIT_RATING_OF_COUNTERPARTY !== 'N/A') {
-            if (creditRatingHashmap[element.CREDIT_RATING_OF_COUNTERPARTY] === 1) {
+            // if (element.credit_rating_of_counterparty && element.credit_rating_of_counterparty !== 'N/A') {
+            if (creditRatingHashmap[element.credit_rating_of_counterparty] === 1) {
                 element.credit_rating = 'IG';
             } else {
                 element.credit_rating = 'HY and NR';
             }
             // }
 
-            dataDealHashmap[element.V_INSTRUMENT_CODE] = element;
+            dataDealHashmap[element.v_instrument_code] = element;
         });
 
         db.data.dataDeal = dataDeal;

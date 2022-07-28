@@ -40,27 +40,26 @@ export default function calAddOnUnmargined1113FX() {
         const effectiveNotionalBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.V_ASSET_CLASS !== 'Foreign exchange') return;
+            if (element.v_asset_class !== 'Foreign exchange') return;
 
             // bat dau - can phai xoa
-            if (!["FXFWD_6",
-                "FXFWD_7"].includes(element.V_INSTRUMENT_CODE)) return;
+            if (!['FXFWD_6', 'FXFWD_7'].includes(element.v_instrument_code)) return;
             // ket thuc - can phai xoa
 
-            // Maturity 
-            const maturity = yearfrac3(element.FIC_MIS_DATE, element.D_MATURITY_DATE);
+            // Maturity
+            const maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
             // Supervisory Option volatility
-            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.V_UNDERLYING_TYPE_CODE];
+            const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.v_underlying_type_code];
 
             // Supervisory delta
             let supervisoryDelta;
-            if (element.V_PRODUCT_TYPE === 'Non-Linear') {
+            if (element.v_product_type === 'Non-Linear') {
                 const x = -calculate(
                     calculate(
                         Math.log(
                             calculate(
-                                formatStringNumber(element.N_UNDERLYING_PRICE),
-                                formatStringNumber(element.N_STRIKE_PRICE),
+                                formatStringNumber(element.n_underlying_price),
+                                formatStringNumber(element.n_strike_price),
                                 '/',
                             ),
                         ),
@@ -72,7 +71,7 @@ export default function calAddOnUnmargined1113FX() {
                 );
                 var normal = distributions.Normal(0, 1);
                 supervisoryDelta = -normal.cdf(x);
-            } else if (element.V_INSTRUMENT_POSITION === 'Long') {
+            } else if (element.v_instrument_position === 'Long') {
                 supervisoryDelta = 1;
             } else {
                 supervisoryDelta = -1;
@@ -83,7 +82,7 @@ export default function calAddOnUnmargined1113FX() {
 
             // Effective notional for each transaction
             const effectiveNotional = calculate(
-                calculate(supervisoryDelta, formatStringNumber(element.N_NOTIONAL_AMT), '*'),
+                calculate(supervisoryDelta, formatStringNumber(element.n_notional_amt), '*'),
                 maturityFactor,
                 '*',
             );

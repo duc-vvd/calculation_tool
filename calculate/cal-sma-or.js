@@ -11,14 +11,14 @@ function calFinancialDataGlActualBalanceAverage(row) {
             calculate(
                 calculate(
                     calculate(
-                        formatStringNumber(row['Actual balance in quarter n-8']),
-                        formatStringNumber(row['Actual balance in quarter n-9']),
+                        formatStringNumber(row.actual_balance_in_quarter_n_8),
+                        formatStringNumber(row.actual_balance_in_quarter_n_9),
                         '+',
                     ),
-                    formatStringNumber(row['Actual balance in quarter n-10']),
+                    formatStringNumber(row.actual_balance_in_quarter_n_10),
                     '+',
                 ),
-                formatStringNumber(row['Actual balance in quarter n-11']),
+                formatStringNumber(row.actual_balance_in_quarter_n_11),
                 '+',
             ),
             exchangeRate,
@@ -33,14 +33,14 @@ function calFinancialDataGlActualBalanceAverage(row) {
             calculate(
                 calculate(
                     calculate(
-                        formatStringNumber(row['Actual balance in quarter n-4']),
-                        formatStringNumber(row['Actual balance in quarter n-5']),
+                        formatStringNumber(row.actual_balance_in_quarter_n_4),
+                        formatStringNumber(row.actual_balance_in_quarter_n_5),
                         '+',
                     ),
-                    formatStringNumber(row['Actual balance in quarter n-6']),
+                    formatStringNumber(row.actual_balance_in_quarter_n_6),
                     '+',
                 ),
-                formatStringNumber(row['Actual balance in quarter n-7']),
+                formatStringNumber(row.actual_balance_in_quarter_n_7),
                 '+',
             ),
             exchangeRate,
@@ -55,14 +55,14 @@ function calFinancialDataGlActualBalanceAverage(row) {
             calculate(
                 calculate(
                     calculate(
-                        formatStringNumber(row['Actual balance in quarter n']),
-                        formatStringNumber(row['Actual balance in quarter n-1']),
+                        formatStringNumber(row.actual_balance_in_quarter_n),
+                        formatStringNumber(row.actual_balance_in_quarter_n_1),
                         '+',
                     ),
-                    formatStringNumber(row['Actual balance in quarter n-2']),
+                    formatStringNumber(row.actual_balance_in_quarter_n_2),
                     '+',
                 ),
-                formatStringNumber(row['Actual balance in quarter n-3']),
+                formatStringNumber(row.actual_balance_in_quarter_n_3),
                 '+',
             ),
             exchangeRate,
@@ -83,11 +83,11 @@ function calOperationalRiskLossDataAverage(row) {
         calculate(
             calculate(
                 calculate(
-                    calculate(formatStringNumber(row['Quarter n-16']), formatStringNumber(row['Quarter n-17']), '+'),
-                    formatStringNumber(row['Quarter n-18']),
+                    calculate(formatStringNumber(row.quarter_n_16), formatStringNumber(row.quarter_n_17), '+'),
+                    formatStringNumber(row.quarter_n_18),
                     '+',
                 ),
-                formatStringNumber(row['Quarter n-19']),
+                formatStringNumber(row.quarter_n_19),
                 '+',
             ),
             exchangeRate,
@@ -101,11 +101,11 @@ function calOperationalRiskLossDataAverage(row) {
         calculate(
             calculate(
                 calculate(
-                    calculate(formatStringNumber(row['Quarter n-12']), formatStringNumber(row['Quarter n-13']), '+'),
-                    formatStringNumber(row['Quarter n-14']),
+                    calculate(formatStringNumber(row.quarter_n_12), formatStringNumber(row.quarter_n_13), '+'),
+                    formatStringNumber(row.quarter_n_14),
                     '+',
                 ),
-                formatStringNumber(row['Quarter n-15']),
+                formatStringNumber(row.quarter_n_15),
                 '+',
             ),
             exchangeRate,
@@ -119,11 +119,11 @@ function calOperationalRiskLossDataAverage(row) {
         calculate(
             calculate(
                 calculate(
-                    calculate(formatStringNumber(row['Quarter n-8']), formatStringNumber(row['Quarter n-9']), '+'),
-                    formatStringNumber(row['Quarter n-10']),
+                    calculate(formatStringNumber(row.quarter_n_8), formatStringNumber(row.quarter_n_9), '+'),
+                    formatStringNumber(row.quarter_n_10),
                     '+',
                 ),
-                formatStringNumber(row['Quarter n-11']),
+                formatStringNumber(row.quarter_n_11),
                 '+',
             ),
             exchangeRate,
@@ -137,11 +137,11 @@ function calOperationalRiskLossDataAverage(row) {
         calculate(
             calculate(
                 calculate(
-                    calculate(formatStringNumber(row['Quarter n-4']), formatStringNumber(row['Quarter n-5']), '+'),
-                    formatStringNumber(row['Quarter n-6']),
+                    calculate(formatStringNumber(row.quarter_n_4), formatStringNumber(row.quarter_n_5), '+'),
+                    formatStringNumber(row.quarter_n_6),
                     '+',
                 ),
-                formatStringNumber(row['Quarter n-7']),
+                formatStringNumber(row.quarter_n_7),
                 '+',
             ),
             exchangeRate,
@@ -155,11 +155,11 @@ function calOperationalRiskLossDataAverage(row) {
         calculate(
             calculate(
                 calculate(
-                    calculate(formatStringNumber(row['Quarter n']), formatStringNumber(row['Quarter n-1']), '+'),
-                    formatStringNumber(row['Quarter n-2']),
+                    calculate(formatStringNumber(row.quarter_n), formatStringNumber(row.quarter_n_1), '+'),
+                    formatStringNumber(row.quarter_n_2),
                     '+',
                 ),
-                formatStringNumber(row['Quarter n-3']),
+                formatStringNumber(row.quarter_n_3),
                 '+',
             ),
             exchangeRate,
@@ -287,7 +287,7 @@ export default function calSMAOR() {
                         calculate(Math.max(FIAverage, FEAverage), calculate(0.5, uBI, '*'), '+'),
                         calculate(0.1, calculate(Math.max(FIAverage, FEAverage), calculate(0.5, uBI, '*'), '-'), '*'),
                         '+',
-                    )
+                    ),
                 ),
             ),
             '+',

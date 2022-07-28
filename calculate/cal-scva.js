@@ -71,19 +71,19 @@ export default function calSCVA() {
         // ket thuc - can phai xoa
 
         dataDeal.forEach((element) => {
-            if (!element.V_NETTING_CODE) return;
+            if (!element.v_netting_code) return;
 
             // Effective maturity of each transaction
-            effectiveMaturityOfEachTransaction[element.V_INSTRUMENT_CODE] =
-                effectiveMaturityOfEachTransactionFake[element.V_INSTRUMENT_CODE]; // chua biet tinh => fake data
+            effectiveMaturityOfEachTransaction[element.v_instrument_code] =
+                effectiveMaturityOfEachTransactionFake[element.v_instrument_code]; // chua biet tinh => fake data
 
-            if (!sumNotionalAmountInLcyOfEachNettingSet[element.V_NETTING_CODE]) {
-                sumNotionalAmountInLcyOfEachNettingSet[element.V_NETTING_CODE] = 0;
+            if (!sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code]) {
+                sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code] = 0;
             }
 
-            sumNotionalAmountInLcyOfEachNettingSet[element.V_NETTING_CODE] = calculate(
-                formatStringNumber(element.N_NOTIONAL_AMT),
-                sumNotionalAmountInLcyOfEachNettingSet[element.V_NETTING_CODE],
+            sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code] = calculate(
+                formatStringNumber(element.n_notional_amt),
+                sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code],
                 '+',
             );
         });
@@ -91,20 +91,20 @@ export default function calSCVA() {
         const weightOfEachTransactionInItsNettingSet = {};
         const effectiveMaturityMultipliedByWeightOfEachTransacion = {};
         dataDeal.forEach((element) => {
-            if (!element.V_NETTING_CODE) return;
+            if (!element.v_netting_code) return;
 
             // Weight of each transacion in its netting set
-            weightOfEachTransactionInItsNettingSet[element.V_INSTRUMENT_CODE] = calculate(
-                element.N_NOTIONAL_AMT,
-                sumNotionalAmountInLcyOfEachNettingSet[element.V_NETTING_CODE],
+            weightOfEachTransactionInItsNettingSet[element.v_instrument_code] = calculate(
+                element.n_notional_amt,
+                sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code],
                 '/',
             );
 
             // Effective maturity * Weight of each transacion in its netting set
 
-            effectiveMaturityMultipliedByWeightOfEachTransacion[element.V_INSTRUMENT_CODE] = calculate(
-                effectiveMaturityOfEachTransaction[element.V_INSTRUMENT_CODE],
-                weightOfEachTransactionInItsNettingSet[element.V_INSTRUMENT_CODE],
+            effectiveMaturityMultipliedByWeightOfEachTransacion[element.v_instrument_code] = calculate(
+                effectiveMaturityOfEachTransaction[element.v_instrument_code],
+                weightOfEachTransactionInItsNettingSet[element.v_instrument_code],
                 '*',
             );
         });
@@ -114,31 +114,31 @@ export default function calSCVA() {
         const sectorOfCounterpartyHashmap = {};
         const creditRatingHashmap = {};
         dataDeal.forEach((element) => {
-            if (!element.V_NETTING_CODE) return;
+            if (!element.v_netting_code) return;
 
-            if (!effectiveMaturity[element.V_NETTING_CODE]) {
-                effectiveMaturity[element.V_NETTING_CODE] = 0;
+            if (!effectiveMaturity[element.v_netting_code]) {
+                effectiveMaturity[element.v_netting_code] = 0;
             }
 
             // Counterparty
-            if (!counterpartyNettingCode[element.V_NETTING_CODE]) {
-                counterpartyNettingCode[element.V_NETTING_CODE] = element.V_PARTY_ID;
+            if (!counterpartyNettingCode[element.v_netting_code]) {
+                counterpartyNettingCode[element.v_netting_code] = element.v_party_id;
             }
 
             // Sector of Counterparty
-            if (!sectorOfCounterpartyHashmap[element.V_PARTY_ID]) {
-                sectorOfCounterpartyHashmap[element.V_PARTY_ID] = element.SECTOR_OF_COUNTERPARTY;
+            if (!sectorOfCounterpartyHashmap[element.v_party_id]) {
+                sectorOfCounterpartyHashmap[element.v_party_id] = element.sector_of_counterparty;
             }
 
             // Credit rating (Investment Grade/High Yield - Not rated) credit_rating
-            if (!creditRatingHashmap[element.V_PARTY_ID]) {
-                creditRatingHashmap[element.V_PARTY_ID] = element.credit_rating;
+            if (!creditRatingHashmap[element.v_party_id]) {
+                creditRatingHashmap[element.v_party_id] = element.credit_rating;
             }
 
             // Effective maturity
-            effectiveMaturity[element.V_NETTING_CODE] = calculate(
-                effectiveMaturity[element.V_NETTING_CODE],
-                effectiveMaturityMultipliedByWeightOfEachTransacion[element.V_INSTRUMENT_CODE],
+            effectiveMaturity[element.v_netting_code] = calculate(
+                effectiveMaturity[element.v_netting_code],
+                effectiveMaturityMultipliedByWeightOfEachTransacion[element.v_instrument_code],
                 '+',
             );
         });
@@ -195,6 +195,7 @@ export default function calSCVA() {
             // SCVA
             scva[key] = calculate(calculate(1 / 1.4, riskWeight, '*'), sumCounterpartyNettingCode[key], '*');
         }
+        console.log(1);
         return scva;
     } catch (error) {
         console.error(`calculate - calSCVA - catch error: ${error.message}`);
