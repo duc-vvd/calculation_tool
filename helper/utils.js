@@ -31,3 +31,24 @@ function getStartDate(time1, time2) {
 }
 
 export { formatStringNumber, yearfrac, yearfrac3, getStartDate };
+
+export const actionLogsTemplate = {
+    LOGIN: () => `Login`,
+    UPLOAD_FILE: (inputData) => `Push the file '${inputData}' to the system`,
+    UPLOAD_FILE_ERROR: (fileName, error) => `The file '${fileName}' - Error: ${error}`,
+    DELETE_FILE: (inputData) => `Delete the file '${inputData}' from the system`,
+    CREATE_USER: (inputData) => `Create new user: ${inputData}`,
+    CREATE_ROLE: (inputData) => `Create new role: ${inputData}`,
+    CREATE_RW: () => `Create new Risk Weights`,
+    CREATE_MB: () => `Create new Master Tables`,
+    UPDATE_USER: (inputData) => `Update user: ${inputData}`,
+    UPDATE_ROLE: (inputData) => `Update role: ${inputData}`,
+    UPDATE_RW: () => `Update Risk Weights`,
+    UPDATE_MB: () => `Update Master Tables`,
+    UPDATE_RW_K_OPTIONS: () => `Update Risk Weights of K_Option module`,
+    DELETE_USER: (inputData) => `Delete the user '${inputData}' from the system`,
+    VIEW_FILE: (inputData) => `View the report '${inputData}' in the system`,
+    VIEW_LIST_FILE: (inputData) => `View the list of reports generated from file '${inputData}' in the system`,
+    VIEW_LIST_USERS: () => `View the list of users in the system`,
+    DOWNLOAD_REPORT: (inputData) => `Download the report '${inputData}' from the system`,
+}

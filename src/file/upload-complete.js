@@ -1,7 +1,9 @@
 import fs from 'fs';
 import errorCode from '../../common/error-code.js';
 import { readFileXlsx, exportSAMR, exportEAD, exportCVA, exportSAMOR } from '../../helper/file-utils.js';
+import { actionLogsTemplate } from '../../helper/utils.js';
 import { calSaMr, calEAD, calCVA, calSMAOR } from '../../calculate/index.js';
+import { dbManager } from '../../database/index.js'
 
 function move(oldPath, newPath, callback) {
     fs.rename(oldPath, newPath, function (err) {
@@ -45,8 +47,24 @@ function moveAsync(oldPath, newPath) {
 export default async function (req, res) {
     try {
         const { originFileName, fileGuid, reportName } = req.query;
-        var oldPath = `${process.cwd()}/data/temp/${fileGuid}`;
-        var newPath = `${process.cwd()}/data/input/${originFileName}`;
+        const oldPath = `${process.cwd()}/data/temp/${fileGuid}`;
+        const newPath = `${process.cwd()}/data/input/${originFileName}`;
+        const usernameInToken = ''
+        const fullname = ''
+
+        if (await dbManager.isFileExisted(originFileName)) {
+            return res.send({
+                ErrorCode: errorCode.EXIST,
+                Success: false
+            })
+        }
+
+        await dbManager.createActionLogs({
+            username: usernameInToken,
+            fullname,
+            action: actionLogsTemplate.UPLOAD_FILE(originFileName),
+            time: new Date(),
+        })
 
         moveAsync(oldPath, newPath);
         await readFileXlsx(newPath);
@@ -58,12 +76,20 @@ export default async function (req, res) {
         console.log({ SAMRData, EAD: EADData, CVA: CVAData, SMA_OR: SMAORData });
 
         const reportDetailSAMR = await exportSAMR(SAMRData, reportName, `${reportName}_DETAIL_SA_MR.xlsx`);
-
         const reportEAD = await exportEAD(EADData, reportName, `${reportName}_DETAIL_EAD.xlsx`);
-
         const reportCVA = await exportCVA(CVAData, reportName, `${reportName}_DETAIL_CVA.xlsx`);
-
         const reportSAMOR = await exportSAMOR(SMAORData, reportName, `${reportName}_DETAIL_SAM_OR.xlsx`);
+
+        const ListReportCreated = [reportDetailSAMR, reportEAD, reportCVA, reportSAMOR];
+        await Promise.all([
+            dbManager.createListReports(ListReportCreated),
+            dbManager.createFile({
+                file_name: originFileName,
+                path: '',
+                username: usernameInToken,
+                created: new Date,
+            })
+        ])
 
         res.send({
             Data: {
@@ -89,6 +115,12 @@ export default async function (req, res) {
     } catch (error) {
         const msg = `upload-complete - catch error: ${error?.message || JSON.stringify({ error })}`;
         console.error(msg);
+        await dbManager.createActionLogs({
+            username: usernameInToken,
+            fullname,
+            action: actionLogsTemplate.UPLOAD_FILE_ERROR(originFileName, error?.message || JSON.stringify({ error })),
+            time: new Date(),
+        })
         res.send({ ErrorCode: errorCode.UNKNOWN_ERROR, Data: msg, Success: false });
     }
 }

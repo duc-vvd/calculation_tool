@@ -1,3 +1,47 @@
+export const TABLE_NAME = {
+    FILE: 'file',
+    REPORT: 'report',
+    ACTION_LOGS: 'action_logs',
+};
+
+export const ENTITY_ACTION = {
+    INSERT: 'INSERT',
+    INSERT_BATCH: 'INSERT_BATCH',
+    INSERT_OR_UPDATE: 'INSERT_OR_UPDATE',
+    UPDATE: 'UPDATE',
+    DELETE: 'DELETE',
+    GET_PAGGING: 'GET_PAGGING',
+    GET_PAGGING_UNION: 'GET_PAGGING_UNION',
+    GET_COUNT: 'GET_COUNT',
+    SELECT: 'SELECT'
+};
+
+
+export const LOGICAL = {
+    AND: 'AND',
+    OR: 'OR'
+};
+
+export const OPERATOR = {
+    EQUAL: '=',
+    NOT_EQUAL: '<>',
+    IN: 'IN',
+    NOT_IN: 'NOT IN',
+    GREATER: '>',
+    GREATER_OR_EQUAL: '>=',
+    LESS: '<',
+    LESS_OR_EQUAL: '<=',
+    LIKE: 'LIKE',
+    NOT_LIKE: 'NOT LIKE',
+    IS_NULL: 'IS NULL',
+    IS_NOT_NULL: 'IS NOT NULL',
+    START_WITH: 'LIKE',
+    END_WITH: 'LIKE',
+    NOT_START_WITH: 'NOT LIKE',
+    NOT_END_WITH: 'NOT LIKE',
+    MATCH: 'MATCH'
+};
+
 export const FILE = {
     STG_INSTRUMENT_CONTRACT_MASTER: 'STG_INSTRUMENT_CONTRACT_MASTER',
     STG_BANK_POSITIONS: 'STG_BANK_POSITIONS',
