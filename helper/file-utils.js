@@ -1,7 +1,8 @@
 import { default as readXlsxFile, readSheetNames } from 'read-excel-file/node';
 import writeXlsxFile from 'write-excel-file/node';
 
-import db from '../helper/db.js';
+import db from './db.js';
+import { getCurrentTimeSql } from './utils.js';
 import { FILE_HASHMAP, HASHMAP_KEY, SHEET_NAMES, SHEET_NAMES_HASHMAP } from '../common/enum.js';
 import { mappingDataDeal } from '../mapper/index.js';
 import { schemaXlsx } from '../schema/index.js';
@@ -49,7 +50,7 @@ function createReportDetail(fileName, reportName) {
         file_name: fileName,
         report_name: reportName,
         path: '/output/' + reportName,
-        created: new Date(),
+        created: getCurrentTimeSql(),
     };
 }
 

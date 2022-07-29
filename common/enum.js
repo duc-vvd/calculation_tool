@@ -2,6 +2,8 @@ export const TABLE_NAME = {
     FILE: 'file',
     REPORT: 'report',
     ACTION_LOGS: 'action_logs',
+    USER_INFO: 'user_info',
+    ROLE_GROUP: 'role_group',
 };
 
 export const ENTITY_ACTION = {
@@ -13,13 +15,12 @@ export const ENTITY_ACTION = {
     GET_PAGGING: 'GET_PAGGING',
     GET_PAGGING_UNION: 'GET_PAGGING_UNION',
     GET_COUNT: 'GET_COUNT',
-    SELECT: 'SELECT'
+    SELECT: 'SELECT',
 };
-
 
 export const LOGICAL = {
     AND: 'AND',
-    OR: 'OR'
+    OR: 'OR',
 };
 
 export const OPERATOR = {
@@ -39,7 +40,7 @@ export const OPERATOR = {
     END_WITH: 'LIKE',
     NOT_START_WITH: 'NOT LIKE',
     NOT_END_WITH: 'NOT LIKE',
-    MATCH: 'MATCH'
+    MATCH: 'MATCH',
 };
 
 export const FILE = {
@@ -614,4 +615,28 @@ export const MAPPING_FIELD_NAMES = {
         'Quarter n-1': 'quarter_n_1',
         'Quarter n': 'quarter_n',
     },
+};
+
+export const ROLE_NAME = {
+    CREATE_USER: 'CREATE_USER',
+    UPDATE_USER: 'UPDATE_USER',
+    DELETE_USER: 'DELETE_USER',
+    EDIT_PARAMETERS: 'EDIT_PARAMETERS',
+    UPLOAD_FILE: 'UPLOAD_FILE',
+    VIEW_REPORT: 'VIEW_REPORT',
+    DELETE_REPORT: 'DELETE_REPORT',
+    CREATE_ROLE: 'CREATE_ROLE',
+    UPDATE_ROLE: 'UPDATE_ROLE',
+};
+
+export const ROLE_NAME_ROLE_ID = {
+    CREATE_USER: 1,
+    UPDATE_USER: 2,
+    DELETE_USER: 3,
+    EDIT_PARAMETERS: 4,
+    UPLOAD_FILE: 5,
+    VIEW_REPORT: 6,
+    DELETE_REPORT: 7,
+    CREATE_ROLE: 8,
+    UPDATE_ROLE: 9,
 };

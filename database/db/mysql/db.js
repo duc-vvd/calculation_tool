@@ -2,8 +2,8 @@ import mysql from 'mysql';
 import clone from 'clone';
 import * as db_sql from './db_sql.js';
 
-import * as enumValue from '../common/enum.js'
-import * as utils from './utils.js'
+import * as enumValue from '../common/enum.js';
+import * as utils from './utils.js';
 
 const MAX_ITEMS_BATCH = 30000;
 
@@ -22,8 +22,7 @@ export function run(store_name, params, cb) {
         console.error(`DB: run: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
         return cb(null, enumValue.ERROR_CODE.UNKNOWN_ERROR);
     }
-
-};
+}
 
 export function exec(queryInput, cb, removeLog) {
     try {
@@ -55,28 +54,31 @@ export function exec(queryInput, cb, removeLog) {
             lstReturn += queryBuilder;
         }
         if (lstReturn) {
-            db_sql.executeTransaction(lstReturn, function res(data, err) {
-                if (err) {
-                    return cb(null, enumValue.ERROR_CODE.ExecuteTransaction);
-                }
-                return cb(data, null);
-            }, removeLog);
+            db_sql.executeTransaction(
+                lstReturn,
+                function res(data, err) {
+                    if (err) {
+                        return cb(null, enumValue.ERROR_CODE.ExecuteTransaction);
+                    }
+                    return cb(data, null);
+                },
+                removeLog,
+            );
         } else {
             return cb(null, enumValue.ERROR_CODE.LSTQUERY_NULL);
         }
-
     } catch (error) {
         console.error(`EXECUTE_QUERY: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
         return cb(null, enumValue.ERROR_CODE.UNKNOWN_ERROR);
     }
-};
+}
 
 export function execPaging(queryInput, cb) {
     const returnObj = {
         total_count: 0,
         total_pages: 0,
         current_page: 0,
-        data: []
+        data: [],
     };
     try {
         if (!queryInput) {
@@ -132,14 +134,14 @@ export function execPaging(queryInput, cb) {
         console.error(`EXECUTE_PAGGING: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
         return cb(returnObj, enumValue.ERROR_CODE.UNKNOWN_ERROR);
     }
-};
+}
 
 export function execPagingUnion(queryInput, cb) {
     const returnObj = {
         total_count: 0,
         total_pages: 0,
         current_page: 0,
-        data: []
+        data: [],
     };
     try {
         if (!queryInput) {
@@ -221,7 +223,7 @@ export function execPagingUnion(queryInput, cb) {
         console.error(`EXECUTE_PAGGING_UNION: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
         return cb(returnObj, enumValue.ERROR_CODE.UNKNOWN_ERROR);
     }
-};
+}
 
 export function execInsertBatch(queryInput, cb) {
     try {
@@ -257,16 +259,18 @@ export function execInsertBatch(queryInput, cb) {
                 const listArr = listBatch[i];
                 const listData = listArr.join(',');
                 const query = `INSERT INTO ${tableName} (${fields}) VALUES ${listData}`;
-                listPromise.push(new Promise(resolve => {
-                    db_sql.executeTransaction(query, function res(data, err) {
-                        if (err) {
-                            return resolve(null, enumValue.ERROR_CODE.ExecuteTransaction);
-                        }
-                        return resolve(data, null);
-                    });
-                }));
+                listPromise.push(
+                    new Promise((resolve) => {
+                        db_sql.executeTransaction(query, function res(data, err) {
+                            if (err) {
+                                return resolve(null, enumValue.ERROR_CODE.ExecuteTransaction);
+                            }
+                            return resolve(data, null);
+                        });
+                    }),
+                );
             }
-            Promise.all(listPromise).then(lstValue => {
+            Promise.all(listPromise).then((lstValue) => {
                 return cb(lstValue);
             });
         } else {
@@ -276,7 +280,7 @@ export function execInsertBatch(queryInput, cb) {
         console.error(`INSERT_BATCH: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
         return cb(null, enumValue.ERROR_CODE.UNKNOWN_ERROR);
     }
-};
+}
 
 function getFields(data, isGetProp) {
     try {
@@ -302,13 +306,13 @@ function getFields(data, isGetProp) {
         }
         return {
             strProp,
-            strVal: `(${strVal})`
+            strVal: `(${strVal})`,
         };
     } catch (error) {
         console.error(`DB: getInsertSql: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 export function buildQuery(option) {
     // gen ra build query theo tung type db
@@ -337,17 +341,11 @@ export function buildQuery(option) {
         return getDelSql(option);
     }
     return null;
-};
+}
 
 function getSelectSQl(option) {
     try {
-        const {
-            table,
-            fields,
-            condition,
-            order_by,
-            item_count
-        } = option;
+        const { table, fields, condition, order_by, item_count } = option;
         if (!table) return null;
         let query = 'SELECT ';
         if (!fields || !fields.length || fields.length <= 0) {
@@ -377,20 +375,11 @@ function getSelectSQl(option) {
         console.error(`DB: getSelectSQl: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function getPaggingSQl(option) {
     try {
-        const {
-            table,
-            fields,
-            condition,
-            order_by,
-            current_page,
-            item_count,
-            is_union,
-            field_count
-        } = option;
+        const { table, fields, condition, order_by, current_page, item_count, is_union, field_count } = option;
         if (!table) return null;
         let query = 'SELECT ';
         if (!fields || !fields.length || fields.length <= 0) {
@@ -420,15 +409,11 @@ function getPaggingSQl(option) {
         console.error(`DB: getPaggingSQl: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function getCountSQl(option) {
     try {
-        const {
-            table,
-            condition,
-            field_count
-        } = option;
+        const { table, condition, field_count } = option;
         if (!table) return null;
         let query = `SELECT COUNT(*) total_count FROM ${table}`;
         if (field_count) {
@@ -445,14 +430,11 @@ function getCountSQl(option) {
         console.error(`DB: getCountSQl: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function getInsertOrUpdateSql(option) {
     try {
-        const {
-            table,
-            data
-        } = option;
+        const { table, data } = option;
         if (!table || !data) return '';
         const props = [];
         const vals = [];
@@ -488,7 +470,6 @@ function getInsertOrUpdateSql(option) {
                     strVal += vals[i];
                     strUpdate += vals[i];
                 }
-
             }
             return `INSERT INTO ${table}(${strProp}) VALUES(${strVal}) ON DUPLICATE KEY UPDATE ${strUpdate}`;
         }
@@ -496,18 +477,15 @@ function getInsertOrUpdateSql(option) {
         console.error(`DB: getInsertSql: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function replaceString(strInput) {
     return mysql.escape(strInput);
-};
+}
 
 function getInsertSql(option) {
     try {
-        const {
-            table,
-            data
-        } = option;
+        const { table, data } = option;
         if (!table || !data) return '';
         const props = [];
         const vals = [];
@@ -542,15 +520,11 @@ function getInsertSql(option) {
         console.error(`DB: getInsertSql: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function getUpdateSql(option) {
     try {
-        const {
-            table,
-            data,
-            condition
-        } = option;
+        const { table, data, condition } = option;
         if (!table || !data) return '';
         const props = [];
         const vals = [];
@@ -585,14 +559,11 @@ function getUpdateSql(option) {
         console.error(`DB: getUpdateSql: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function getDelSql(option) {
     try {
-        const {
-            table,
-            condition
-        } = option;
+        const { table, condition } = option;
         if (!table) return '';
         const whereString = getCondition(condition);
         if (whereString) {
@@ -603,9 +574,7 @@ function getDelSql(option) {
         console.error(`DB: getDelSql: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
-
-
+}
 
 export function getCondition(condition_Input, table) {
     // view readme for example condition
@@ -633,9 +602,17 @@ export function getCondition(condition_Input, table) {
             if (descriptor.logical) {
                 conditionString = getCondition(descriptor, table);
             } else if (oriOpt === enumValue.OPERATOR.MATCH) {
-                conditionString = `MATCH(${descriptor.field}) AGAINST (${getValueData(descriptor.val, descriptor.opt, descriptor.sub_query)} IN BOOLEAN MODE)`;
+                conditionString = `MATCH(${descriptor.field}) AGAINST (${getValueData(
+                    descriptor.val,
+                    descriptor.opt,
+                    descriptor.sub_query,
+                )} IN BOOLEAN MODE)`;
             } else if (Reflect.has(descriptor, 'val')) {
-                conditionString = `${descriptor.field} ${oriOpt} ${getValueData(descriptor.val, descriptor.opt, descriptor.sub_query)}`;
+                conditionString = `${descriptor.field} ${oriOpt} ${getValueData(
+                    descriptor.val,
+                    descriptor.opt,
+                    descriptor.sub_query,
+                )}`;
             } else {
                 conditionString = `${descriptor.field} ${oriOpt}`;
             }
@@ -650,7 +627,7 @@ export function getCondition(condition_Input, table) {
         console.error(`DB: getCondition: ${error}`, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
     return null;
-};
+}
 
 function getValueData(valueInput, opt, is_sub) {
     if (valueInput === undefined) {
@@ -688,12 +665,17 @@ function getValueData(valueInput, opt, is_sub) {
         // neu boolean thi tra ve 0,1
         return valueInput ? 1 : 0;
     }
-    if (valueInput && typeof valueInput === 'object' && Reflect.has(valueInput, 'getTime') && typeof valueInput.getTime === 'function') {
+    if (
+        valueInput &&
+        typeof valueInput === 'object' &&
+        Reflect.has(valueInput, 'getTime') &&
+        typeof valueInput.getTime === 'function'
+    ) {
         // neu datetime thi lay getTime
         return valueInput.getTime();
     }
     return valueInput;
-};
+}
 
 function getListVal(arr) {
     const lst = [];
@@ -703,7 +685,10 @@ function getListVal(arr) {
             lst.push('NULL');
         } else if (typeof val === 'string') {
             lst.push(replaceString(val));
-        } else if (typeof val === 'boolean' || (val && typeof val === 'object' && Reflect.has(val, 'getTime') && typeof val.getTime === 'function')) {
+        } else if (
+            typeof val === 'boolean' ||
+            (val && typeof val === 'object' && Reflect.has(val, 'getTime') && typeof val.getTime === 'function')
+        ) {
             // neu boolean thi set gia tri 0/1
             // neu time thi set gia tri number
             if (typeof val === 'boolean') {
@@ -716,4 +701,4 @@ function getListVal(arr) {
         }
     }
     return lst;
-};
+}

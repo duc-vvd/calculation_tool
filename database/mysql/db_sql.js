@@ -1,15 +1,7 @@
 import mysql from 'mysql';
 import * as enumValue from './enum.js';
 
-const config = {
-    db: {
-        host: 'localhost',
-        port: 3306,
-        db_name: 'rwa_calculate',
-        username: 'duc',
-        password: 'Abc123456',
-    },
-};
+import config from '../../config/config-dbsql.json';
 
 let timeOutDeadlock = 0;
 const intervalDeadlock = config.db.interval_deadlock || 2;

@@ -1,14 +1,14 @@
 import mysql from 'mysql';
-import * as enumValue from '../common/enum.js'
+import * as enumValue from '../common/enum.js';
 
 const config = {
-    "db": {
-        "host": "172.17.8.8",
-        "port": 3306,
-        "db_name": "market_market_info",
-        "username": "qe_market",
-        "password": "8719772b5056e437df2f8edfa533e72e"
-    }
+    db: {
+        host: 'localhost',
+        port: 3306,
+        db_name: 'rwa_calculate',
+        username: 'duc',
+        password: 'Abc123456',
+    },
 };
 const intervalDeadlock = config.db.interval_deadlock || 2;
 const maxTimeDeadlock = config.db.max_time_deadlock || 60000;
@@ -26,10 +26,10 @@ db_config = {
     charset: process.env.DB_NAME || config.db ? config.db.charset : '',
     multipleStatements: true,
     acquireTimeout: 60000,
-    connectionLimit: 50
+    connectionLimit: 50,
 };
 
-const getPoolConnection = cb => {
+const getPoolConnection = (cb) => {
     if (!pool) {
         if (db_config) {
             pool = mysql.createPool(db_config);
@@ -39,7 +39,7 @@ const getPoolConnection = cb => {
             // ORDER: Select the first node available unconditionally.
             const poolConfig = {
                 removeNodeErrorCount: 1, // Remove the node immediately when connection fails.
-                defaultSelector: 'ORDER'
+                defaultSelector: 'ORDER',
             };
             pool = mysql.createPoolCluster(poolConfig);
             for (let i = 0; i < db_cluster_config.length; i++) {
@@ -70,15 +70,15 @@ const getPoolConnection = cb => {
     });
 };
 
-const isMysqlDeadlockError = err => {
+const isMysqlDeadlockError = (err) => {
     return err && (err.code === 'ER_LOCK_DEADLOCK' || err.code === 'ER_LOCK_WAIT_TIMEOUT');
 };
 
 export function executeTransaction(query, cb, removeLog) {
     // eslint-disable-next-line no-unused-expressions
     removeLog ? null : console.info(query);
-    getPoolConnection(conn => {
-        conn.beginTransaction(err1 => {
+    getPoolConnection((conn) => {
+        conn.beginTransaction((err1) => {
             if (err1) {
                 if (conn) {
                     conn.release();
@@ -123,7 +123,7 @@ export function executeTransaction(query, cb, removeLog) {
                     console.error(error, enumValue.HEALTH_CHECK_TYPE.INTERNAL);
                     return conn.rollback(() => cb(null, error));
                 }
-                conn.commit(err2 => {
+                conn.commit((err2) => {
                     if (err2) {
                         if (conn) {
                             conn.release();
@@ -156,11 +156,11 @@ export function executeTransaction(query, cb, removeLog) {
             });
         });
     });
-};
+}
 
 export function excuteQuery(query, cb) {
     console.info(query);
-    getPoolConnection(conn => {
+    getPoolConnection((conn) => {
         conn.query(query, (error, results, fields) => {
             if (error) {
                 if (conn) {
@@ -190,12 +190,12 @@ export function excuteQuery(query, cb) {
             return cb(results, null, fields);
         });
     });
-};
+}
 
 export function executeProcedure(storeName, params, cb) {
     console.info(`store: ${storeName}, params: ${params ? params.join(',') : 'null'}`);
-    getPoolConnection(conn => {
-        conn.beginTransaction(err1 => {
+    getPoolConnection((conn) => {
+        conn.beginTransaction((err1) => {
             if (err1) {
                 if (conn) {
                     conn.release();
@@ -253,7 +253,7 @@ export function executeProcedure(storeName, params, cb) {
                     console.error(error, enumValue.HEALTH_CHECK_TYPE.INTERNAL);
                     return conn.rollback(() => cb(null, error));
                 }
-                conn.commit(err2 => {
+                conn.commit((err2) => {
                     if (err2) {
                         if (conn) {
                             conn.release();
@@ -292,18 +292,18 @@ export function executeProcedure(storeName, params, cb) {
             });
         });
     });
-};
+}
 
 function endPool() {
     return new Promise((resolve, reject) => {
-        pool.end(err => {
+        pool.end((err) => {
             if (err) {
                 return reject();
             }
             return resolve();
         });
     });
-};
+}
 
 process.on('SIGINT', () => {
     endPool()

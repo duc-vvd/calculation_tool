@@ -1,9 +1,11 @@
 import fs from 'fs';
 import errorCode from '../../common/error-code.js';
+import { ROLE_NAME } from '../../common/enum.js';
 import { readFileXlsx, exportSAMR, exportEAD, exportCVA, exportSAMOR } from '../../helper/file-utils.js';
-import { actionLogsTemplate } from '../../helper/utils.js';
+import { actionLogsTemplate, getCurrentTimeSql, isHasRole } from '../../helper/utils.js';
 import { calSaMr, calEAD, calCVA, calSMAOR } from '../../calculate/index.js';
-import { dbManager } from '../../database/index.js'
+import { dbManager } from '../../database/index.js';
+import { getUserNameAndFullNameInToken } from '../../user/index.js';
 
 function move(oldPath, newPath, callback) {
     fs.rename(oldPath, newPath, function (err) {
@@ -46,25 +48,34 @@ function moveAsync(oldPath, newPath) {
 
 export default async function (req, res) {
     try {
+        const { usernameInToken, fullName } = getUserNameAndFullNameInToken(req) || {};
+        req.usernameInToken = usernameInToken;
+        req.fullName = fullName;
+
+        if (!(await isHasRole(usernameInToken, ROLE_NAME.UPLOAD_FILE))) {
+            return res.send({
+                ErrorCode: errorCode.PERMISSION_DENIED,
+                Success: false,
+            });
+        }
+
         const { originFileName, fileGuid, reportName } = req.query;
         const oldPath = `${process.cwd()}/data/temp/${fileGuid}`;
         const newPath = `${process.cwd()}/data/input/${originFileName}`;
-        const usernameInToken = ''
-        const fullname = ''
 
-        if (await dbManager.isFileExisted(originFileName)) {
+        if (await dbManager.isFileExisted(reportName)) {
             return res.send({
                 ErrorCode: errorCode.EXIST,
-                Success: false
-            })
+                Success: false,
+            });
         }
 
         await dbManager.createActionLogs({
             username: usernameInToken,
-            fullname,
-            action: actionLogsTemplate.UPLOAD_FILE(originFileName),
-            time: new Date(),
-        })
+            fullname: fullName,
+            action: actionLogsTemplate.UPLOAD_FILE(reportName),
+            time: getCurrentTimeSql(),
+        });
 
         moveAsync(oldPath, newPath);
         await readFileXlsx(newPath);
@@ -84,12 +95,12 @@ export default async function (req, res) {
         await Promise.all([
             dbManager.createListReports(ListReportCreated),
             dbManager.createFile({
-                file_name: originFileName,
+                file_name: reportName,
                 path: '',
                 username: usernameInToken,
-                created: new Date,
-            })
-        ])
+                created: getCurrentTimeSql(),
+            }),
+        ]);
 
         res.send({
             Data: {
@@ -115,12 +126,14 @@ export default async function (req, res) {
     } catch (error) {
         const msg = `upload-complete - catch error: ${error?.message || JSON.stringify({ error })}`;
         console.error(msg);
-        await dbManager.createActionLogs({
-            username: usernameInToken,
-            fullname,
-            action: actionLogsTemplate.UPLOAD_FILE_ERROR(originFileName, error?.message || JSON.stringify({ error })),
-            time: new Date(),
-        })
         res.send({ ErrorCode: errorCode.UNKNOWN_ERROR, Data: msg, Success: false });
+        if (req.usernameInToken) {
+            await dbManager.createActionLogs({
+                username: req.usernameInToken,
+                fullname: req.fullName,
+                action: actionLogsTemplate.UPLOAD_FILE_ERROR(reportName, error?.message || JSON.stringify({ error })),
+                time: getCurrentTimeSql(),
+            });
+        }
     }
 }

@@ -1,5 +1,7 @@
 import moment from 'moment';
 import { calculate } from './operator.js';
+import { dbManager } from '../database/index.js';
+import { ROLE_NAME_ROLE_ID } from '../common/enum.js';
 
 // 71.403,09 => 71403.09
 function formatStringNumber(strNum) {
@@ -34,9 +36,9 @@ export { formatStringNumber, yearfrac, yearfrac3, getStartDate };
 
 export const actionLogsTemplate = {
     LOGIN: () => `Login`,
-    UPLOAD_FILE: (inputData) => `Push the file '${inputData}' to the system`,
-    UPLOAD_FILE_ERROR: (fileName, error) => `The file '${fileName}' - Error: ${error}`,
-    DELETE_FILE: (inputData) => `Delete the file '${inputData}' from the system`,
+    UPLOAD_FILE: (inputData) => `Push the file ${inputData} to the system`,
+    UPLOAD_FILE_ERROR: (fileName, error) => `The file ${fileName} - Error: ${error}`,
+    DELETE_FILE: (inputData) => `Delete the file ${inputData} from the system`,
     CREATE_USER: (inputData) => `Create new user: ${inputData}`,
     CREATE_ROLE: (inputData) => `Create new role: ${inputData}`,
     CREATE_RW: () => `Create new Risk Weights`,
@@ -46,9 +48,34 @@ export const actionLogsTemplate = {
     UPDATE_RW: () => `Update Risk Weights`,
     UPDATE_MB: () => `Update Master Tables`,
     UPDATE_RW_K_OPTIONS: () => `Update Risk Weights of K_Option module`,
-    DELETE_USER: (inputData) => `Delete the user '${inputData}' from the system`,
-    VIEW_FILE: (inputData) => `View the report '${inputData}' in the system`,
+    DELETE_USER: (inputData) => `Delete the user ${inputData} from the system`,
+    VIEW_FILE: (inputData) => `View the report ${inputData} in the system`,
     VIEW_LIST_FILE: (inputData) => `View the list of reports generated from file '${inputData}' in the system`,
     VIEW_LIST_USERS: () => `View the list of users in the system`,
-    DOWNLOAD_REPORT: (inputData) => `Download the report '${inputData}' from the system`,
+    DOWNLOAD_REPORT: (inputData) => `Download the report ${inputData} from the system`,
+};
+
+export function getCurrentTimeSql() {
+    return moment().format('YYYY-MM-DD HH:mm:ss');
+}
+
+export async function isHasRole(userName, roleName) {
+    const userInfo = await dbManager.getUserInfoByUserName(userName);
+
+    if (!userInfo) return;
+
+    const roleGroup = await dbManager.getRoleGroupByRoleGroupId(userInfo.role_group_id);
+
+    if (!roleGroup) return;
+
+    const roleId = ROLE_NAME_ROLE_ID[roleName];
+    const roleList = JSON.parse(roleGroup.role_list);
+
+    for (let i = 0; i < roleList.length; i++) {
+        const element = roleList[i];
+
+        if (element.roleId == roleId) {
+            return element.select == 1;
+        }
+    }
 }
