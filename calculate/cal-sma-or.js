@@ -316,18 +316,26 @@ export default function calSMAOR() {
 
         const ILM = Math.log(calculate(Math.exp(-1) - 1, calculate(lossComponent, BIComponent, '/'), '+'));
 
-        let SMAOR;
+        let SMA_OR;
         if (BI <= 1000) {
-            SMAOR = BIComponent;
+            SMA_OR = BIComponent;
         } else {
-            SMAOR = calculate(110, calculate(calculate(BIComponent, 110, '-'), ILM, '*'), '+');
+            SMA_OR = calculate(110, calculate(calculate(BIComponent, 110, '-'), ILM, '*'), '+');
         }
 
-        const SMAORVND = calculate(calculate(SMAOR, Math.pow(10, 6), '*'), exchangeRate, '*');
+        const SMA_OR_VND = calculate(calculate(SMA_OR, Math.pow(10, 6), '*'), exchangeRate, '*');
 
         return {
-            sma_or: SMAOR,
-            sma_or_vnd: SMAORVND,
+            uBI,
+            IDLC,
+            SC,
+            FC,
+            BI,
+            BI_Component: BIComponent,
+            Loss_Component: lossComponent,
+            ILM,
+            SMA_OR,
+            SMA_OR_VND,
         };
     } catch (error) {
         console.error(`calculate - calSMAOR - catch error: ${error.message}`);

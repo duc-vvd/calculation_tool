@@ -45,6 +45,7 @@ function parseRequest(req, res, next) {
         res.send({ ErrorCode: errorCode.DATA_INVALID, Data: error.message, Success: false });
     }
 }
+// http://localhost:5000/api/file/upload-chunks?id=1&fileName=43ecfb82-e1b6-4578-b0e6-ef70163f3d8b.xlsx
 // http://localhost:5000/api/file/upload-complete?originFileName=data+(1).xlsx&fileGuid=376870dc-0b7a-4a6b-812d-68d2ce40245c.xlsx&reportName=423
 export default function (app, domain) {
     app.post(`${domain}/upload-chunks`, uploadChunks);

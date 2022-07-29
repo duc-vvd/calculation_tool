@@ -42,8 +42,18 @@ export default function calCVA() {
         const kReduced = Math.sqrt(calculate(systematicComponentsOfCvaRisk, idiosyncraticComponentsOfCvaRisk, '+'));
 
         // Capital requirements (reduced)
-        const capitalRequirements = calculate(discountScalar, kReduced, '*');
-        return capitalRequirements;
+        const capital_requirements = calculate(discountScalar, kReduced, '*');
+
+        return {
+            capital_requirements,
+            discount_scalar: discountScalar,
+            k_reduced: kReduced,
+            systematic_components_of_cva_risk: systematicComponentsOfCvaRisk,
+            idiosyncratic_components_of_cva_risk: idiosyncraticComponentsOfCvaRisk,
+            sum_of_scva_over_counterparties: sumOfScvaOverCounterparties,
+            sum_of_scva_squared_over_counterparties: sumOfScvaSquaredOverCounterparties,
+            supervisory_correlation: supervisoryCorrelation,
+        };
     } catch (error) {
         console.error(`calculate - calCVA - catch error: ${error.message}`);
     }

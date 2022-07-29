@@ -23,8 +23,20 @@ export default function calSaMr() {
             vega: vegaFx + vegaGirr,
             curvature: curvatureFx + curvatureGirr,
         });
-        const total = DRC + RRAO + (deltaFx + deltaGirr) + (vegaFx + vegaGirr) + (curvatureFx + curvatureGirr);
-        return total;
+
+        const Delta = deltaFx + deltaGirr;
+        const Vega = vegaFx + vegaGirr;
+        const Curvature = curvatureFx + curvatureGirr;
+        const Total = DRC + RRAO + Delta + Vega + Curvature;
+
+        return {
+            DRC,
+            RRAO,
+            Delta,
+            Vega,
+            Curvature,
+            Total,
+        };
     } catch (error) {
         console.error(`calculate - calSaMr - catch error: ${error.message}`);
     }

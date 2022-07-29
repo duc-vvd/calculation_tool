@@ -8,23 +8,32 @@ import { calculate } from '../helper/operator.js';
 
 export default function calEAD() {
     try {
-        const EADUnmargined1111 = calEADUnmargined1111();
-        const EADUnmargined1113 = calEADUnmargined1113();
-        const EADUnmargined1114 = calEADUnmargined1114();
-        const EADUnmargined1115 = calEADUnmargined1115();
-        const EADMargined1112 = calEADMargined1112();
+        const EAD_unmargined_1111 = calEADUnmargined1111();
+        const EAD_unmargined_1113 = calEADUnmargined1113();
+        const EAD_unmargined_1114 = calEADUnmargined1114();
+        const EAD_unmargined_1115 = calEADUnmargined1115();
+        const EAD_margined_1112 = calEADMargined1112();
 
-        // EAD
-        const ead = calculate(
-            calculate(
-                EADUnmargined1111,
-                calculate(EADUnmargined1113, calculate(EADUnmargined1114, EADUnmargined1115, '+'), '+'),
-                '+',
-            ),
-            EADMargined1112,
+        const EAD_of_unmargined_transactions = calculate(
+            EAD_unmargined_1111,
+            calculate(EAD_unmargined_1113, calculate(EAD_unmargined_1114, EAD_unmargined_1115, '+'), '+'),
             '+',
         );
-        return ead;
+        const EAD_of_margined_transactions = EAD_margined_1112;
+
+        // EAD
+        const EAD = calculate(EAD_of_unmargined_transactions, EAD_of_margined_transactions, '+');
+
+        return {
+            EAD,
+            EAD_of_unmargined_transactions,
+            EAD_unmargined_1111,
+            EAD_unmargined_1113,
+            EAD_unmargined_1114,
+            EAD_unmargined_1115,
+            EAD_of_margined_transactions,
+            EAD_margined_1112,
+        };
     } catch (error) {
         console.error(`calculate - calEAD - catch error: ${error.message}`);
     }
