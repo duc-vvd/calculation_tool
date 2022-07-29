@@ -19,6 +19,7 @@
         "lodash": "^4.17.21",
         "lowdb": "^3.0.0",
         "moment": "^2.29.4",
+        "mysql": "^2.18.1",
         "node-xlsx": "^0.21.0",
         "read-excel-file": "^5.4.4",
         "uuid": "^8.3.2",
