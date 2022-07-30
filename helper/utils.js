@@ -15,7 +15,11 @@ function formatStringNumber(strNum) {
 
 // ("11/15/2021","11/14/2032") => 10
 function yearfrac(time1, time2) {
-    return Math.round(calculate(moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'days', true), 360, '/'));
+    const months = Math.floor(moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'months', true));
+    const timeTmp = moment(time1, 'MMDDYYYY').subtract(-months, 'months').format('MMDDYYYY');
+    const days = Math.floor(moment(time2, 'MMDDYYYY').diff(moment(timeTmp, 'MMDDYYYY'), 'days', true));
+    const result = (months + days / 30) / 12;
+    return result;
 }
 
 // ("11/15/2021","11/14/2032") => 10.01
@@ -78,4 +82,41 @@ export async function isHasRole(userName, roleName) {
             return element.select == 1;
         }
     }
+}
+
+// SCVA H5 =DURATION(D5;E5;F5%;0;1;3)
+export function durationExcel(extractionDate, maturityDateOfContract, interestRate, notionalAmountInLcy) {
+    if (moment(extractionDate, 'MMDDYYYY').isAfter(moment(maturityDateOfContract, 'MMDDYYYY'))) {
+        throw new Error('durationExcel - input data invalid');
+    }
+
+    let period = yearfrac3(extractionDate, maturityDateOfContract);
+    if (period > 3) {
+        period = Math.round(period);
+    }
+    let cashflow = calculate(
+        calculate(calculate(interestRate, 100, '/'), notionalAmountInLcy, '*'),
+        notionalAmountInLcy,
+        '+',
+    );
+    let numerator = calculate(period, cashflow, '*');
+    let totalCashflow = cashflow;
+    let totalNumerator = numerator;
+
+    let timeAYearAgo = moment(maturityDateOfContract, 'MMDDYYYY').subtract(1, 'years').format('MMDDYYYY');
+
+    while (moment(extractionDate, 'MMDDYYYY').isBefore(moment(timeAYearAgo, 'MMDDYYYY'))) {
+        period = yearfrac3(extractionDate, timeAYearAgo);
+        if (period > 3) {
+            period = Math.round(period);
+        }
+        cashflow = cashflow = calculate(calculate(interestRate, 100, '/'), notionalAmountInLcy, '*');
+        numerator = calculate(period, cashflow, '*');
+        totalCashflow = calculate(cashflow, totalCashflow, '+');
+        totalNumerator = calculate(numerator, totalNumerator, '+');
+        timeAYearAgo = moment(timeAYearAgo, 'MMDDYYYY').subtract(1, 'years').format('MMDDYYYY');
+    }
+
+    const result = calculate(totalNumerator, totalCashflow, '/');
+    return result;
 }

@@ -43,24 +43,6 @@ export default function calAddOnUnmargined1111IRD() {
             if (element.v_asset_class !== 'Interest rate') return;
             if (!element.v_ccy_code) return;
 
-            // bat dau - can phai xoa
-            if (
-                ![
-                    'IRS_10001',
-                    'IRS_10002',
-                    'CCS_1.2',
-                    'CCS_2.2',
-                    'FXSWP_1.2',
-                    'FXSWP_2.2',
-                    'CCS_1.1',
-                    'CCS_2.1',
-                    'FXSWP_1.1',
-                    'FXSWP_2.1',
-                ].includes(element.v_instrument_code)
-            )
-                return;
-            // ket thuc - can phai xoa
-
             // Maturity
             let maturity = yearfrac(element.fic_mis_date, element.d_maturity_date);
             // Start date

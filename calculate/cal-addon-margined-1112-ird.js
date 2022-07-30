@@ -46,10 +46,6 @@ export default function calAddOnMargined1112IRD() {
             if (element.v_asset_class !== assetClass || element.v_netting_code != nettingCode) return;
             if (!element.v_ccy_code) return;
 
-            // bat dau - can phai xoa
-            if (!['IRS_10003', 'IRS_10004'].includes(element.v_instrument_code)) return;
-            // ket thuc - can phai xoa
-
             // Maturity
             let maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
             // Start date

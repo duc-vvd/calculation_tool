@@ -8,7 +8,7 @@ import calEADMargined1112 from './cal-ead-margined-1112.js';
 
 import db from '../helper/db.js';
 import { calculate } from '../helper/operator.js';
-import { formatStringNumber, yearfrac3 } from '../helper/utils.js';
+import { formatStringNumber, yearfrac3, durationExcel } from '../helper/utils.js';
 
 export default function calSCVA() {
     try {
@@ -42,40 +42,16 @@ export default function calSCVA() {
             'Other sector': 0.12,
         };
 
-        // bat dau - can phai xoa
-        const effectiveMaturityOfEachTransactionFake = {
-            IRS_10001: 5.681701031,
-            IRS_10002: 3.081818182,
-            IRS_10003: 5.737244898,
-            IRS_10004: 2.995238095,
-            'CCS_1.1': 5.573770492,
-            'CCS_1.2': 5.714285714,
-            'CCS_2.1': 6.05,
-            'CCS_2.2': 6.111111111,
-            FXOP_1: 1.048232323,
-            FXOP_2: 1.032189542,
-            FXOP_3: 1.041239316,
-            FXFWD_1: 1.538461538,
-            FXFWD_2: 1.029093567,
-            FXFWD_3: 1.058333333,
-            FXFWD_4: 1.068650794,
-            FXFWD_5: 1.042676768,
-            'FXSWP_1.1': 4.06,
-            'FXSWP_1.2': 4.2,
-            'FXSWP_2.1': 5.563380282,
-            'FXSWP_2.2': 5.549450549,
-            FXFWD_6: 1.555555556,
-            FXFWD_7: 1.041239316,
-            IRS_10005: 5.681701031,
-        };
-        // ket thuc - can phai xoa
-
         dataDeal.forEach((element) => {
             if (!element.v_netting_code) return;
 
             // Effective maturity of each transaction
-            effectiveMaturityOfEachTransaction[element.v_instrument_code] =
-                effectiveMaturityOfEachTransactionFake[element.v_instrument_code]; // chua biet tinh => fake data
+            effectiveMaturityOfEachTransaction[element.v_instrument_code] = durationExcel(
+                element.fic_mis_date,
+                element.d_maturity_date,
+                formatStringNumber(element.interest_rate),
+                formatStringNumber(element.n_notional_amt),
+            );
 
             if (!sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code]) {
                 sumNotionalAmountInLcyOfEachNettingSet[element.v_netting_code] = 0;

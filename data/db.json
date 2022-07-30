@@ -6480,7 +6480,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8"
+      "interest_rate": 8
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6508,7 +6508,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2"
+      "interest_rate": 2
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6536,7 +6536,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6564,7 +6564,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6592,7 +6592,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6620,7 +6620,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2"
+      "interest_rate": 2
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6648,7 +6648,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9"
+      "interest_rate": 9
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6676,7 +6676,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6706,7 +6706,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5"
+      "interest_rate": 5
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6736,7 +6736,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8"
+      "interest_rate": 8
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6766,7 +6766,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6794,7 +6794,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6822,7 +6822,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9"
+      "interest_rate": 9
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6850,7 +6850,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6878,7 +6878,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "3"
+      "interest_rate": 3
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6906,7 +6906,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5"
+      "interest_rate": 5
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6934,7 +6934,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7"
+      "interest_rate": 7
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6962,7 +6962,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2"
+      "interest_rate": 2
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -6990,7 +6990,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7"
+      "interest_rate": 7
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -7018,7 +7018,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9"
+      "interest_rate": 9
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -7046,7 +7046,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -7074,7 +7074,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     {
       "fic_mis_date": "11/15/2021",
@@ -7102,7 +7102,7 @@
       "v_netting_code": "1114",
       "sector_of_counterparty": "Health care, utilities, professional and technical activities",
       "credit_rating_of_counterparty": "N/A",
-      "interest_rate": "8"
+      "interest_rate": 8
     }
   ],
   "STG_INSTRUMENT_CONTRACT_MASTER_2_HASHMAP": {
@@ -7132,7 +7132,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8"
+      "interest_rate": 8
     },
     "IRS_10002": {
       "fic_mis_date": "11/15/2021",
@@ -7160,7 +7160,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2"
+      "interest_rate": 2
     },
     "IRS_10003": {
       "fic_mis_date": "11/15/2021",
@@ -7188,7 +7188,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     "IRS_10004": {
       "fic_mis_date": "11/15/2021",
@@ -7216,7 +7216,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     "CCS_1.1": {
       "fic_mis_date": "11/15/2021",
@@ -7244,7 +7244,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     "CCS_1.2": {
       "fic_mis_date": "11/15/2021",
@@ -7272,7 +7272,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2"
+      "interest_rate": 2
     },
     "CCS_2.1": {
       "fic_mis_date": "11/15/2021",
@@ -7300,7 +7300,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9"
+      "interest_rate": 9
     },
     "CCS_2.2": {
       "fic_mis_date": "11/15/2021",
@@ -7328,7 +7328,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     "FXOP_1": {
       "fic_mis_date": "11/15/2021",
@@ -7358,7 +7358,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5"
+      "interest_rate": 5
     },
     "FXOP_2": {
       "fic_mis_date": "11/15/2021",
@@ -7388,7 +7388,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8"
+      "interest_rate": 8
     },
     "FXOP_3": {
       "fic_mis_date": "11/15/2021",
@@ -7418,7 +7418,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     "FXFWD_1": {
       "fic_mis_date": "11/15/2021",
@@ -7446,7 +7446,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     "FXFWD_2": {
       "fic_mis_date": "11/15/2021",
@@ -7474,7 +7474,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9"
+      "interest_rate": 9
     },
     "FXFWD_3": {
       "fic_mis_date": "11/15/2021",
@@ -7502,7 +7502,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     "FXFWD_4": {
       "fic_mis_date": "11/15/2021",
@@ -7530,7 +7530,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "3"
+      "interest_rate": 3
     },
     "FXFWD_5": {
       "fic_mis_date": "11/15/2021",
@@ -7558,7 +7558,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5"
+      "interest_rate": 5
     },
     "FXSWP_1.1": {
       "fic_mis_date": "11/15/2021",
@@ -7586,7 +7586,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7"
+      "interest_rate": 7
     },
     "FXSWP_1.2": {
       "fic_mis_date": "11/15/2021",
@@ -7614,7 +7614,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2"
+      "interest_rate": 2
     },
     "FXSWP_2.1": {
       "fic_mis_date": "11/15/2021",
@@ -7642,7 +7642,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7"
+      "interest_rate": 7
     },
     "FXSWP_2.2": {
       "fic_mis_date": "11/15/2021",
@@ -7670,7 +7670,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9"
+      "interest_rate": 9
     },
     "FXFWD_6": {
       "fic_mis_date": "11/15/2021",
@@ -7698,7 +7698,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "4"
+      "interest_rate": 4
     },
     "FXFWD_7": {
       "fic_mis_date": "11/15/2021",
@@ -7726,7 +7726,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "6"
+      "interest_rate": 6
     },
     "IRS_10005": {
       "fic_mis_date": "11/15/2021",
@@ -7754,7 +7754,7 @@
       "v_netting_code": "1114",
       "sector_of_counterparty": "Health care, utilities, professional and technical activities",
       "credit_rating_of_counterparty": "N/A",
-      "interest_rate": "8"
+      "interest_rate": 8
     }
   },
   "STG_NETTING": [
@@ -8334,7 +8334,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8",
+      "interest_rate": 8,
       "remaining_maturity": 10.005479452054795,
       "credit_rating": "IG"
     },
@@ -8364,7 +8364,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2",
+      "interest_rate": 2,
       "remaining_maturity": 4.002739726027397,
       "credit_rating": "IG"
     },
@@ -8394,7 +8394,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "remaining_maturity": 10.005479452054795,
       "credit_rating": "IG"
     },
@@ -8424,7 +8424,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "remaining_maturity": 4.002739726027397,
       "credit_rating": "IG"
     },
@@ -8454,7 +8454,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "remaining_maturity": 9.005479452054795,
       "credit_rating": "IG"
     },
@@ -8484,7 +8484,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2",
+      "interest_rate": 2,
       "remaining_maturity": 9.005479452054795,
       "credit_rating": "IG"
     },
@@ -8514,7 +8514,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9",
+      "interest_rate": 9,
       "remaining_maturity": 8.005479452054795,
       "credit_rating": "IG"
     },
@@ -8544,7 +8544,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "remaining_maturity": 8.005479452054795,
       "credit_rating": "IG"
     },
@@ -8576,7 +8576,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5",
+      "interest_rate": 5,
       "pair_ccy": "GBP/VND",
       "remaining_maturity": 0.29863013698630136,
       "credit_rating": "IG"
@@ -8609,7 +8609,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8",
+      "interest_rate": 8,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 0.4986301369863014,
       "credit_rating": "IG"
@@ -8642,7 +8642,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "pair_ccy": "JPY/VND",
       "remaining_maturity": 1.4986301369863013,
       "credit_rating": "IG"
@@ -8673,7 +8673,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "pair_ccy": "GBP/VND",
       "remaining_maturity": 1.8,
       "credit_rating": "IG"
@@ -8704,7 +8704,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9",
+      "interest_rate": 9,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 1.2986301369863014,
       "credit_rating": "IG"
@@ -8735,7 +8735,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "pair_ccy": "JPY/VND",
       "remaining_maturity": 0.6986301369863014,
       "credit_rating": "IG"
@@ -8766,7 +8766,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "3",
+      "interest_rate": 3,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 0.2,
       "credit_rating": "IG"
@@ -8797,7 +8797,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5",
+      "interest_rate": 5,
       "pair_ccy": "JPY/VND",
       "remaining_maturity": 0.8986301369863013,
       "credit_rating": "IG"
@@ -8828,7 +8828,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7",
+      "interest_rate": 7,
       "remaining_maturity": 5.002739726027397,
       "credit_rating": "IG"
     },
@@ -8858,7 +8858,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2",
+      "interest_rate": 2,
       "remaining_maturity": 5.002739726027397,
       "credit_rating": "IG"
     },
@@ -8888,7 +8888,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7",
+      "interest_rate": 7,
       "remaining_maturity": 7.005479452054795,
       "credit_rating": "IG"
     },
@@ -8918,7 +8918,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9",
+      "interest_rate": 9,
       "remaining_maturity": 7.005479452054795,
       "credit_rating": "IG"
     },
@@ -8948,7 +8948,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "pair_ccy": "GBP/VND",
       "remaining_maturity": 1.8,
       "credit_rating": "IG"
@@ -8979,7 +8979,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 1.2986301369863014,
       "credit_rating": "IG"
@@ -9010,7 +9010,7 @@
       "v_netting_code": "1114",
       "sector_of_counterparty": "Health care, utilities, professional and technical activities",
       "credit_rating_of_counterparty": "N/A",
-      "interest_rate": "8",
+      "interest_rate": 8,
       "remaining_maturity": 10.005479452054795,
       "credit_rating": "HY and NR"
     }
@@ -9042,7 +9042,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8",
+      "interest_rate": 8,
       "remaining_maturity": 10.005479452054795,
       "credit_rating": "IG"
     },
@@ -9072,7 +9072,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2",
+      "interest_rate": 2,
       "remaining_maturity": 4.002739726027397,
       "credit_rating": "IG"
     },
@@ -9102,7 +9102,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "remaining_maturity": 10.005479452054795,
       "credit_rating": "IG"
     },
@@ -9132,7 +9132,7 @@
       "v_netting_code": "1112",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "remaining_maturity": 4.002739726027397,
       "credit_rating": "IG"
     },
@@ -9162,7 +9162,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "remaining_maturity": 9.005479452054795,
       "credit_rating": "IG"
     },
@@ -9192,7 +9192,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2",
+      "interest_rate": 2,
       "remaining_maturity": 9.005479452054795,
       "credit_rating": "IG"
     },
@@ -9222,7 +9222,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9",
+      "interest_rate": 9,
       "remaining_maturity": 8.005479452054795,
       "credit_rating": "IG"
     },
@@ -9252,7 +9252,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "remaining_maturity": 8.005479452054795,
       "credit_rating": "IG"
     },
@@ -9284,7 +9284,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5",
+      "interest_rate": 5,
       "pair_ccy": "GBP/VND",
       "remaining_maturity": 0.29863013698630136,
       "credit_rating": "IG"
@@ -9317,7 +9317,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "8",
+      "interest_rate": 8,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 0.4986301369863014,
       "credit_rating": "IG"
@@ -9350,7 +9350,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "pair_ccy": "JPY/VND",
       "remaining_maturity": 1.4986301369863013,
       "credit_rating": "IG"
@@ -9381,7 +9381,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "pair_ccy": "GBP/VND",
       "remaining_maturity": 1.8,
       "credit_rating": "IG"
@@ -9412,7 +9412,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9",
+      "interest_rate": 9,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 1.2986301369863014,
       "credit_rating": "IG"
@@ -9443,7 +9443,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "pair_ccy": "JPY/VND",
       "remaining_maturity": 0.6986301369863014,
       "credit_rating": "IG"
@@ -9474,7 +9474,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "3",
+      "interest_rate": 3,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 0.2,
       "credit_rating": "IG"
@@ -9505,7 +9505,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "5",
+      "interest_rate": 5,
       "pair_ccy": "JPY/VND",
       "remaining_maturity": 0.8986301369863013,
       "credit_rating": "IG"
@@ -9536,7 +9536,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7",
+      "interest_rate": 7,
       "remaining_maturity": 5.002739726027397,
       "credit_rating": "IG"
     },
@@ -9566,7 +9566,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "2",
+      "interest_rate": 2,
       "remaining_maturity": 5.002739726027397,
       "credit_rating": "IG"
     },
@@ -9596,7 +9596,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "7",
+      "interest_rate": 7,
       "remaining_maturity": 7.005479452054795,
       "credit_rating": "IG"
     },
@@ -9626,7 +9626,7 @@
       "v_netting_code": "1111",
       "sector_of_counterparty": "Technology, telecommunications",
       "credit_rating_of_counterparty": "Baa1",
-      "interest_rate": "9",
+      "interest_rate": 9,
       "remaining_maturity": 7.005479452054795,
       "credit_rating": "IG"
     },
@@ -9656,7 +9656,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "4",
+      "interest_rate": 4,
       "pair_ccy": "GBP/VND",
       "remaining_maturity": 1.8,
       "credit_rating": "IG"
@@ -9687,7 +9687,7 @@
       "v_netting_code": "1113",
       "sector_of_counterparty": "Sovereigns including central banks and multilateral development banks",
       "credit_rating_of_counterparty": "Baa3",
-      "interest_rate": "6",
+      "interest_rate": 6,
       "pair_ccy": "EUR/VND",
       "remaining_maturity": 1.2986301369863014,
       "credit_rating": "IG"
@@ -9718,7 +9718,7 @@
       "v_netting_code": "1114",
       "sector_of_counterparty": "Health care, utilities, professional and technical activities",
       "credit_rating_of_counterparty": "N/A",
-      "interest_rate": "8",
+      "interest_rate": 8,
       "remaining_maturity": 10.005479452054795,
       "credit_rating": "HY and NR"
     }

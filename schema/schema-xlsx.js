@@ -221,7 +221,7 @@ export default {
         V_NETTING_CODE: { prop: 'v_netting_code', type: String },
         SECTOR_OF_COUNTERPARTY: { prop: 'sector_of_counterparty', type: String },
         CREDIT_RATING_OF_COUNTERPARTY: { prop: 'credit_rating_of_counterparty', type: String },
-        INTEREST_RATE: { prop: 'interest_rate', type: String },
+        INTEREST_RATE: { prop: 'interest_rate', type: Number },
     },
     STG_NETTING: {
         V_NETTING_CODE: { prop: 'v_netting_code', type: String },
