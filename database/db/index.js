@@ -1,44 +1,6 @@
-
-import * as enumValue from './common/enum.js'
-import * as db from './mysql/db.js'
-import * as db_sql from './mysql/db_sql.js'
-
-let is_db_processing = false;
-let lstQueryPending = null;
-let lstStorePending = null;
-
-const interValCheckDbProcess = setInterval(function res() {
-    console.info(`timer_get_db: ${is_db_processing}`);
-    if (is_db_processing) {
-        if (lstQueryPending) {
-            console.info('co list query pending');
-            for (const key in lstQueryPending) {
-                if (Reflect.has(lstQueryPending, key)) {
-                    const element = lstQueryPending[key];
-                    db.exec(element.query, (data, err) => {
-                        element.cb(data, err);
-                    });
-                }
-            }
-            lstQueryPending = null;
-        }
-        if (lstStorePending) {
-            console.info('co list store pending');
-            for (const key in lstStorePending) {
-                if (Reflect.has(lstStorePending, key)) {
-                    const element = lstStorePending[key];
-                    db.run(element.store.name, element.store.params, (data, err) => {
-                        element.cb(data, err);
-                    });
-                }
-            }
-            lstStorePending = null;
-        }
-        if (!lstQueryPending && !lstStorePending) {
-            clearInterval(interValCheckDbProcess);
-        }
-    }
-}, 2 * 1000);
+import * as enumValue from './common/enum.js';
+import * as db from './mysql/db.js';
+import * as db_sql from './mysql/db_sql.js';
 
 export function execStringQuery(strQuery, callback) {
     try {
@@ -52,7 +14,7 @@ export function execStringQuery(strQuery, callback) {
     } catch (error) {
         console.error(error, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
-};
+}
 
 export function exec(lstQuery, callback, removeLog) {
     try {
@@ -78,42 +40,30 @@ export function exec(lstQuery, callback, removeLog) {
                 callback(data, err);
             });
         } else {
-            db.exec(lstQuery, (data, err) => {
-                callback(data, err);
-            }, removeLog);
+            db.exec(
+                lstQuery,
+                (data, err) => {
+                    callback(data, err);
+                },
+                removeLog,
+            );
         }
     } catch (error) {
         console.error(error, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
-};
+}
 
 export function run(store_name, params, callback) {
     try {
         // store_name: ten store procedure
         // params: list params
-        if (!is_db_processing) {
-            console.info('not init db on run');
-            // chua init db thi init
-            if (!lstStorePending) {
-                lstStorePending = [];
-            }
-            const timeCurrent = Date.now();
-            lstStorePending[timeCurrent] = {
-                store: {
-                    name: store_name,
-                    params
-                },
-                cb: callback
-            };
-            return;
-        }
         db.run(store_name, params, (data, err) => {
             callback(data, err);
         });
     } catch (error) {
         console.error(error, enumValue.HEALTH_CHECK_TYPE.BUSINESS);
     }
-};
+}
 
 export function runAsync(store_name, params) {
     return new Promise((resolve, reject) => {
@@ -124,6 +74,8 @@ export function runAsync(store_name, params) {
             return resolve(data);
         });
     });
-};
+}
 
-export function buildQuery(query) { return db.buildQuery(query); }
+export function buildQuery(query) {
+    return db.buildQuery(query);
+}
