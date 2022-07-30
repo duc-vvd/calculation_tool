@@ -3,9 +3,10 @@ import writeXlsxFile from 'write-excel-file/node';
 
 import db from './db.js';
 import { getCurrentTimeSql } from './utils.js';
-import { FILE_HASHMAP, HASHMAP_KEY, SHEET_NAMES, SHEET_NAMES_HASHMAP } from '../common/enum.js';
+import { FILE_HASHMAP, HASHMAP_KEY, SHEET_NAMES, SHEET_NAMES_HASHMAP, FILE_PATH } from '../common/enum.js';
 import { mappingDataDeal } from '../mapper/index.js';
 import { schemaXlsx } from '../schema/index.js';
+import { OUTPUT_FILE_PATH } from '../common/index.js';
 
 async function readFileXlsxBySheetName(pathFile, sheet) {
     const fullSheetName = SHEET_NAMES_HASHMAP[sheet];
@@ -129,7 +130,7 @@ export async function exportSAMR(inputData, fileName, reportName) {
     ];
 
     await writeXlsxFile(data, {
-        filePath: `${process.cwd()}/data/output/${reportName}`,
+        filePath: `${OUTPUT_FILE_PATH}/${reportName}`,
     });
 
     return createReportDetail(fileName, reportName);
@@ -224,7 +225,7 @@ export async function exportEAD(inputData, fileName, reportName) {
     ];
 
     await writeXlsxFile(data, {
-        filePath: `${process.cwd()}/data/output/${reportName}`,
+        filePath: `${OUTPUT_FILE_PATH}/${reportName}`,
     });
 
     return createReportDetail(fileName, reportName);
@@ -329,7 +330,7 @@ export async function exportCVA(inputData, fileName, reportName) {
     ];
 
     await writeXlsxFile(data, {
-        filePath: `${process.cwd()}/data/output/${reportName}`,
+        filePath: `${OUTPUT_FILE_PATH}/${reportName}`,
     });
 
     return createReportDetail(fileName, reportName);
@@ -486,7 +487,7 @@ export async function exportSAMOR(inputData, fileName, reportName) {
     ];
 
     await writeXlsxFile(data, {
-        filePath: `${process.cwd()}/data/output/${reportName}`,
+        filePath: `${OUTPUT_FILE_PATH}/${reportName}`,
     });
 
     return createReportDetail(fileName, reportName);

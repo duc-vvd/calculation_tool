@@ -5,11 +5,12 @@ import errorCode from '../../common/error-code.js';
 import uploadChunks from './upload-chunks.js';
 import uploadComplete from './upload-complete.js';
 import uploadFile from './upload-file.js';
+import { INPUT_FILE_PATH } from '../../common/index.js';
 
 function parseRequest(req, res, next) {
     try {
         const form = new formidable.IncomingForm({
-            uploadDir: './data/input',
+            uploadDir: INPUT_FILE_PATH,
             keepExtensions: true,
             multiples: true,
             filename: (name, ext) => `${name}${ext}`,

@@ -640,3 +640,9 @@ export const ROLE_NAME_ROLE_ID = {
     CREATE_ROLE: 8,
     UPDATE_ROLE: 9,
 };
+
+export const FILE_PATH = {
+    OUTPUT: `${process.cwd()}/data/output`,
+    INPUT: `${process.cwd()}/data/input`,
+    TEMP: `${process.cwd()}/data/temp`,
+};

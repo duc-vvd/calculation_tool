@@ -1,12 +1,11 @@
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
-
+import { configApp as config } from './config/index.js';
 import routerBase from './src/index.js';
 
 const app = express();
-const port = 3000;
-const domain = 'api';
+const port = config.port;
+const domain = config.domain;
 
 app.use(cors());
 

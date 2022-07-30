@@ -3,6 +3,7 @@ import errorCode from '../../common/error-code.js';
 import { ROLE_NAME } from '../../common/enum.js';
 import { isHasRole } from '../../helper/utils.js';
 import { getUserNameAndFullNameInToken } from '../../user/index.js';
+import { TEMP_FILE_PATH } from '../../common/index.js';
 
 export default async function (req, res) {
     try {
@@ -23,7 +24,7 @@ export default async function (req, res) {
             console.error(msg);
             return res.send({ ErrorCode: errorCode.DATA_INVALID, Data: msg, Success: false });
         }
-        const path = `${process.cwd()}/data/temp/${req.query.fileName}`;
+        const path = `${TEMP_FILE_PATH}/${req.query.fileName}`;
         var writeStream = fs.createWriteStream(path, { flags: 'a' });
         req.pipe(writeStream, { end: false });
         req.on('end', function () {
