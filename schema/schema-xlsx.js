@@ -1,6 +1,16 @@
+import { FORMAT_TIME_IN_FILE } from '../common/enum.js';
+import moment from 'moment';
+
+function checkDate(value) {
+    if (!moment(value, FORMAT_TIME_IN_FILE, true).isValid()) {
+        throw new Error('invalid');
+    }
+    return value;
+}
+
 export default {
     STG_INSTRUMENT_CONTRACT_MASTER: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_INSTRUMENT_CODE: { prop: 'v_instrument_code', type: String },
         V_PRODUCT_CODE: { prop: 'v_product_code', type: String },
         V_ISSUER_CODE: { prop: 'v_issuer_code', type: String },
@@ -11,7 +21,7 @@ export default {
         V_CCY2_CODE: { prop: 'v_ccy2_code', type: String },
         F_OTC_IND: { prop: 'f_otc_ind', type: String },
         D_EFFECTIVE_DATE: { prop: 'd_effective_date', type: String },
-        D_MATURITY_DATE: { prop: 'd_maturity_date', type: String },
+        D_MATURITY_DATE: { prop: 'd_maturity_date', type: checkDate },
         V_COUPON_TYPE: { prop: 'v_coupon_type', type: String },
         N_COUPON_RATE: { prop: 'n_coupon_rate', type: Number },
         D_ISSUE_DATE: { prop: 'd_issue_date', type: String },
@@ -36,12 +46,12 @@ export default {
         N_UNDERLYING_PRICE: { prop: 'n_underlying_price', type: Number },
         N_STRIKE_PRICE: { prop: 'n_strike_price', type: Number },
         V_PRODUCT_TYPE: { prop: 'v_product_type', type: String },
-        D_MATURITY_DATE_UNDERLYING: { prop: 'd_maturity_date_underlying', type: String },
+        D_MATURITY_DATE_UNDERLYING: { prop: 'd_maturity_date_underlying', type: checkDate },
     },
     STG_BANK_POSITIONS: {
         FIC_MIS_DATE: {
             prop: 'fic_mis_date',
-            type: String,
+            type: checkDate,
         },
         V_INSTRUMENT_CODE: {
             prop: 'v_instrument_code',
@@ -82,7 +92,7 @@ export default {
         },
     },
     STG_SENSITIVITIES_FX: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_INSTRUMENT_CODE: { prop: 'v_instrument_code', type: String },
         V_INSTRUMENT_POSITION: { prop: 'v_instrument_position', type: String },
         N_DELTA_FX: { prop: 'n_delta_fx', type: Number },
@@ -94,7 +104,7 @@ export default {
         N_CURVATURE_FX: { prop: 'n_curvature_fx', type: Number },
     },
     STG_SENSITIVITIES_GIRR: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_INSTRUMENT_CODE: { prop: 'v_instrument_code', type: String },
         V_INSTRUMENT_POSITION: { prop: 'v_instrument_position', type: String },
         V_CCY_CODE: { prop: 'v_ccy_code', type: String },
@@ -133,7 +143,7 @@ export default {
         N_CURVATURE_GIRR_2ND_CCY: { prop: 'n_curvature_girr_2nd_ccy', type: Number },
     },
     STG_PARTY_RATING_DETAILS: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_RATING_SRC_CODE: { prop: 'v_rating_src_code', type: String },
         V_PARTY_NAME: { prop: 'v_party_name', type: String },
         V_RATING_CODE: { prop: 'v_rating_code', type: String },
@@ -141,7 +151,7 @@ export default {
         V_CUST_REF_CODE: { prop: 'v_cust_ref_code', type: String },
     },
     STG_PARTY_MASTER: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_CUST_REF_CODE: { prop: 'v_cust_ref_code', type: String },
         V_PARTY_NAME: { prop: 'v_party_name', type: String },
         V_LOCATION_CODE: { prop: 'v_location_code', type: String },
@@ -152,7 +162,7 @@ export default {
         LOAN_CLASSIFICATION: { prop: 'loan_classification', type: String },
     },
     STG_CURVATURES_SHOCK: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_CCY_CODE: { prop: 'v_ccy_code', type: String },
         V_CURVATURE_GIRR_PNL: { prop: 'v_curvature_girr_pnl', type: Number },
         V_CURVATURE_GIRR_UP: { prop: 'v_curvature_girr_up', type: Number },
@@ -162,7 +172,7 @@ export default {
         V_CURVATURE_FX_DOWN: { prop: 'v_curvature_fx_down', type: Number },
     },
     STG_PARTY_FINANCIALS: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_CUST_REF_CODE: { prop: 'v_cust_ref_code', type: String },
         N_TOTAL_ASSETS: { prop: 'n_total_assets', type: String },
         N_TOTAL_REVENUE: { prop: 'n_total_revenue', type: String },
@@ -177,7 +187,7 @@ export default {
         N_TOTAL_DEBT: { prop: 'n_total_debt', type: String },
     },
     STG_INSTRUMENT_CONTRACT_MASTER_2: {
-        FIC_MIS_DATE: { prop: 'fic_mis_date', type: String },
+        FIC_MIS_DATE: { prop: 'fic_mis_date', type: checkDate },
         V_INSTRUMENT_CODE: { prop: 'v_instrument_code', type: String },
         V_ASSET_CLASS: { prop: 'v_asset_class', type: String },
         V_SUB_CLASS: { prop: 'v_sub_class', type: String },
@@ -186,8 +196,8 @@ export default {
         V_CCY_CODE: { prop: 'v_ccy_code', type: String },
         V_CTR_CCY_CODE: { prop: 'v_ctr_ccy_code', type: String },
         F_OTC_IND: { prop: 'f_otc_ind', type: String },
-        D_EFFECTIVE_DATE: { prop: 'd_effective_date', type: String },
-        D_MATURITY_DATE: { prop: 'd_maturity_date', type: String },
+        D_EFFECTIVE_DATE: { prop: 'd_effective_date', type: checkDate },
+        D_MATURITY_DATE: { prop: 'd_maturity_date', type: checkDate },
         V_PRODUCT_CODE: { prop: 'v_product_code', type: String },
         V_INT_TYPE_PAY: { prop: 'v_int_type_pay', type: String },
         N_INT_RATE_PAY: { prop: 'n_int_rate_pay', type: String },
@@ -211,7 +221,7 @@ export default {
         V_INSTRUMENT_POSITION: { prop: 'v_instrument_position', type: String },
         N_NOTIONAL_AMT: { prop: 'n_notional_amt', type: Number },
         N_MARKET_VALUE: { prop: 'n_market_value', type: Number },
-        D_MATURITY_DATE_UNDERLYING: { prop: 'd_maturity_date_underlying', type: String },
+        D_MATURITY_DATE_UNDERLYING: { prop: 'd_maturity_date_underlying', type: checkDate },
         V_COLLATERAL_ID: { prop: 'v_collateral_id', type: String },
         N_COLLATERAL_CCP_AMT: { prop: 'n_collateral_ccp_amt', type: Number },
         N_COLLATERAL_BANK_AMT: { prop: 'n_collateral_bank_amt', type: Number },

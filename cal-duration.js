@@ -1,6 +1,7 @@
 // import { yearfrac3, yearfrac1 } from './helper/utils.js';
 // import { calculate } from './helper/operator.js';
 import moment from 'moment';
+import { FORMAT_TIME_IN_FILE } from './common/enum.js';
 
 // // IRS_10003	1112			4
 
@@ -66,11 +67,24 @@ import moment from 'moment';
 // }
 
 function yearFrac(time1, time2) {
-    const months = Math.floor(moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'months', true));
-    const timeTmp = moment(time1, 'MMDDYYYY').subtract(-months, 'months').format('MMDDYYYY');
-    const days = Math.floor(moment(time2, 'MMDDYYYY').diff(moment(timeTmp, 'MMDDYYYY'), 'days', true));
+    const months = Math.floor(
+        moment(time2, FORMAT_TIME_IN_FILE).diff(moment(time1, FORMAT_TIME_IN_FILE), 'months', true),
+    );
+    const timeTmp = moment(time1, FORMAT_TIME_IN_FILE).subtract(-months, 'months').format(FORMAT_TIME_IN_FILE);
+    const days = Math.floor(
+        moment(time2, FORMAT_TIME_IN_FILE).diff(moment(timeTmp, FORMAT_TIME_IN_FILE), 'days', true),
+    );
     const result = (months + days / 30) / 12;
     return result;
 }
 
 console.log(yearFrac('11/15/2028', '11/19/2031'));
+
+function checkDate(value) {
+    if (!moment(value, FORMAT_TIME_IN_FILE, true).isValid()) {
+        console.log('error');
+    }
+    return value;
+}
+
+console.log(checkDate('01/25/2021'));

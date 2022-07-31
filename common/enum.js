@@ -646,3 +646,5 @@ export const FILE_PATH = {
     INPUT: `${process.cwd()}/data/input`,
     TEMP: `${process.cwd()}/data/temp`,
 };
+
+export const FORMAT_TIME_IN_FILE = 'M/D/YYYY';

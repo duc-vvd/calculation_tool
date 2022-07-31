@@ -156,7 +156,6 @@ export default function calAddOnUnmargined1111FX() {
             total = calculate(total, addOnOfEachHedgingSet, '+');
         }
 
-        console.log(1);
         return total;
     } catch (error) {
         console.error(`calculate - calAddOnUnmargined1111FX - catch error: ${error.message}`);

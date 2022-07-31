@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ey-backend-nodejs
+  namespace: rwa-tool
+  labels:
+    app: ey-backend-nodejs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ey-backend-nodejs
+  template:
+    metadata:
+      labels:
+        app: ey-backend-nodejs
+    spec:
+      containers:
+        - name: ey-backend-nodejs
+          image: ##IMAGE_LINK##
+          ports:
+          - containerPort: 80
+          volumeMounts:
+            - mountPath: /usr/src/app/data/output
+              name: output-file-path-app
+      volumes:
+        - name: output-file-path-app
+          persistentVolumeClaim:
+            claimName: output-file-path-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ey-backend-nodejs
+  namespace: rwa-tool
+  labels:
+    app: ey-backend-nodejs
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: ey-backend-nodejs
+  type: NodePort

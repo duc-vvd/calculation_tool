@@ -29,21 +29,16 @@ async function readFileXlsxBySheetName(pathFile, sheet) {
 }
 
 export async function readFileXlsx(pathFile) {
-    try {
-        const sheetNames = await readSheetNames(pathFile);
+    const sheetNames = await readSheetNames(pathFile);
 
-        for (const sheetName of SHEET_NAMES) {
-            if (!sheetNames.includes(sheetName)) {
-                throw new Error(`Missing ${sheetName} sheet in file`);
-            }
-            await readFileXlsxBySheetName(pathFile, sheetName);
+    for (const sheetName of SHEET_NAMES) {
+        if (!sheetNames.includes(sheetName)) {
+            throw new Error(`Missing ${sheetName} sheet in file`);
         }
-        db.write();
-        mappingDataDeal();
-        console.log(1);
-    } catch (error) {
-        console.error(error.message);
+        await readFileXlsxBySheetName(pathFile, sheetName);
     }
+    db.write();
+    mappingDataDeal();
 }
 
 function createReportDetail(fileName, reportName) {

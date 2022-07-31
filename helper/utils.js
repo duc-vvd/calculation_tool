@@ -1,7 +1,7 @@
 import moment from 'moment';
 import { calculate } from './operator.js';
 import { dbManager } from '../database/index.js';
-import { ROLE_NAME_ROLE_ID } from '../common/enum.js';
+import { ROLE_NAME_ROLE_ID, FORMAT_TIME_IN_FILE } from '../common/enum.js';
 
 // 71.403,09 => 71403.09
 function formatStringNumber(strNum) {
@@ -15,21 +15,29 @@ function formatStringNumber(strNum) {
 
 // ("11/15/2021","11/14/2032") => 10
 function yearfrac(time1, time2) {
-    const months = Math.floor(moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'months', true));
-    const timeTmp = moment(time1, 'MMDDYYYY').subtract(-months, 'months').format('MMDDYYYY');
-    const days = Math.floor(moment(time2, 'MMDDYYYY').diff(moment(timeTmp, 'MMDDYYYY'), 'days', true));
+    const months = Math.floor(
+        moment(time2, FORMAT_TIME_IN_FILE).diff(moment(time1, FORMAT_TIME_IN_FILE), 'months', true),
+    );
+    const timeTmp = moment(time1, FORMAT_TIME_IN_FILE).subtract(-months, 'months').format(FORMAT_TIME_IN_FILE);
+    const days = Math.floor(
+        moment(time2, FORMAT_TIME_IN_FILE).diff(moment(timeTmp, FORMAT_TIME_IN_FILE), 'days', true),
+    );
     const result = (months + days / 30) / 12;
     return result;
 }
 
 // ("11/15/2021","11/14/2032") => 10.01
 function yearfrac3(time1, time2) {
-    return calculate(moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'days', true), 365, '/');
+    return calculate(
+        moment(time2, FORMAT_TIME_IN_FILE).diff(moment(time1, FORMAT_TIME_IN_FILE), 'days', true),
+        365,
+        '/',
+    );
 }
 
 // =IF(9/30/2020<11/15/2021;0;YEARFRAC(9/30/2020;11/15/2021))
 function getStartDate(time1, time2) {
-    if (moment(time1, 'MMDDYYYY').isBefore(moment(time2, 'MMDDYYYY'))) {
+    if (moment(time1, FORMAT_TIME_IN_FILE).isBefore(moment(time2, FORMAT_TIME_IN_FILE))) {
         return 0;
     }
 
@@ -86,7 +94,7 @@ export async function isHasRole(userName, roleName) {
 
 // SCVA H5 =DURATION(D5;E5;F5%;0;1;3)
 export function durationExcel(extractionDate, maturityDateOfContract, interestRate, notionalAmountInLcy) {
-    if (moment(extractionDate, 'MMDDYYYY').isAfter(moment(maturityDateOfContract, 'MMDDYYYY'))) {
+    if (moment(extractionDate, FORMAT_TIME_IN_FILE).isAfter(moment(maturityDateOfContract, FORMAT_TIME_IN_FILE))) {
         throw new Error('durationExcel - input data invalid');
     }
 
@@ -103,9 +111,11 @@ export function durationExcel(extractionDate, maturityDateOfContract, interestRa
     let totalCashflow = cashflow;
     let totalNumerator = numerator;
 
-    let timeAYearAgo = moment(maturityDateOfContract, 'MMDDYYYY').subtract(1, 'years').format('MMDDYYYY');
+    let timeAYearAgo = moment(maturityDateOfContract, FORMAT_TIME_IN_FILE)
+        .subtract(1, 'years')
+        .format(FORMAT_TIME_IN_FILE);
 
-    while (moment(extractionDate, 'MMDDYYYY').isBefore(moment(timeAYearAgo, 'MMDDYYYY'))) {
+    while (moment(extractionDate, FORMAT_TIME_IN_FILE).isBefore(moment(timeAYearAgo, FORMAT_TIME_IN_FILE))) {
         period = yearfrac3(extractionDate, timeAYearAgo);
         if (period > 3) {
             period = Math.round(period);
@@ -114,7 +124,7 @@ export function durationExcel(extractionDate, maturityDateOfContract, interestRa
         numerator = calculate(period, cashflow, '*');
         totalCashflow = calculate(cashflow, totalCashflow, '+');
         totalNumerator = calculate(numerator, totalNumerator, '+');
-        timeAYearAgo = moment(timeAYearAgo, 'MMDDYYYY').subtract(1, 'years').format('MMDDYYYY');
+        timeAYearAgo = moment(timeAYearAgo, FORMAT_TIME_IN_FILE).subtract(1, 'years').format(FORMAT_TIME_IN_FILE);
     }
 
     const result = calculate(totalNumerator, totalCashflow, '/');

@@ -34,9 +34,6 @@ export default function calDRC() {
             if (element.v_product_code === 'GOVBOND' || element.v_product_code === 'CORPBOND') {
                 V_COUNTERPARTY = element.v_issuer_code;
             }
-            if (!STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY]) {
-                console.log(1);
-            }
             const V_COUNTERPARTY_RATING = STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY].v_rating_code;
 
             const JTD = calculate(
@@ -55,9 +52,9 @@ export default function calDRC() {
             const weightedJTDLong = calculate(JTDlong, riskWeight, '*');
             const weightedJTDshortAbs = calculate(JTDshortAbs, riskWeight, '*');
 
-            console.log(
-                `=== ${element.v_instrument_code} - ${JTDlong} - ${JTDshort} - ${JTDshortAbs} - ${riskWeight} - ${weightedJTDLong} - ${weightedJTDshortAbs}`,
-            );
+            // console.log(
+            //     `=== ${element.v_instrument_code} - ${JTDlong} - ${JTDshort} - ${JTDshortAbs} - ${riskWeight} - ${weightedJTDLong} - ${weightedJTDshortAbs}`,
+            // );
             sumJTDlong += JTDlong;
             sumJTDshortAbs += JTDshortAbs;
             sumWeightedJTDLong += weightedJTDLong;

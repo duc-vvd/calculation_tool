@@ -171,7 +171,7 @@ export default function calSCVA() {
             // SCVA
             scva[key] = calculate(calculate(1 / 1.4, riskWeight, '*'), sumCounterpartyNettingCode[key], '*');
         }
-        console.log(1);
+
         return scva;
     } catch (error) {
         console.error(`calculate - calSCVA - catch error: ${error.message}`);
