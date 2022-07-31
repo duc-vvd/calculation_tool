@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
         - name: ey-backend-nodejs
-          image: ##IMAGE_LINK##
+          image: gcr.io/coral-hull-356115/rwa-tool/ey-backend-nodejs:22.0731.2132
           ports:
-          - containerPort: 80
+          - containerPort: 8080
           volumeMounts:
             - mountPath: /usr/src/app/data/output
               name: output-file-path-app
@@ -37,9 +37,9 @@ metadata:
     app: ey-backend-nodejs
 spec:
   ports:
-    - port: 80
+    - port: 8080
       protocol: TCP
-      targetPort: 80
+      targetPort: 8080
   selector:
     app: ey-backend-nodejs
   type: NodePort

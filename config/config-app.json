@@ -1,6 +1,6 @@
 {
     "domain": "api",
-    "port": 3000,
+    "port": 8080,
     "file_path": {
         "output": "",
         "input": "",

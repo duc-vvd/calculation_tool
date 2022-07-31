@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-PROJECT_NAME="sms-order-268506"
+PROJECT_NAME="coral-hull-356115"
 SPACE_NAME="rwa-tool"
 APP_NAME="ey-backend-nodejs"
 HOST_NAME=gcr.io
@@ -28,10 +28,11 @@ function buildDocker()
     echo "✈✈ Da tao tag cho image xong. ✈✈"
     
     echo "✈✈ Bat dau push len repo. ✈✈"
-    gcloud auth configure-docker
+    # gcloud auth configure-docker
     docker push $IMAGE:$VALUE_VERSION_STRING
     cd ..
     rm -rf code
+    echo $IMAGE:$VALUE_VERSION_STRING
     echo "✈✈ Da push len repo xong. ✈✈"
 }
 
@@ -56,4 +57,3 @@ function createDeployment()
 
 checkoutCode
 buildDocker
-createDeployment
