@@ -1,9 +1,9 @@
 {
     "db": {
-        "host": "localhost",
+        "host": "mysql.sms-api",
         "port": 3306,
         "db_name": "rwa_calculate",
-        "username": "duc",
-        "password": "Abc123456"
+        "username": "root",
+        "password": "password"
     }
 }
