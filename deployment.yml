@@ -15,9 +15,11 @@ spec:
       labels:
         app: ey-backend-nodejs
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: gke-cluster-1-default-pool-34ac5255-qcx0
       containers:
         - name: ey-backend-nodejs
-          image: gcr.io/coral-hull-356115/rwa-tool/ey-backend-nodejs:22.0731.2132
+          image: gcr.io/coral-hull-356115/rwa-tool/ey-backend-nodejs:22.0731.2142
           ports:
           - containerPort: 8080
           volumeMounts:
@@ -38,8 +40,7 @@ metadata:
 spec:
   ports:
     - port: 8080
-      protocol: TCP
       targetPort: 8080
   selector:
     app: ey-backend-nodejs
-  type: NodePort
+  type: LoadBalancer
