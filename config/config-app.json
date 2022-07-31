@@ -2,7 +2,7 @@
     "domain": "api",
     "port": 3000,
     "file_path": {
-        "output": "/home/ducvu/Documents/work/ey-backend/APIManager/wwwroot/output",
+        "output": "",
         "input": "",
         "temp": ""
     }
