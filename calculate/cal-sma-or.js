@@ -185,17 +185,13 @@ export default function calSMAOR() {
         let IEAverage;
         let IEAAverage;
         let DIAverage;
-        let LEAverage;
-        let LIAverage;
         let OOEAverage;
         let OOIAverage;
         let FIAverage;
         let FEAverage;
         let NetPLTradingBookAverage;
         let NetPLBankingBookAverage;
-        let TALverage;
-        let TAL10verage;
-        let TAL100verage;
+        let LCAverage;
 
         for (let i = 0; i < FINANCIAL_DATA_GL_ACTUAL_BALANCE.length; i++) {
             const element = FINANCIAL_DATA_GL_ACTUAL_BALANCE[i];
@@ -213,27 +209,21 @@ export default function calSMAOR() {
                     DIAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
                 case 4:
-                    LEAverage = calFinancialDataGlActualBalanceAverage(element);
-                    break;
-                case 5:
-                    LIAverage = calFinancialDataGlActualBalanceAverage(element);
-                    break;
-                case 6:
                     OOEAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
-                case 7:
+                case 5:
                     OOIAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
-                case 8:
+                case 6:
                     FIAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
-                case 9:
+                case 7:
                     FEAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
-                case 10:
+                case 8:
                     NetPLTradingBookAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
-                case 11:
+                case 9:
                     NetPLBankingBookAverage = calFinancialDataGlActualBalanceAverage(element);
                     break;
                 default:
@@ -246,93 +236,47 @@ export default function calSMAOR() {
 
             switch (i) {
                 case 0:
-                    TALverage = calOperationalRiskLossDataAverage(element);
+                    LCAverage = calOperationalRiskLossDataAverage(element);
                     break;
-                case 1:
-                    TAL10verage = calOperationalRiskLossDataAverage(element);
-                    break;
-                case 2:
-                    TAL100verage = calOperationalRiskLossDataAverage(element);
-                    break;
-
                 default:
                     break;
             }
         }
 
-        const IDLC = calculate(
-            calculate(
-                Math.min(Math.abs(calculate(IIAverage, IEAverage, '-')), calculate(0.035, IEAAverage, '*')),
-                Math.abs(calculate(LIAverage, LEAverage, '-')),
-                '+',
-            ),
-            DIAverage,
-            '+',
-        );
+        const IDLC = calculate(Math.min(Math.abs(calculate(IIAverage,IEAverage,'-')),calculate(0.025,IEAAverage,'*')),DIAverage,'+')
 
-        const FC = calculate(Math.abs(NetPLTradingBookAverage), Math.abs(NetPLBankingBookAverage), '+');
+        const SC = calculate(Math.max(OOEAverage,OOIAverage),Math.max(FIAverage,FEAverage),'+')
 
-        const uBI = calculate(
-            calculate(calculate(IDLC, Math.max(OOIAverage, OOEAverage), '+'), Math.max(FIAverage, FEAverage), '+'),
-            FC,
-            '+',
-        );
-
-        const SC = calculate(
-            Math.max(OOIAverage, OOEAverage),
-            Math.max(
-                Math.abs(calculate(FIAverage, FEAverage, '-')),
-                Math.min(
-                    calculate(
-                        calculate(Math.max(FIAverage, FEAverage), calculate(0.5, uBI, '*'), '+'),
-                        calculate(0.1, calculate(Math.max(FIAverage, FEAverage), calculate(0.5, uBI, '*'), '-'), '*'),
-                        '+',
-                    ),
-                ),
-            ),
-            '+',
-        );
+        const FC = calculate(Math.abs(NetPLTradingBookAverage),Math.abs(NetPLBankingBookAverage),'+')
 
         const BI = calculate(calculate(IDLC, SC, '+'), FC, '+');
 
         let BIComponent;
-        if (BI < 1000) {
-            BIComponent = calculate(0.11, BI, '*');
-        } else if (BI <= 3000) {
-            BIComponent = calculate(110, calculate(0.15, calculate(BI, 1000, '-'), '*'), '+');
-        } else if (BI <= 10000) {
-            BIComponent = calculate(410, calculate(0.19, calculate(BI, 3000, '-'), '*'), '+');
-        } else if (BI <= 30000) {
-            BIComponent = calculate(1740, calculate(0.23, calculate(BI, 10000, '-'), '*'), '+');
+        if (BI <= 1000) {
+            BIComponent = calculate(0.12, BI, '*');
+        }  else if (BI <= 30000) {
+            BIComponent = calculate(120, calculate(0.15, calculate(BI, 1000, '-'), '*'), '+');
         } else {
-            BIComponent = calculate(6340, calculate(0.29, calculate(BI, 30000, '-'), '*'), '+');
+            BIComponent = calculate(120+4350, calculate(0.18, calculate(BI, 30000, '-'), '*'), '+');
         }
 
-        const lossComponent = calculate(
-            calculate(calculate(7, TALverage, '*'), calculate(7, TAL10verage, '*'), '+'),
-            calculate(7, TAL100verage, '*'),
-            '+',
-        );
-
-        const ILM = Math.log(calculate(Math.exp(-1) - 1, calculate(lossComponent, BIComponent, '/'), '+'));
+        const ILM = Math.log(calculate(Math.exp(1) - 1, Math.pow(calculate(LCAverage, BIComponent, '/'),0.8), '+'));
 
         let SMA_OR;
         if (BI <= 1000) {
             SMA_OR = BIComponent;
         } else {
-            SMA_OR = calculate(110, calculate(calculate(BIComponent, 110, '-'), ILM, '*'), '+');
+            SMA_OR = calculate(BIComponent, ILM, '*');
         }
 
         const SMA_OR_VND = calculate(calculate(SMA_OR, Math.pow(10, 6), '*'), exchangeRate, '*');
 
         return {
-            uBI,
             IDLC,
             SC,
             FC,
             BI,
             BI_Component: BIComponent,
-            Loss_Component: lossComponent,
             ILM,
             SMA_OR,
             SMA_OR_VND,

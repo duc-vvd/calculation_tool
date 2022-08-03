@@ -19,7 +19,7 @@ spec:
         kubernetes.io/hostname: gke-cluster-1-default-pool-34ac5255-qcx0
       containers:
         - name: ey-backend-nodejs
-          image: gcr.io/coral-hull-356115/rwa-tool/ey-backend-nodejs:22.0731.2142
+          image: gcr.io/coral-hull-356115/rwa-tool/ey-backend-nodejs:22.0802.2115
           ports:
           - containerPort: 8080
           volumeMounts:

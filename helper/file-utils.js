@@ -336,21 +336,6 @@ export async function exportSAMOR(inputData, fileName, reportName) {
         [
             {
                 type: String,
-                value: 'Unadjusted Business Indicator',
-            },
-            {
-                type: String,
-                value: 'uBI',
-                fontWeight: 'bold',
-            },
-            {
-                type: Number,
-                value: inputData.uBI,
-            },
-        ],
-        [
-            {
-                type: String,
                 value: 'Interest, Lease and dividend component',
             },
             {
@@ -421,21 +406,6 @@ export async function exportSAMOR(inputData, fileName, reportName) {
             {
                 type: Number,
                 value: inputData.BI_Component,
-            },
-        ],
-        [
-            {
-                type: String,
-                value: 'Loss component',
-            },
-            {
-                type: String,
-                value: 'Loss_Component',
-                fontWeight: 'bold',
-            },
-            {
-                type: Number,
-                value: inputData.Loss_Component,
             },
         ],
         [
