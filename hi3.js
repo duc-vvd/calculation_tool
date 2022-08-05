@@ -8,13 +8,13 @@ import moment from 'moment';
 //     return moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'days', true) / 365;
 // }
 
-function yearfrac(time1, time2) {
-    return moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'days', true) / 360;
-}
+// function yearfrac(time1, time2) {
+//     return moment(time2, 'MMDDYYYY').diff(moment(time1, 'MMDDYYYY'), 'days', true) / 360;
+// }
 
-// console.log(yearfrac3('11/15/2021', '11/15/2031'));
-// console.log(yearfrac('11/15/2021', '11/15/2031'));
-console.log(yearfrac('11/15/2021', '11/15/2029'));
+// // console.log(yearfrac3('11/15/2021', '11/15/2031'));
+// // console.log(yearfrac('11/15/2021', '11/15/2031'));
+// console.log(yearfrac('11/15/2021', '11/15/2029'));
 
 // function hi() {
 //     const N = 10;
@@ -52,12 +52,12 @@ console.log(yearfrac('11/15/2021', '11/15/2029'));
 
 // console.log(normDist.pdf(-0, 4106953163));
 
-// import distributions from 'distributions';
+import distributions from 'distributions';
 
-// var normal = distributions.Normal(0, 1);
+var normal = distributions.Normal(0, 1);
 
-// console.log(normal.pdf(-0.4106953163));
-// console.log(normal.cdf(-0.4106953163));
+console.log(normal.pdf(1));
+console.log(normal.cdf(1));
 
 // console.log(moment('11/15/2031', 'MMDDYYYY').diff(moment('11/15/2021', 'MMDDYYYY'), 'days', true));
 

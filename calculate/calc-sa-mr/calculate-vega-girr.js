@@ -1,12 +1,18 @@
-import db from '../helper/db.js';
-import { calculate } from '../helper/operator.js';
-import { formatStringNumber } from '../helper/utils.js';
+import db from '../../helper/db.js';
+import { calculate } from '../../helper/operator.js';
+import { formatStringNumber } from '../../helper/utils.js';
 
-export default function calVegaGirr() {
+export default function calVegaGirr(isLow, isHigh) {
     try {
         const { STG_INSTRUMENT_CONTRACT_MASTER, STG_SENSITIVITIES_GIRR_HASHMAP } = db.data;
         const sumSensitivityHashmap = {};
-        const crossbucketCorrelation = 0.6;
+        // Crossbucket correlation
+        let crossbucketCorrelation = 0.5;
+        if (isLow) {
+            crossbucketCorrelation *= 0.75;
+        } else if (isHigh) {
+            crossbucketCorrelation *= 1.25;
+        }
         const riskWeight = 1;
         let total = 0;
         const time = {
@@ -19,6 +25,16 @@ export default function calVegaGirr() {
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
             const stgSensitivitiesGirrHashmapElement = STG_SENSITIVITIES_GIRR_HASHMAP[element.v_instrument_code] || {};
+
+            if (
+                element.v_product_code === 'FRA' ||
+                element.v_product_code === 'CapFloor' ||
+                element.v_product_code === 'Xccy Swaption' ||
+                element.v_product_code === 'PRDC Swap' ||
+                element.v_product_code === 'Range Accrual Swap'
+            ) {
+                return;
+            }
 
             if (element.v_ccy_code) {
                 if (!sumSensitivityHashmap[element.v_ccy_code]) {
@@ -142,15 +158,22 @@ export default function calVegaGirr() {
             }
         }
 
+        const SbHashmap = {};
         const sumPairCurrencyAndRiskFactorHashmap = {};
         for (const key in weightedSensitivityHashmap) {
             for (const numberOfYear in weightedSensitivityHashmap[key]) {
+                if (!SbHashmap[key]) {
+                    SbHashmap[key] = 0;
+                }
+                SbHashmap[key] = calculate(weightedSensitivityHashmap[key][numberOfYear], SbHashmap[key], '+');
                 for (const numberOfYear2 in weightedSensitivityHashmap[key]) {
                     if (!sumPairCurrencyAndRiskFactorHashmap[key]) {
                         sumPairCurrencyAndRiskFactorHashmap[key] = 0;
                     }
+                    // Time bucket correlation
                     let timeBucketCorrelation = 1;
                     if (numberOfYear !== numberOfYear2) {
+                        // Time bucket correlation =MIN(IF(X$3=$W4,1,MIN(EXP(-3%*ABS($W4-X$3)/MIN($W4,X$3)),1)),1)
                         timeBucketCorrelation = Math.min(
                             Math.exp(
                                 calculate(
@@ -165,6 +188,14 @@ export default function calVegaGirr() {
                             ),
                             1,
                         );
+
+                        if (isLow) {
+                            // Time bucket correlation =MIN(IF(X$3=$W4,1,MIN(EXP(-3%*ABS($W4-X$3)/MIN($W4,X$3)),1)),1)*IF(X$3=$W4,1,0.75)
+                            timeBucketCorrelation = calculate(timeBucketCorrelation, 0.75, '*');
+                        } else if (isHigh) {
+                            // Time bucket correlation =MIN(MIN(IF(X$3=$W4,1,MIN(EXP(-3%*ABS($W4-X$3)/MIN($W4,X$3)),1)),1)*1.25,1)
+                            timeBucketCorrelation = Math.min(calculate(timeBucketCorrelation, 1.25, '*'), 1);
+                        }
                     }
 
                     sumPairCurrencyAndRiskFactorHashmap[key] = calculate(
@@ -184,27 +215,19 @@ export default function calVegaGirr() {
             }
         }
 
-        const sqrtPairCurrencyAndRiskFactorHashmap = {};
+        const KbHashmap = {};
         for (const key in sumPairCurrencyAndRiskFactorHashmap) {
-            sqrtPairCurrencyAndRiskFactorHashmap[key] = Math.sqrt(sumPairCurrencyAndRiskFactorHashmap[key]);
+            KbHashmap[key] = Math.sqrt(sumPairCurrencyAndRiskFactorHashmap[key]);
         }
 
-        for (const key in sqrtPairCurrencyAndRiskFactorHashmap) {
-            for (const key2 in sqrtPairCurrencyAndRiskFactorHashmap) {
-                let crossbucketCorrelationTmp = crossbucketCorrelation;
+        for (const key in KbHashmap) {
+            for (const key2 in KbHashmap) {
                 if (key === key2) {
-                    crossbucketCorrelationTmp = 1;
+                    total += Math.pow(KbHashmap[key], 2);
+                    continue;
                 }
 
-                total += calculate(
-                    calculate(
-                        sqrtPairCurrencyAndRiskFactorHashmap[key],
-                        sqrtPairCurrencyAndRiskFactorHashmap[key2],
-                        '*',
-                    ),
-                    crossbucketCorrelationTmp,
-                    '*',
-                );
+                total += calculate(calculate(SbHashmap[key], SbHashmap[key2], '*'), crossbucketCorrelation, '*');
             }
         }
 

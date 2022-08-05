@@ -1,12 +1,14 @@
-import db from '../helper/db.js';
-import { calculate } from '../helper/operator.js';
-import { formatStringNumber } from '../helper/utils.js';
-
-export default function calDeltaGirr() {
+import db from '../../helper/db.js';
+import { calculate } from '../../helper/operator.js';
+import { formatStringNumber } from '../../helper/utils.js';
+/**
+ * Chi khac "Time bucket correlation" va "Crossbucket correlation" so voi DELTA_GIRR
+ */
+export default function calDeltaGirrLow() {
     try {
         const { STG_INSTRUMENT_CONTRACT_MASTER, STG_SENSITIVITIES_GIRR_HASHMAP } = db.data;
         const sumSensitivityHashmap = {};
-        const crossbucketCorrelation = 0.6;
+        const crossbucketCorrelation = 0.375; // =0.5*0.75
         const riskWeight = {
             aQuarterOfYear: 0.024,
             halfAYear: 0.024,
@@ -35,6 +37,16 @@ export default function calDeltaGirr() {
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {
             const stgSensitivitiesGirrHashmapElement = STG_SENSITIVITIES_GIRR_HASHMAP[element.v_instrument_code] || {};
+
+            if (
+                element.v_product_code === 'FRA' ||
+                element.v_product_code === 'CapFloor' ||
+                element.v_product_code === 'Xccy Swaption' ||
+                element.v_product_code === 'PRDC Swap' ||
+                element.v_product_code === 'Range Accrual Swap'
+            ) {
+                return;
+            }
 
             if (element.v_ccy_code) {
                 if (!sumSensitivityHashmap[element.v_ccy_code]) {
@@ -77,6 +89,9 @@ export default function calDeltaGirr() {
                 }
 
                 if (stgSensitivitiesGirrHashmapElement.n_delta_girr_1st_ccy_2year) {
+                    // if (element.v_ccy_code === 'JPY') {
+                    //     console.log('==============', stgSensitivitiesGirrHashmapElement.n_delta_girr_1st_ccy_2year);
+                    // }
                     sumSensitivityHashmap[element.v_ccy_code].twoYear = calculate(
                         formatStringNumber(stgSensitivitiesGirrHashmapElement.n_delta_girr_1st_ccy_2year),
                         sumSensitivityHashmap[element.v_ccy_code].twoYear,
@@ -174,6 +189,9 @@ export default function calDeltaGirr() {
                 }
 
                 if (stgSensitivitiesGirrHashmapElement.n_delta_girr_2nd_ccy_2year) {
+                    // if (element.v_ccy2_code === 'JPY') {
+                    //     console.log('==============', stgSensitivitiesGirrHashmapElement.n_delta_girr_2nd_ccy_2year);
+                    // }
                     sumSensitivityHashmap[element.v_ccy2_code].twoYear = calculate(
                         formatStringNumber(stgSensitivitiesGirrHashmapElement.n_delta_girr_2nd_ccy_2year),
                         sumSensitivityHashmap[element.v_ccy2_code].twoYear,
@@ -235,6 +253,15 @@ export default function calDeltaGirr() {
         for (const key in sumSensitivityHashmap) {
             weightedSensitivityHashmap[key] = {};
             for (const numberOfYear in sumSensitivityHashmap[key]) {
+                // if (key === 'JPY') {
+                //     console.log(
+                //         `=== ${key} - year: ${numberOfYear} - risk weight: ${riskWeight[numberOfYear]} - ${calculate(
+                //             sumSensitivityHashmap[key][numberOfYear],
+                //             riskWeight[numberOfYear],
+                //             '*',
+                //         )}`,
+                //     );
+                // }
                 weightedSensitivityHashmap[key][numberOfYear] = calculate(
                     sumSensitivityHashmap[key][numberOfYear],
                     riskWeight[numberOfYear],
@@ -243,28 +270,41 @@ export default function calDeltaGirr() {
             }
         }
 
+        const SbHashmap = {};
         const sumPairCurrencyAndRiskFactorHashmap = {};
         for (const key in weightedSensitivityHashmap) {
             for (const numberOfYear in weightedSensitivityHashmap[key]) {
+                if (!SbHashmap[key]) {
+                    SbHashmap[key] = 0;
+                }
+                SbHashmap[key] = calculate(weightedSensitivityHashmap[key][numberOfYear], SbHashmap[key], '+');
                 for (const numberOfYear2 in weightedSensitivityHashmap[key]) {
                     if (!sumPairCurrencyAndRiskFactorHashmap[key]) {
                         sumPairCurrencyAndRiskFactorHashmap[key] = 0;
                     }
+                    // Time bucket correlation (AJ) =MAX(IF(AK$3=$AJ4,1,MIN(EXP(-3%*ABS($AJ4-AK$3)/MIN($AJ4,AK$3)),1)),40%)*IF(AK$3=$AJ4,1,0.75)
                     let timeBucketCorrelation = 1;
                     if (numberOfYear !== numberOfYear2) {
-                        timeBucketCorrelation = Math.min(
-                            Math.exp(
-                                calculate(
-                                    calculate(
-                                        -0.03,
-                                        Math.abs(calculate(time[numberOfYear2], time[numberOfYear], '-')),
-                                        '*',
+                        timeBucketCorrelation = calculate(
+                            Math.max(
+                                Math.min(
+                                    Math.exp(
+                                        calculate(
+                                            calculate(
+                                                -0.03,
+                                                Math.abs(calculate(time[numberOfYear2], time[numberOfYear], '-')),
+                                                '*',
+                                            ),
+                                            Math.min(time[numberOfYear2], time[numberOfYear]),
+                                            '/',
+                                        ),
                                     ),
-                                    Math.min(time[numberOfYear2], time[numberOfYear]),
-                                    '/',
+                                    1,
                                 ),
+                                0.4,
                             ),
-                            1,
+                            0.75,
+                            '*',
                         );
                     }
 
@@ -285,33 +325,26 @@ export default function calDeltaGirr() {
             }
         }
 
-        const sqrtPairCurrencyAndRiskFactorHashmap = {};
+        const KbHashmap = {};
         for (const key in sumPairCurrencyAndRiskFactorHashmap) {
-            sqrtPairCurrencyAndRiskFactorHashmap[key] = Math.sqrt(sumPairCurrencyAndRiskFactorHashmap[key]);
+            KbHashmap[key] = Math.sqrt(sumPairCurrencyAndRiskFactorHashmap[key]);
         }
 
-        for (const key in sqrtPairCurrencyAndRiskFactorHashmap) {
-            for (const key2 in sqrtPairCurrencyAndRiskFactorHashmap) {
-                let crossbucketCorrelationTmp = crossbucketCorrelation;
+        for (const key in KbHashmap) {
+            for (const key2 in KbHashmap) {
                 if (key === key2) {
-                    crossbucketCorrelationTmp = 1;
+                    total += Math.pow(KbHashmap[key], 2);
+                    continue;
                 }
 
-                total += calculate(
-                    calculate(
-                        sqrtPairCurrencyAndRiskFactorHashmap[key],
-                        sqrtPairCurrencyAndRiskFactorHashmap[key2],
-                        '*',
-                    ),
-                    crossbucketCorrelationTmp,
-                    '*',
-                );
+                // =IF(BN$3=$BM4,INDEX($BI:$BI,MATCH($BM4,$BH:$BH,0))^2,INDEX($BJ:$BJ,MATCH($BM4,$BH:$BH,0))*INDEX($BJ:$BJ,MATCH(BN$3,$BH:$BH,0))*$BK$4)
+                total += calculate(calculate(SbHashmap[key], SbHashmap[key2], '*'), crossbucketCorrelation, '*');
             }
         }
 
         const DELTA_GIRR = Math.sqrt(total);
         return DELTA_GIRR;
     } catch (error) {
-        console.error(`calculate - calDeltaGirr - catch error: ${error.message}`);
+        console.error(`calculate - calDeltaGirrLow - catch error: ${error.message}`);
     }
 }

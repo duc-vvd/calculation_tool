@@ -87,4 +87,4 @@ function checkDate(value) {
     return value;
 }
 
-console.log(checkDate('01/25/2021'));
+console.log(checkDate('2021-12-31T00:00:00.000Z'));

@@ -115,7 +115,7 @@ export default async function (req, res) {
                     K_Equity: 0.0,
                     K_CMR: 0.0,
                 },
-                SA_MR: SAMRData,
+                SA_MR: SAMRData.summary,
                 EAD: EADData,
                 CVA: CVAData,
                 SMA_OR: SMAORData,

@@ -1,7 +1,7 @@
 import db from './helper/db.js';
 import { readAllFile } from './file-handler/index.js';
 import { readFileXlsx } from './helper/file-utils.js';
-import { exportSAMOR } from './helper/file-utils.js';
+import { exportSAMOR, exportSAMR } from './helper/file-utils.js';
 import {
     calSaMr,
     calAddOnUnmargined1111FX,
@@ -17,7 +17,7 @@ import {
 
 try {
     // await readAllFile();
-    await readFileXlsx('/home/ducvu/Documents/work/calculation_tool/dataExample/Data-b3 (5) (6).xlsx');
+    await readFileXlsx('/home/ducvu/Documents/work/calculation_tool/dataExample/Data-b3 (5) (9).xlsx');
     console.time('calc');
     const saMr = calSaMr();
     const addOnUnmargined1111FX = calAddOnUnmargined1111FX();
@@ -38,8 +38,8 @@ try {
     //     SMAOR: { sma_or: 5.898159161151159, sma_or_vnd: 167991369227.90732 }
     // }
 
-    // const reportName = 'hihi';
-    // const reportSAMOR = await exportSAMOR(SMAOR, reportName, `${reportName}_DETAIL_SAM_OR.xlsx`);
+    const reportName = 'hihi';
+    const reportSAMR = await exportSAMR(saMr, reportName, `${reportName}_DETAIL_SAM_OR.xlsx`);
     console.timeEnd('calc');
     console.log('============= DONE =============');
 } catch (error) {

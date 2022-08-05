@@ -61,6 +61,18 @@ export async function exportSAMR(inputData, fileName, reportName) {
                 value: 'Value',
                 fontWeight: 'bold',
             },
+            {
+                value: 'Value',
+                fontWeight: 'bold',
+            },
+            {
+                value: 'Value',
+                fontWeight: 'bold',
+            },
+            {
+                value: 'Summary',
+                fontWeight: 'bold',
+            },
         ],
         [
             {
@@ -69,7 +81,19 @@ export async function exportSAMR(inputData, fileName, reportName) {
             },
             {
                 type: Number,
-                value: inputData.DRC,
+                value: inputData.low.DRC,
+            },
+            {
+                type: Number,
+                value: inputData.normal.DRC,
+            },
+            {
+                type: Number,
+                value: inputData.high.DRC,
+            },
+            {
+                type: Number,
+                value: inputData.summary.DRC,
             },
         ],
         [
@@ -79,7 +103,19 @@ export async function exportSAMR(inputData, fileName, reportName) {
             },
             {
                 type: Number,
-                value: inputData.RRAO,
+                value: inputData.low.RRAO,
+            },
+            {
+                type: Number,
+                value: inputData.normal.RRAO,
+            },
+            {
+                type: Number,
+                value: inputData.high.RRAO,
+            },
+            {
+                type: Number,
+                value: inputData.summary.RRAO,
             },
         ],
         [
@@ -89,7 +125,19 @@ export async function exportSAMR(inputData, fileName, reportName) {
             },
             {
                 type: Number,
-                value: inputData.Delta,
+                value: inputData.low.Delta,
+            },
+            {
+                type: Number,
+                value: inputData.normal.Delta,
+            },
+            {
+                type: Number,
+                value: inputData.high.Delta,
+            },
+            {
+                type: Number,
+                value: inputData.summary.Delta,
             },
         ],
         [
@@ -99,7 +147,19 @@ export async function exportSAMR(inputData, fileName, reportName) {
             },
             {
                 type: Number,
-                value: inputData.Vega,
+                value: inputData.low.Vega,
+            },
+            {
+                type: Number,
+                value: inputData.normal.Vega,
+            },
+            {
+                type: Number,
+                value: inputData.high.Vega,
+            },
+            {
+                type: Number,
+                value: inputData.summary.Vega,
             },
         ],
         [
@@ -109,7 +169,19 @@ export async function exportSAMR(inputData, fileName, reportName) {
             },
             {
                 type: Number,
-                value: inputData.Curvature,
+                value: inputData.low.Curvature,
+            },
+            {
+                type: Number,
+                value: inputData.normal.Curvature,
+            },
+            {
+                type: Number,
+                value: inputData.high.Curvature,
+            },
+            {
+                type: Number,
+                value: inputData.summary.Curvature,
             },
         ],
         [
@@ -119,7 +191,19 @@ export async function exportSAMR(inputData, fileName, reportName) {
             },
             {
                 type: Number,
-                value: inputData.Total,
+                value: inputData.low.Total,
+            },
+            {
+                type: Number,
+                value: inputData.normal.Total,
+            },
+            {
+                type: Number,
+                value: inputData.high.Total,
+            },
+            {
+                type: Number,
+                value: inputData.summary.Total,
             },
         ],
     ];

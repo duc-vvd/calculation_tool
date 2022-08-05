@@ -5,7 +5,7 @@ function checkDate(value) {
     if (!moment(value, FORMAT_TIME_IN_FILE, true).isValid()) {
         throw new Error('invalid');
     }
-    return value;
+    return moment(value, FORMAT_TIME_IN_FILE).format('MM/DD/YYYY');
 }
 
 export default {
@@ -47,6 +47,11 @@ export default {
         N_STRIKE_PRICE: { prop: 'n_strike_price', type: Number },
         V_PRODUCT_TYPE: { prop: 'v_product_type', type: String },
         D_MATURITY_DATE_UNDERLYING: { prop: 'd_maturity_date_underlying', type: checkDate },
+        N_EXERCISE_PRICE: { prop: 'n_exercise_price', type: Number },
+        N_TIME_TO_EXERCISE_OPTION: { prop: 'n_time_to_exercise_option', type: Number },
+        N_DIVIDEND: { prop: 'n_dividend', type: Number },
+        N_RISK_FREE_RATE: { prop: 'n_risk_free_rate', type: Number },
+        N_PRICE_VOLATILITY: { prop: 'n_price_volatility', type: Number },
     },
     STG_BANK_POSITIONS: {
         FIC_MIS_DATE: {

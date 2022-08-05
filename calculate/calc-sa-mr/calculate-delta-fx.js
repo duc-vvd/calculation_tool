@@ -1,12 +1,17 @@
-import db from '../helper/db.js';
-import { calculate } from '../helper/operator.js';
-import { formatStringNumber } from '../helper/utils.js';
+import db from '../../helper/db.js';
+import { calculate } from '../../helper/operator.js';
+import { formatStringNumber } from '../../helper/utils.js';
 
-export default function calDeltaFx() {
+export default function calDeltaFx(isLow, isHigh) {
     try {
         const { STG_INSTRUMENT_CONTRACT_MASTER, STG_SENSITIVITIES_FX_HASHMAP } = db.data;
         const sumSensitivityHashmap = {};
-        const crossbucketCorrelation = 0.6;
+        let crossbucketCorrelation = 0.6;
+        if (isLow) {
+            crossbucketCorrelation *= 0.75;
+        } else if (isHigh) {
+            crossbucketCorrelation *= 1.25;
+        }
         const riskWeight = 0.3;
         let total = 0;
 
@@ -15,18 +20,25 @@ export default function calDeltaFx() {
             const stgSensitivitiesFxHashmapElement = STG_SENSITIVITIES_FX_HASHMAP[element.v_instrument_code] || {};
             if (!stgSensitivitiesFxHashmapElement.n_delta_fx) return;
             const V_PAIR_CCY = `${element.v_ccy_code}/${element.v_ccy2_code}`;
-            if (sumSensitivityHashmap[V_PAIR_CCY]) {
-                sumSensitivityHashmap[V_PAIR_CCY] = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_delta_fx),
-                    sumSensitivityHashmap[V_PAIR_CCY],
-                    '+',
-                );
+
+            // N_DELTA_FX
+            let nDeltaFx;
+            if (
+                element.v_product_code === 'FRA' ||
+                element.v_product_code === 'CapFloor' ||
+                element.v_product_code === 'Xccy Swaption' ||
+                element.v_product_code === 'PRDC Swap' ||
+                element.v_product_code === 'Range Accrual Swap'
+            ) {
+                nDeltaFx = 0;
             } else {
-                sumSensitivityHashmap[V_PAIR_CCY] = calculate(
-                    formatStringNumber(stgSensitivitiesFxHashmapElement.n_delta_fx),
-                    0,
-                    '+',
-                );
+                nDeltaFx = formatStringNumber(stgSensitivitiesFxHashmapElement.n_delta_fx);
+            }
+
+            if (sumSensitivityHashmap[V_PAIR_CCY]) {
+                sumSensitivityHashmap[V_PAIR_CCY] = calculate(nDeltaFx, sumSensitivityHashmap[V_PAIR_CCY], '+');
+            } else {
+                sumSensitivityHashmap[V_PAIR_CCY] = calculate(nDeltaFx, 0, '+');
             }
         });
 

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import distributions from 'distributions';
 import { calculate } from './operator.js';
 import { dbManager } from '../database/index.js';
 import { ROLE_NAME_ROLE_ID, FORMAT_TIME_IN_FILE } from '../common/enum.js';
@@ -129,4 +130,12 @@ export function durationExcel(extractionDate, maturityDateOfContract, interestRa
 
     const result = calculate(totalNumerator, totalCashflow, '/');
     return result;
+}
+
+export function normdistExcel(x, mean, standard_deviation, cumulative) {
+    const normal = distributions.Normal(mean, standard_deviation);
+    if (cumulative) {
+        return normal.cdf(x);
+    }
+    return normal.pdf(x);
 }
