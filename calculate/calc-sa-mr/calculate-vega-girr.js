@@ -173,27 +173,31 @@ export default function calVegaGirr(isLow, isHigh) {
                     // Time bucket correlation
                     let timeBucketCorrelation = 1;
                     if (numberOfYear !== numberOfYear2) {
-                        // Time bucket correlation =MIN(IF(X$3=$W4,1,MIN(EXP(-3%*ABS($W4-X$3)/MIN($W4,X$3)),1)),1)
-                        timeBucketCorrelation = Math.min(
-                            Math.exp(
+                        // Time bucket correlation =MIN(EXP(-1%*ABS($W4-X$3)/MIN($W4,X$3))*EXP(-1%*ABS($W4-X$3)/MIN($W4,X$3)),1)
+                        // tmp = EXP(-1%*ABS($W4-X$3)/MIN($W4,X$3))
+                        const tmp = Math.exp(
+                            calculate(
                                 calculate(
-                                    calculate(
-                                        -0.03,
-                                        Math.abs(calculate(time[numberOfYear2], time[numberOfYear], '-')),
-                                        '*',
-                                    ),
-                                    Math.min(time[numberOfYear2], time[numberOfYear]),
-                                    '/',
+                                    -0.01,
+                                    Math.abs(calculate(time[numberOfYear2], time[numberOfYear], '-')),
+                                    '*',
                                 ),
+                                Math.min(time[numberOfYear2], time[numberOfYear]),
+                                '/',
                             ),
+                        );
+                        timeBucketCorrelation = Math.min(
+                            calculate(tmp,tmp,'*'),
                             1,
                         );
 
                         if (isLow) {
-                            // Time bucket correlation =MIN(IF(X$3=$W4,1,MIN(EXP(-3%*ABS($W4-X$3)/MIN($W4,X$3)),1)),1)*IF(X$3=$W4,1,0.75)
-                            timeBucketCorrelation = calculate(timeBucketCorrelation, 0.75, '*');
+                            // Time bucket correlation =IF(X$3=$W4,1,MAX(2*VEGA_GIRR!X4-1,0.75*VEGA_GIRR!X4))
+                            // =IF(X$3=$W4,1,MAX(2*timeBucketCorrelation-1,0.75*timeBucketCorrelation))
+                            timeBucketCorrelation = Math.max(calculate(calculate(2,timeBucketCorrelation, '*'),1,'-'),calculate(0.75,timeBucketCorrelation, '*'));
                         } else if (isHigh) {
-                            // Time bucket correlation =MIN(MIN(IF(X$3=$W4,1,MIN(EXP(-3%*ABS($W4-X$3)/MIN($W4,X$3)),1)),1)*1.25,1)
+                            // Time bucket correlation =IF(X$3=$W4,1,MIN(VEGA_GIRR!X4*1.25,1))
+                            // =IF(X$3=$W4,1,MIN(timeBucketCorrelation*1.25,1))
                             timeBucketCorrelation = Math.min(calculate(timeBucketCorrelation, 1.25, '*'), 1);
                         }
                     }

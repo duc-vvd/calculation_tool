@@ -150,8 +150,9 @@ export default function calVegaFx(isLow, isHigh) {
                         );
 
                         if (isLow) {
-                            // Time bucket correlation =IF(R$3=$Q4,1,MIN(EXP(-1%*ABS($Q4-R$3)/MIN($Q4,R$3)),1)*0.75)
-                            timeBucketCorrelation = calculate(timeBucketCorrelation, 0.75, '*');
+                            // Time bucket correlation =IF(R$3=$Q4,1,MAX(2*MIN(EXP(-1%*ABS($Q4-R$3)/MIN($Q4,R$3)),1)-1,0.75*MIN(EXP(-1%*ABS($Q4-R$3)/MIN($Q4,R$3)),1)))
+                            // =IF(R$3=$Q4,1,MAX(2*timeBucketCorrelation-1,0.75*timeBucketCorrelation))
+                            timeBucketCorrelation = Math.max(calculate(calculate(2,timeBucketCorrelation, '*'),1,'-'),calculate(0.75,timeBucketCorrelation, '*'));
                         } else if (isHigh) {
                             // Time bucket correlation =MIN(IF(R$3=$Q4,1,MIN(EXP(-1%*ABS($Q4-R$3)/MIN($Q4,R$3)),1))*1.25,1)
                             timeBucketCorrelation = Math.min(calculate(timeBucketCorrelation, 1.25, '*'), 1);

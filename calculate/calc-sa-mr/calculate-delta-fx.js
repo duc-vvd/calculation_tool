@@ -8,11 +8,11 @@ export default function calDeltaFx(isLow, isHigh) {
         const sumSensitivityHashmap = {};
         let crossbucketCorrelation = 0.6;
         if (isLow) {
-            crossbucketCorrelation *= 0.75;
+            crossbucketCorrelation = 0.45; // =MAX(2*0.6-1,0.75*0.6)
         } else if (isHigh) {
             crossbucketCorrelation *= 1.25;
         }
-        const riskWeight = 0.3;
+        const riskWeight = 0.15;
         let total = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {

@@ -18,7 +18,7 @@ export default function calCurvatureGirr(isLow, isHigh) {
         } else if (isHigh) {
             crossbucketCorrelation = Math.pow(0.625, 2);
         }
-        const riskWeight = 0.024;
+        const riskWeight = 0.017;
         let total = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {

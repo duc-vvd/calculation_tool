@@ -61,7 +61,7 @@ export default function calSaMr() {
                 Vega: vegaFxHigh + vegaGirrHigh,
                 Curvature: curvatureFxHigh + curvatureGirrHigh,
                 Total:
-                    DRC +
+                    DRC + RRAO +
                     (deltaFxHigh + deltaGirrHigh) +
                     (vegaFxHigh + vegaGirrHigh) +
                     (curvatureFxHigh + curvatureGirrHigh),

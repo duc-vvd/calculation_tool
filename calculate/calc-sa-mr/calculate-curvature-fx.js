@@ -20,7 +20,7 @@ export default function calCurvatureFx(isLow, isHigh) {
         } else if (isHigh) {
             crossbucketCorrelation = 0.5625;
         }
-        const riskWeight = 0.3;
+        const riskWeight = 0.15;
         let total = 0;
 
         STG_INSTRUMENT_CONTRACT_MASTER.forEach((element) => {

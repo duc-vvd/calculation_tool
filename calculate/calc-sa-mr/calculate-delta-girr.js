@@ -13,16 +13,16 @@ export default function calDeltaGirr(isLow, isHigh) {
             crossbucketCorrelation *= 1.25;
         }
         const riskWeight = {
-            aQuarterOfYear: 0.024,
-            halfAYear: 0.024,
-            aYear: 0.0225,
-            twoYear: 0.0188,
-            threeYear: 0.0173,
-            fiveYear: 0.015,
-            tenYear: 0.015,
-            fifteenYear: 0.015,
-            twentyYear: 0.015,
-            thirtyYear: 0.015,
+            aQuarterOfYear: 0.017,
+            halfAYear: 0.017,
+            aYear: 0.016,
+            twoYear: 0.013,
+            threeYear:0.012,
+            fiveYear: 0.011,
+            tenYear: 0.011,
+            fifteenYear: 0.011,
+            twentyYear: 0.011,
+            thirtyYear: 0.011,
         };
         let total = 0;
         const time = {
@@ -307,8 +307,10 @@ export default function calDeltaGirr(isLow, isHigh) {
                         );
 
                         if (isLow) {
-                            // Time bucket correlation =MAX(IF(AK$3=$AJ4,1,MIN(EXP(-3%*ABS($AJ4-AK$3)/MIN($AJ4,AK$3)),1)),40%)*IF(AK$3=$AJ4,1,0.75)
-                            timeBucketCorrelation = calculate(timeBucketCorrelation, 0.75, '*');
+                            // Time bucket correlation =MAX(2*MAX(IF(AK$3=$AJ4,1,MIN(EXP(-3%*ABS($AJ4-AK$3)/MIN($AJ4,AK$3)),1)),40%)-1,0.75*MAX(IF(AK$3=$AJ4,1,MIN(EXP(-3%*ABS($AJ4-AK$3)/MIN($AJ4,AK$3)),1)),40%))
+                            // =IF(AK$3=$AJ4,1,MAX(2*DELTA_GIRR!AK4-1,0.75*DELTA_GIRR!AK4))
+                            // =IF(AK$3=$AJ4,1,MAX(2*timeBucketCorrelation-1,0.75*timeBucketCorrelation))
+                            timeBucketCorrelation = Math.max(calculate(calculate( 2,timeBucketCorrelation, '*'),1,'-'),calculate(0.75,timeBucketCorrelation, '*'));
                         } else if (isHigh) {
                             // Time bucket correlation =MIN(MAX(IF(AK$3=$AJ4,1,MIN(EXP(-3%*ABS($AJ4-AK$3)/MIN($AJ4,AK$3)),1)),40%)*1.25,1)
                             timeBucketCorrelation = Math.min(calculate(timeBucketCorrelation, 1.25, '*'), 1);
@@ -334,7 +336,8 @@ export default function calDeltaGirr(isLow, isHigh) {
 
         const KbHashmap = {};
         for (const key in sumPairCurrencyAndRiskFactorHashmap) {
-            KbHashmap[key] = Math.sqrt(sumPairCurrencyAndRiskFactorHashmap[key]);
+            // Kb (BI) =SQRT(MAX(0,SUM(AW4:BF13)))
+            KbHashmap[key] = Math.sqrt(Math.max(0,sumPairCurrencyAndRiskFactorHashmap[key]));
         }
 
         for (const key in KbHashmap) {
