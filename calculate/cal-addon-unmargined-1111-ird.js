@@ -40,7 +40,7 @@ export default function calAddOnUnmargined1111IRD() {
         const effectiveNotionalForEachBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.v_asset_class !== 'Interest rate') return;
+            if (element.v_netting_code !== '1111' || element.v_asset_class !== 'Interest rate') return;
             if (!element.v_ccy_code) return;
 
             // Maturity

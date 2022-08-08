@@ -40,7 +40,7 @@ export default function calAddOnUnmargined1111FX() {
         const effectiveNotionalBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.v_asset_class !== 'Foreign exchange') return;
+            if (element.v_netting_code !== '1111' || element.v_asset_class !== 'Foreign exchange') return;
 
             const maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
             const supervisoryOptionVolatility = supervisoryOptionVolatilityHashmap[element.v_underlying_type_code];

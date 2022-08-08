@@ -40,7 +40,7 @@ export default function calAddOnUnmargined1113FX() {
         const effectiveNotionalBucket = {};
 
         dataDeal.forEach((element) => {
-            if (element.v_asset_class !== 'Foreign exchange') return;
+            if (element.v_netting_code !== '1113' || element.v_asset_class !== 'Foreign exchange') return;
 
             // Maturity
             const maturity = yearfrac3(element.fic_mis_date, element.d_maturity_date);
