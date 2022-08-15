@@ -66,7 +66,7 @@ export default function calCurvatureFx(isLow, isHigh) {
         const crvHashmap = {};
         const kbHashmap = {};
         for (const key in weightedSensitivityHashmap) {
-            const { v_curvature_fx_pnl, v_curvature_fx_up, v_curvature_fx_down } = STG_CURVATURES_SHOCK_HASHMAP[key];
+            // const { v_curvature_fx_pnl, v_curvature_fx_up, v_curvature_fx_down } = STG_CURVATURES_SHOCK_HASHMAP[key];
 
             // V_CURVATURE_FX_NORMAL_HASHMAP J
             // V_CURVATURE_FX_UP_HASHMAP K

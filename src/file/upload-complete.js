@@ -131,7 +131,7 @@ export default async function (req, res) {
             await dbManager.createActionLogs({
                 username: req.usernameInToken,
                 fullname: req.fullName,
-                action: actionLogsTemplate.UPLOAD_FILE_ERROR(reportName, error?.message || JSON.stringify({ error })),
+                action: actionLogsTemplate.UPLOAD_FILE_ERROR(req.query.reportName, error?.message || JSON.stringify({ error })),
                 time: getCurrentTimeSql(),
             });
         }
