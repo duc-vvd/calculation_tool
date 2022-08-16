@@ -54,7 +54,7 @@ export default function calDRC() {
             if (element.v_product_code === 'GOVBOND' || element.v_product_code === 'CORPBOND') {
                 V_COUNTERPARTY = element.v_issuer_code;
             }
-            const V_COUNTERPARTY_RATING = STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY].v_rating_code;
+            const V_COUNTERPARTY_RATING = STG_PARTY_RATING_DETAILS_HASHMAP[V_COUNTERPARTY]?.v_rating_code;
 
             // PnL (N)
             let pnl = calculate(nMtmValueLcy, nNotionalAmtRcvLcy, '-');
@@ -64,7 +64,7 @@ export default function calDRC() {
             const JTDlong = Math.max(JTD, 0);
             const JTDshort = Math.min(JTD, 0);
             const JTDshortAbs = Math.abs(JTDshort);
-            const riskWeight = counterpartyRatingRiskWeight[V_COUNTERPARTY_RATING];
+            const riskWeight = counterpartyRatingRiskWeight[V_COUNTERPARTY_RATING] || 0;
             const weightedJTDLong = calculate(JTDlong, riskWeight, '*');
             const weightedJTDshortAbs = calculate(JTDshortAbs, riskWeight, '*');
 
